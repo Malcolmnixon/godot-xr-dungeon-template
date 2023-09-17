@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PersistentItemType" load_steps=2 format=3 uid="uid://b5jw7oef3pv85"]
+
+[ext_resource type="Script" path="res://components/persistent/persistent_item_type.gd" id="1_a8ay1"]
+
+[resource]
+script = ExtResource("1_a8ay1")
+type_id = "keyring_red"
+instance_scene = "res://game/items/keyring/keyring_red.tscn"

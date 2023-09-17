@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlq5txy1khbrp"]
+[gd_scene load_steps=7 format=3 uid="uid://dlq5txy1khbrp"]
 
 [ext_resource type="PackedScene" uid="uid://dvf6ioywfnnx0" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_doorway_no_door.glb" id="1_o7gbt"]
 [ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="2_abnp6"]
 [ext_resource type="PackedScene" uid="uid://ccxuyjfu6q3sg" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall.gltf.glb" id="3_4tjht"]
 [ext_resource type="PackedScene" uid="uid://cser85fbg1kb7" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_wood_large.gltf.glb" id="4_xknoh"]
-[ext_resource type="PackedScene" uid="uid://ckln78nwciykn" path="res://addons/kaykit_dungeon_remastered/Assets/doorway.tscn" id="5_ppvg8"]
 
 [sub_resource type="QuadOccluder3D" id="QuadOccluder3D_52kc2"]
 size = Vector2(13, 5)
@@ -13,9 +12,6 @@ size = Vector2(13, 5)
 size = Vector2(5, 5)
 
 [node name="Room3x3" type="Node3D"]
-
-[node name="Door" parent="." instance=ExtResource("5_ppvg8")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -6)
 
 [node name="Floor" type="Node3D" parent="."]
 

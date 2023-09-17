@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4iuopsujybs1"]
+
+[ext_resource type="PackedScene" uid="uid://be0vlli1ru8ie" path="res://game/items/keyring/keyring.tscn" id="1_spbty"]
+[ext_resource type="Texture2D" uid="uid://c1xg2xus5sj0p" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_texture.png" id="2_mj24h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfdbe"]
+albedo_color = Color(0.12549, 0.501961, 1, 1)
+albedo_texture = ExtResource("2_mj24h")
+
+[node name="KeyRingBlue" instance=ExtResource("1_spbty")]
+item_id = "keyring_blue"
+
+[node name="keyring" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xfdbe")
