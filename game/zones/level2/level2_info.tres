@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PersistentZoneInfo" load_steps=2 format=3 uid="uid://dgv46ff1h06iy"]
+
+[ext_resource type="Script" path="res://components/persistent/persistent_zone_info.gd" id="1_ojxy5"]
+
+[resource]
+script = ExtResource("1_ojxy5")
+zone_id = "level2"
+instance_scene = "res://game/zones/level2/level2.tscn"

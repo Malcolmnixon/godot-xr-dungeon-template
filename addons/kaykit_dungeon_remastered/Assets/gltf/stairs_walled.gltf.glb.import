@@ -1,0 +1,56 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cag66aken7fs4"
+path="res://.godot/imported/stairs_walled.gltf.glb-4046d7bca3ff28085e8714420b8964e4.scn"
+
+[deps]
+
+source_file="res://addons/kaykit_dungeon_remastered/Assets/gltf/stairs_walled.gltf.glb"
+dest_files=["res://.godot/imported/stairs_walled.gltf.glb-4046d7bca3ff28085e8714420b8964e4.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=2
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"texture": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres"
+}
+},
+"nodes": {
+"PATH:stairs_walled": {
+"decomposition/convexhull_downsampling": 10,
+"decomposition/max_concavity": 0.01,
+"decomposition/max_convex_hulls": 24,
+"decomposition/max_num_vertices_per_convex_hull": 64,
+"decomposition/min_volume_per_convex_hull": 0.1,
+"decomposition/normalize_mesh": true,
+"decomposition/plane_downsampling": 10,
+"decomposition/precision": 10,
+"decomposition/resolution": 10000000,
+"decomposition/revolution_axes_clipping_bias": 0.02,
+"decomposition/symmetry_planes_clipping_bias": 0.02,
+"generate/physics": true,
+"physics/shape_type": 2
+}
+}
+}
+gltf/embedded_image_handling=0

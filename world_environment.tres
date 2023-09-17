@@ -1,0 +1,16 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://b5nmeleyawsg5"]
+
+[ext_resource type="Texture2D" uid="uid://dyvjpr1b2frd4" path="res://assets/ambientcg.com/skyonlyhdri017/SkyOnly.png" id="1_57m2n"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xa7m6"]
+panorama = ExtResource("1_57m2n")
+
+[sub_resource type="Sky" id="Sky_u334c"]
+sky_material = SubResource("PanoramaSkyMaterial_xa7m6")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_u334c")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.1

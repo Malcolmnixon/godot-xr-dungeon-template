@@ -1,0 +1,75 @@
+[gd_scene load_steps=16 format=3 uid="uid://c8dus1olsfnt1"]
+
+[ext_resource type="PackedScene" uid="uid://di1bu0tceg332" path="res://components/persistent/persistent_zone.tscn" id="1_t2e22"]
+[ext_resource type="Resource" uid="uid://cfsg4lgr8r3dv" path="res://game/items/item_database.tres" id="2_7wp17"]
+[ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="2_n37wm"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="3_1m1nu"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_8i21c"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="5_5vmxr"]
+[ext_resource type="PackedScene" uid="uid://c3uoohvnshach" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_right.tscn" id="6_be880"]
+[ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="7_vhlab"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="7_ygvia"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="8_tc6ec"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="8_v3p7m"]
+[ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="9_7l83e"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="10_4eyc1"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="12_1ergk"]
+
+[sub_resource type="Resource" id="Resource_kkyco"]
+script = ExtResource("12_1ergk")
+flags = 0
+move_drag = 5.0
+move_traction = 30.0
+stop_on_slope = true
+move_max_slope = 50.0
+jump_max_slope = 30.0
+jump_velocity = 4.0
+bounciness = 0.0
+bounce_threshold = 1.0
+
+[node name="ZoneBase" instance=ExtResource("1_t2e22")]
+item_database = ExtResource("2_7wp17")
+
+[node name="CollisionHandLeft" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("2_n37wm")]
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" instance=ExtResource("3_1m1nu")]
+
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="2" instance=ExtResource("4_8i21c")]
+
+[node name="MovementDirect" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="3" instance=ExtResource("5_5vmxr")]
+strafe = true
+
+[node name="MovementJump" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="4" instance=ExtResource("7_vhlab")]
+jump_button_action = "ax_button"
+
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="5" instance=ExtResource("8_tc6ec")]
+distance = 3.0
+show_laser = 2
+laser_length = 1
+show_target = true
+target_radius = 0.02
+
+[node name="CollisionHandRight" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("6_be880")]
+
+[node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("7_ygvia")]
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" instance=ExtResource("4_8i21c")]
+
+[node name="MovementDirect" parent="XROrigin3D/RightHand/CollisionHandRight" index="3" instance=ExtResource("5_5vmxr")]
+
+[node name="MovementTurn" parent="XROrigin3D/RightHand/CollisionHandRight" index="4" instance=ExtResource("8_v3p7m")]
+
+[node name="MovementCrouch" parent="XROrigin3D/RightHand/CollisionHandRight" index="5" instance=ExtResource("9_7l83e")]
+
+[node name="MovementJump" parent="XROrigin3D/RightHand/CollisionHandRight" index="6" instance=ExtResource("7_vhlab")]
+jump_button_action = "ax_button"
+
+[node name="FunctionPointer" parent="XROrigin3D/RightHand/CollisionHandRight" index="7" instance=ExtResource("8_tc6ec")]
+distance = 3.0
+show_laser = 2
+laser_length = 1
+show_target = true
+target_radius = 0.02
+
+[node name="PlayerBody" parent="XROrigin3D" index="3" instance=ExtResource("10_4eyc1")]
+physics = SubResource("Resource_kkyco")

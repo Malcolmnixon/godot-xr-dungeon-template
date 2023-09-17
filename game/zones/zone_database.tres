@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PersistentZoneDatabase" load_steps=5 format=3 uid="uid://c5togc8i7i6ya"]
+
+[ext_resource type="Script" path="res://components/persistent/persistent_zone_database.gd" id="1_flctt"]
+[ext_resource type="Resource" uid="uid://vit7ieoek04c" path="res://game/zones/level1/level1_info.tres" id="2_4rq62"]
+[ext_resource type="Resource" uid="uid://dgv46ff1h06iy" path="res://game/zones/level2/level2_info.tres" id="3_1ihja"]
+[ext_resource type="Resource" uid="uid://bco8ay67nweem" path="res://game/zones/level3/level3_info.tres" id="4_1q0my"]
+
+[resource]
+script = ExtResource("1_flctt")
+zones = Array[Resource("res://components/persistent/persistent_zone_info.gd")]([ExtResource("2_4rq62"), ExtResource("3_1ihja"), ExtResource("4_1q0my")])

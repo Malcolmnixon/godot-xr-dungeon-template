@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://bovruvfyofxy6"]
+
+[ext_resource type="PackedScene" uid="uid://c8dus1olsfnt1" path="res://game/zones/zone_base.tscn" id="1_g6hii"]
+[ext_resource type="Resource" uid="uid://vit7ieoek04c" path="res://game/zones/level1/level1_info.tres" id="2_a6blg"]
+[ext_resource type="Environment" uid="uid://b5nmeleyawsg5" path="res://world_environment.tres" id="3_duqgb"]
+[ext_resource type="PackedScene" uid="uid://dlq5txy1khbrp" path="res://game/zones/parts/room_3x3.tscn" id="4_g0vhp"]
+[ext_resource type="PackedScene" uid="uid://4om31hj88kpa" path="res://game/zones/parts/hall.tscn" id="5_hyc2d"]
+[ext_resource type="PackedScene" uid="uid://y38xsq7m23mi" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/stool.gltf.glb" id="5_vghly"]
+[ext_resource type="PackedScene" uid="uid://dttaaoe7p86gf" path="res://game/zones/parts/hall_t.tscn" id="6_7vcve"]
+[ext_resource type="PackedScene" uid="uid://hk3ie3gh45hh" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/table_small.gltf.glb" id="6_s4csk"]
+[ext_resource type="PackedScene" uid="uid://dgobxb35nh4v0" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/barrel_large.gltf.glb" id="7_on40a"]
+[ext_resource type="PackedScene" uid="uid://w613gtwau88u" path="res://game/zones/parts/stairs.tscn" id="10_o3kya"]
+[ext_resource type="PackedScene" uid="uid://vm423o6hdlya" path="res://components/helpers/zone_switch_area.tscn" id="11_n26lh"]
+[ext_resource type="PackedScene" uid="uid://cu47ij1imgjd8" path="res://game/zones/parts/hall_l.tscn" id="11_x2lsh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x1ak6"]
+size = Vector3(4, 4, 4)
+
+[node name="Level1" instance=ExtResource("1_g6hii")]
+zone_info = ExtResource("2_a6blg")
+
+[node name="XROrigin3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="World" type="Node3D" parent="." index="1"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" index="0"]
+environment = ExtResource("3_duqgb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" index="1"]
+transform = Transform3D(0.866025, -0.482963, 0.12941, 0, 0.258819, 0.965926, -0.5, -0.836516, 0.224144, 0, 11, 0)
+light_energy = 0.5
+
+[node name="StairsDown" parent="World" index="2" instance=ExtResource("10_o3kya")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 36, 0, -36)
+
+[node name="ToLevel2" parent="World/StairsDown" index="4" instance=ExtResource("11_n26lh")]
+zone_scene = "res://game/zones/level2/level2.tscn"
+spawn_node_name = "FromLevel1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/StairsDown/ToLevel2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -4)
+shape = SubResource("BoxShape3D_x1ak6")
+
+[node name="FromLevel2" type="Marker3D" parent="World/StairsDown" index="5"]
+transform = Transform3D(-1, 0, 8.74232e-08, 0, 1, 0, -8.74232e-08, 0, -1, 0, 0.1, 3)
+
+[node name="Rooms" type="Node3D" parent="World" index="3"]
+
+[node name="Room3x3_1" parent="World/Rooms" index="0" instance=ExtResource("4_g0vhp")]
+
+[node name="stool_gltf" parent="World/Rooms/Room3x3_1" index="4" instance=ExtResource("5_vghly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="stool_gltf2" parent="World/Rooms/Room3x3_1" index="5" instance=ExtResource("5_vghly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+
+[node name="table_small_gltf" parent="World/Rooms/Room3x3_1" index="6" instance=ExtResource("6_s4csk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
+
+[node name="barrel_large_gltf" parent="World/Rooms/Room3x3_1" index="7" instance=ExtResource("7_on40a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="Room3x3_2" parent="World/Rooms" index="1" instance=ExtResource("4_g0vhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -12)
+
+[node name="Room3x3_3" parent="World/Rooms" index="2" instance=ExtResource("4_g0vhp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -36)
+
+[node name="Room3x3_4" parent="World/Rooms" index="3" instance=ExtResource("4_g0vhp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 0, -24)
+
+[node name="Hallways" type="Node3D" parent="World" index="4"]
+
+[node name="Hall" parent="World/Hallways" index="0" instance=ExtResource("5_hyc2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="HallT" parent="World/Hallways" index="1" instance=ExtResource("6_7vcve")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -24)
+
+[node name="HallT2" parent="World/Hallways" index="2" instance=ExtResource("6_7vcve")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, -24)
+
+[node name="HallT3" parent="World/Hallways" index="3" instance=ExtResource("6_7vcve")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 24, 0, -24)
+
+[node name="HallL" parent="World/Hallways" index="4" instance=ExtResource("11_x2lsh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 36, 0, -24)
+
+[node name="HallL2" parent="World/Hallways" index="5" instance=ExtResource("11_x2lsh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 36, -4, -48)
+
+[node name="HallL3" parent="World/Hallways" index="6" instance=ExtResource("11_x2lsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, -4, -48)

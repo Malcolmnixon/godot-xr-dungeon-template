@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://dttaaoe7p86gf"]
+
+[ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="1_mtjte"]
+[ext_resource type="PackedScene" uid="uid://ccxuyjfu6q3sg" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall.gltf.glb" id="2_632r4"]
+[ext_resource type="PackedScene" uid="uid://37v5y64x1ftw" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_corner.gltf.glb" id="3_ntbea"]
+[ext_resource type="PackedScene" uid="uid://bd6smt7a8n5d2" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_half.gltf.glb" id="4_ykm73"]
+[ext_resource type="PackedScene" uid="uid://cser85fbg1kb7" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_wood_large.gltf.glb" id="5_virol"]
+
+[sub_resource type="QuadOccluder3D" id="QuadOccluder3D_7a75c"]
+size = Vector2(13, 5)
+
+[sub_resource type="QuadOccluder3D" id="QuadOccluder3D_kygda"]
+size = Vector2(4.5, 5)
+
+[node name="HallT" type="Node3D"]
+
+[node name="Floor" type="Node3D" parent="."]
+
+[node name="floor_tile_large_gltf" parent="Floor" instance=ExtResource("1_mtjte")]
+
+[node name="floor_tile_large_gltf4" parent="Floor" instance=ExtResource("1_mtjte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="floor_tile_large_gltf2" parent="Floor" instance=ExtResource("1_mtjte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="floor_tile_large_gltf3" parent="Floor" instance=ExtResource("1_mtjte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Wall" type="Node3D" parent="."]
+
+[node name="wall_gltf" parent="Wall" instance=ExtResource("2_632r4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
+
+[node name="wall_gltf2" parent="Wall" instance=ExtResource("2_632r4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 4)
+
+[node name="wall_gltf3" parent="Wall" instance=ExtResource("2_632r4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, -4)
+
+[node name="wall_corner_gltf" parent="Wall" instance=ExtResource("3_ntbea")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 2)
+
+[node name="wall_corner_gltf2" parent="Wall" instance=ExtResource("3_ntbea")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, -2)
+
+[node name="wall_half_gltf" parent="Wall" instance=ExtResource("4_ykm73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+
+[node name="wall_half_gltf2" parent="Wall" instance=ExtResource("4_ykm73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="wall_half_gltf3" parent="Wall" instance=ExtResource("4_ykm73")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 4)
+
+[node name="wall_half_gltf4" parent="Wall" instance=ExtResource("4_ykm73")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -6)
+
+[node name="Ceiling" type="Node3D" parent="."]
+
+[node name="floor_wood_large_gltf" parent="Ceiling" instance=ExtResource("5_virol")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 4, 0)
+
+[node name="floor_wood_large_gltf2" parent="Ceiling" instance=ExtResource("5_virol")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 4, 4)
+
+[node name="floor_wood_large_gltf3" parent="Ceiling" instance=ExtResource("5_virol")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 4, -4)
+
+[node name="floor_wood_large_gltf4" parent="Ceiling" instance=ExtResource("5_virol")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 4, 4, 0)
+
+[node name="Occluders" type="Node3D" parent="."]
+
+[node name="OccluderInstance3D2" type="OccluderInstance3D" parent="Occluders"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -2, 2, 0)
+occluder = SubResource("QuadOccluder3D_7a75c")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="Occluders"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 2, -4)
+occluder = SubResource("QuadOccluder3D_kygda")
+
+[node name="OccluderInstance3D3" type="OccluderInstance3D" parent="Occluders"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 2, 4)
+occluder = SubResource("QuadOccluder3D_kygda")
+
+[node name="OccluderInstance3D4" type="OccluderInstance3D" parent="Occluders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 2)
+occluder = SubResource("QuadOccluder3D_kygda")
+
+[node name="OccluderInstance3D5" type="OccluderInstance3D" parent="Occluders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -2)
+occluder = SubResource("QuadOccluder3D_kygda")

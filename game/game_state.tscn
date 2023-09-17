@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://brdybxo5ejeen"]
+
+[ext_resource type="Script" path="res://game/game_state.gd" id="1_877o6"]
+[ext_resource type="Resource" uid="uid://bmpdc4p06j2u6" path="res://game/game_config.tres" id="2_625fi"]
+
+[node name="GameState" type="Node"]
+script = ExtResource("1_877o6")
+configuration = ExtResource("2_625fi")
