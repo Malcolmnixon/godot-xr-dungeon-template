@@ -1,8 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://brdybxo5ejeen"]
+[gd_scene load_steps=5 format=3 uid="uid://brdybxo5ejeen"]
 
 [ext_resource type="Script" path="res://game/game_state.gd" id="1_877o6"]
-[ext_resource type="Resource" uid="uid://bmpdc4p06j2u6" path="res://game/game_config.tres" id="2_625fi"]
+[ext_resource type="Resource" uid="uid://vit7ieoek04c" path="res://game/zones/level1/level1_info.tres" id="2_okl4e"]
+[ext_resource type="Resource" uid="uid://c5togc8i7i6ya" path="res://game/zones/zone_database.tres" id="3_x3g0e"]
+[ext_resource type="Resource" uid="uid://cfsg4lgr8r3dv" path="res://game/items/item_database.tres" id="4_xv2ai"]
 
 [node name="GameState" type="Node"]
 script = ExtResource("1_877o6")
-configuration = ExtResource("2_625fi")
+starting_zone = ExtResource("2_okl4e")
+zone_database = ExtResource("3_x3g0e")
+item_database = ExtResource("4_xv2ai")

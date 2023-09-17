@@ -32,8 +32,16 @@ signal world_saved
 static var instance : PersistentWorld = null
 
 
-# Password for encrypted save files
-var password := ""
+@export_group("Persistence Settings")
+
+## Password for encrypted save files
+@export var save_file_password := ""
+
+## Database of all persistent zones in the game
+@export var zone_database : PersistentZoneDatabase
+
+## Database of all persistent item types in the game
+@export var item_database : PersistentItemDatabase
 
 
 # World data dictionary
@@ -41,6 +49,27 @@ var _data := {}
 
 # Mutex protecting data
 var _mutex := Mutex.new()
+
+
+# Check for configuration issues on this node
+func _get_configuration_warnings() -> PackedStringArray:
+	var warnings := PackedStringArray()
+
+	# Check for blank password
+	if save_file_password == "":
+		warnings.append("Save password not set - saves will be unencrypted")
+
+	# Check for zone database
+	if not zone_database:
+		warnings.append("Zone database not set")
+
+	# Check for item database
+	if not item_database:
+		warnings.append("Item database not set")
+
+	# Return warnings
+	return warnings
+
 
 
 ## This method creates a unique ID starting with [param base] follwed by a
@@ -221,9 +250,9 @@ func _open_file(file_name : String, mode : FileAccess.ModeFlags) -> FileAccess:
 	var file_path := "user://save_%s.data" % file_name
 
 	# Warn about unencrypted save files for debugging
-	if password == "":
+	if save_file_password == "":
 		push_warning("Unencrypted save file: ", file_path)
 		return FileAccess.open(file_path, mode)
 
 	# Handle encrypted file with password
-	return FileAccess.open_encrypted_with_pass(file_path, mode, password)
+	return FileAccess.open_encrypted_with_pass(file_path, mode, save_file_password)

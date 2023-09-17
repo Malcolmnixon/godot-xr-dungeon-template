@@ -16,9 +16,6 @@ extends XRToolsSceneBase
 ## This property specifies the persistent zone information
 @export var zone_info : PersistentZoneInfo
 
-## This property specifies the [PersistentItemDatabase] for spawning items
-@export var item_database : PersistentItemDatabase
-
 
 # Add support for is_xr_class
 func is_xr_class(p_name : String) -> bool:
@@ -38,10 +35,6 @@ func _get_configuration_warnings() -> PackedStringArray:
 	# Verify zone info is set
 	if not zone_info:
 		warnings.append("Zone ID not zet")
-
-	# Verify the item database is set
-	if not item_database:
-		warnings.append("Item Database not set")
 
 	# Return warnings
 	return warnings
@@ -180,7 +173,7 @@ func create_item_instance(item_id : String) -> PersistentItem:
 		return null
 
 	# Get the PersistentItemType
-	var item_type := item_database.get_type(item_type_id)
+	var item_type := PersistentWorld.instance.item_database.get_type(item_type_id)
 	if not item_type:
 		push_warning("Item type %s not in database" % item_type_id)
 		return null

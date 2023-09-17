@@ -20,78 +20,23 @@ enum GameDifficulty {
 }
 
 
-## Game configuration
-@export var configuration : PersistentConfig
+@export_group("Game Settings")
+
+## This property sets the starting zone for the game
+@export var starting_zone : PersistentZoneInfo
+
+## This property sets the difficulty of the game.
+@export var game_difficulty : GameDifficulty = GameDifficulty.GAME_NORMAL:
+	set = _set_game_difficulty
 
 
 ## Current zone (when playing game)
 var current_zone : PersistentZone
 
 
-## Game difficulty lets us set the difficulty of the game.
-@export var game_difficulty : GameDifficulty = GameDifficulty.GAME_NORMAL:
-	set(value):
-		if value < 0 or value >= GameDifficulty.GAME_MAX:
-			push_warning("Difficulty %d is out of bounds" % [ value ])
-			return
-
-		game_difficulty = value
-		set_value("game_difficulty", game_difficulty)
-
-
 func _ready():
-	# Set the PersistentWorld password
-	password = configuration.save_file_password
-
-	# Use this game state as the global instance
+	# Use this game state as the global world state
 	instance = self
-
-
-func get_current_zone_id() -> String:
-	var zone_id = get_value("current_zone_id")
-	if zone_id:
-		return zone_id
-
-	return ""
-
-func get_spawn_point_name() -> String:
-	var zone_id = get_value("spawn_point_name")
-	if zone_id:
-		return zone_id
-
-	return ""
-
-## Create a new game and set default settings
-func new_game_state():
-	# Clear out whatever is in our world data.
-	PersistentWorld.instance.clear_all()
-
-	var date = Time.get_datetime_dict_from_system()
-
-	game_difficulty = GameDifficulty.GAME_NORMAL
-
-## Save our game state
-func save_game_state(p_name : String) -> bool:
-	# For now we just set our summary to our save name
-	# but you can store whatever you want here to show
-	# in our load selection screen.
-	var summary : String = p_name
-
-	return save_file(p_name, summary)
-
-
-## Load our game state
-func load_game_state(p_name : String) -> bool:
-	# Make sure we clear out stuff
-	new_game_state()
-
-	if !load_file(p_name):
-		return false
-
-	# Get data from our world data object to ensure it's sanitised
-	game_difficulty = get_value("game_difficulty")
-
-	return true
 
 
 ## This method starts a new game.
@@ -175,7 +120,7 @@ func load_world_state() -> bool:
 	var zone_id = get_value("current_zone_id")
 	if not zone_id is String:
 		# Default to the starting zone
-		zone_id = configuration.starting_zone.zone_id
+		zone_id = starting_zone.zone_id
 
 	# Get the location
 	var location = get_value("current_location")
@@ -187,10 +132,20 @@ func load_world_state() -> bool:
 	game_difficulty = get_value("game_difficulty")
 
 	# Get the zone
-	var zone := configuration.zone_database.get_zone(zone_id)
+	var zone := zone_database.get_zone(zone_id)
 	if not zone:
 		return false
 
 	# Start transition to scene
 	PersistentStaging.instance.load_scene(zone.instance_scene, location)
 	return true
+
+
+# Handle changing the game difficulty
+func _set_game_difficulty(p_game_difficulty : GameDifficulty) -> void:
+	if p_game_difficulty < 0 or p_game_difficulty >= GameDifficulty.GAME_MAX:
+		push_warning("Difficulty %d is out of bounds" % [ p_game_difficulty ])
+		return
+
+	game_difficulty = p_game_difficulty
+	set_value("game_difficulty", game_difficulty)
