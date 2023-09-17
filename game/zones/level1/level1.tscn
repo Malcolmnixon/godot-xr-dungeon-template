@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bovruvfyofxy6"]
+[gd_scene load_steps=31 format=3 uid="uid://bovruvfyofxy6"]
 
 [ext_resource type="PackedScene" uid="uid://c8dus1olsfnt1" path="res://game/zones/zone_base.tscn" id="1_g6hii"]
 [ext_resource type="Resource" uid="uid://vit7ieoek04c" path="res://game/zones/level1/level1_info.tres" id="2_a6blg"]
@@ -17,7 +17,18 @@
 [ext_resource type="PackedScene" uid="uid://clyk4rwuu1tlb" path="res://addons/kaykit_dungeon_remastered/chest.tscn" id="11_twdfn"]
 [ext_resource type="PackedScene" uid="uid://cu47ij1imgjd8" path="res://game/zones/parts/hall_l.tscn" id="11_x2lsh"]
 [ext_resource type="PackedScene" uid="uid://b4iuopsujybs1" path="res://game/items/keyring/keyring_blue.tscn" id="12_do38r"]
+[ext_resource type="PackedScene" uid="uid://ibjxvpfmqslm" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/bed_decorated.gltf.glb" id="15_bnprf"]
+[ext_resource type="PackedScene" uid="uid://cun41jwthat46" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/table_long_decorated_C.gltf.glb" id="16_m51vs"]
+[ext_resource type="PackedScene" uid="uid://ib5vpv20agna" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/table_long_tablecloth.gltf.glb" id="17_u3qjw"]
+[ext_resource type="PackedScene" uid="uid://b5oo5vj4g88wk" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/chair.gltf.glb" id="18_7n6bm"]
 [ext_resource type="PackedScene" uid="uid://de0q336ueqnbf" path="res://game/items/torch/torch.tscn" id="18_d1rqo"]
+[ext_resource type="PackedScene" uid="uid://cqwcs2vr21dvl" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/barrel_large_decorated.gltf.glb" id="19_84gq5"]
+[ext_resource type="PackedScene" uid="uid://1odmgisng2y7" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/barrel_small_stack.gltf.glb" id="20_md54a"]
+[ext_resource type="PackedScene" uid="uid://b8ahehk6wnuma" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/bottle_A_labeled_brown.gltf.glb" id="21_fpk3l"]
+[ext_resource type="PackedScene" uid="uid://d21p74chwhbm" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/plate_stack.gltf.glb" id="22_u7fjg"]
+[ext_resource type="PackedScene" uid="uid://b2byf71o1o87r" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/rubble_large.gltf.glb" id="23_qemyl"]
+[ext_resource type="PackedScene" uid="uid://2c7puyih4233" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/table_medium_broken.gltf.glb" id="24_jnsrw"]
+[ext_resource type="PackedScene" uid="uid://b6ug1f30mklf4" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/banner_brown.gltf.glb" id="27_cnraw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x1ak6"]
 size = Vector3(4, 4, 4)
@@ -93,13 +104,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -12)
 [node name="Doorway" parent="World/Rooms/Room3x3_2" index="4" instance=ExtResource("7_benvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 locked = true
+key_id = "keyring_red"
 
 [node name="Room3x3_3" parent="World/Rooms" index="2" instance=ExtResource("4_g0vhp")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -36)
 
 [node name="Doorway" parent="World/Rooms/Room3x3_3" index="4" instance=ExtResource("7_benvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, 0, -6)
-locked = true
+open = true
+
+[node name="bed_decorated_gltf" parent="World/Rooms/Room3x3_3" index="5" instance=ExtResource("15_bnprf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, 0, -4.00001)
+
+[node name="table_long_decorated_C_gltf" parent="World/Rooms/Room3x3_3" index="6" instance=ExtResource("16_m51vs")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.5, 0, 4.4)
+
+[node name="table_long_tablecloth_gltf" parent="World/Rooms/Room3x3_3" index="7" instance=ExtResource("17_u3qjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+
+[node name="chair_gltf" parent="World/Rooms/Room3x3_3" index="8" instance=ExtResource("18_7n6bm")]
+transform = Transform3D(0.484275, 0, 0.874916, 0, 1, 0, -0.874916, 0, 0.484275, 4.35251, 4.76837e-07, -3.50922)
+
+[node name="chair_gltf2" parent="World/Rooms/Room3x3_3" index="9" instance=ExtResource("18_7n6bm")]
+transform = Transform3D(0.0399398, 0, -0.999202, 0, 1, 0, 0.999202, 0, 0.0399398, 4.14173, 0, 1.40962)
+
+[node name="chair_gltf3" parent="World/Rooms/Room3x3_3" index="10" instance=ExtResource("18_7n6bm")]
+transform = Transform3D(-0.952023, 0, -0.306027, 0, 1, 0, 0.306027, 0, -0.952023, 2.88102, 0, -0.0749092)
 
 [node name="Room3x3_4" parent="World/Rooms" index="3" instance=ExtResource("4_g0vhp")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 0, -24)
@@ -107,6 +137,34 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 0
 [node name="Doorway" parent="World/Rooms/Room3x3_4" index="4" instance=ExtResource("7_benvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 locked = true
+key_id = "keyring_blue"
+
+[node name="barrel_large_decorated_gltf" parent="World/Rooms/Room3x3_4" index="5" instance=ExtResource("19_84gq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="barrel_small_stack_gltf" parent="World/Rooms/Room3x3_4" index="6" instance=ExtResource("20_md54a")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -1)
+
+[node name="barrel_small_stack_gltf2" parent="World/Rooms/Room3x3_4" index="7" instance=ExtResource("20_md54a")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, 1)
+
+[node name="bottle_A_brown_gltf" parent="World/Rooms/Room3x3_4" index="8" instance=ExtResource("11_3nm66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
+
+[node name="bottle_A_labeled_brown_gltf" parent="World/Rooms/Room3x3_4" index="9" instance=ExtResource("21_fpk3l")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -4.58008, 0, 2.70031)
+
+[node name="plate_stack_gltf" parent="World/Rooms/Room3x3_4" index="10" instance=ExtResource("22_u7fjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17739, -2.38419e-07, 3.58203)
+
+[node name="rubble_large_gltf" parent="World/Rooms/Room3x3_4" index="11" instance=ExtResource("23_qemyl")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 3, 0, 4)
+
+[node name="rubble_large_gltf2" parent="World/Rooms/Room3x3_4" index="12" instance=ExtResource("23_qemyl")]
+transform = Transform3D(0.230236, 0, 0.973135, 0, 1, 0, -0.973135, 0, 0.230236, 5.09559, 0, -0.209878)
+
+[node name="table_medium_broken_gltf" parent="World/Rooms/Room3x3_4" index="13" instance=ExtResource("24_jnsrw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1229, 0, 1.93612)
 
 [node name="Hallways" type="Node3D" parent="World" index="4"]
 
@@ -115,6 +173,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
 
 [node name="HallT" parent="World/Hallways" index="1" instance=ExtResource("6_7vcve")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -24)
+
+[node name="banner_brown_gltf" parent="World/Hallways/HallT" index="4" instance=ExtResource("27_cnraw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 8.74228e-08)
 
 [node name="HallT2" parent="World/Hallways" index="2" instance=ExtResource("6_7vcve")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, -24)

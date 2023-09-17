@@ -1,11 +1,14 @@
-[gd_scene load_steps=28 format=3 uid="uid://be0vlli1ru8ie"]
+[gd_scene load_steps=33 format=3 uid="uid://be0vlli1ru8ie"]
 
 [ext_resource type="PackedScene" uid="uid://cc2akik80xtnb" path="res://components/persistent/persistent_item.tscn" id="1_tv84h"]
 [ext_resource type="Material" uid="uid://dldvxy3lehnlm" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres" id="2_ne6xh"]
 [ext_resource type="Resource" uid="uid://cubjrmo3w1ew" path="res://game/items/keyring/keyring_blue_type.tres" id="2_o7fva"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_shpia"]
+[ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="5_84b52"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_shhqf"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="6_3vb62"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_dqilr"]
+[ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="8_85b7b"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_eka1f"]
 _surfaces = [{
@@ -39,6 +42,16 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_eka1f")
+
+[sub_resource type="Resource" id="Resource_jjo84"]
+script = ExtResource("6_dqilr")
+open_pose = ExtResource("5_84b52")
+closed_pose = ExtResource("5_84b52")
+
+[sub_resource type="Resource" id="Resource_dqtcw"]
+script = ExtResource("6_dqilr")
+open_pose = ExtResource("8_85b7b")
+closed_pose = ExtResource("8_85b7b")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_trgpc"]
 points = PackedVector3Array(0.134977, 0.0272641, -0.0682919, 0.122735, 0.0578686, -0.0652297, 0.119672, 0.0578686, -0.0652297, 0.122735, 0.0578686, -0.0958401, 0.119672, 0.0242016, -0.0713542, 0.139274, 0.0420784, -0.0627544, 0.119672, 0.0456268, -0.0958401, 0.122735, 0.0670562, -0.0897156, 0.1411, 0.0333892, -0.0682919, 0.119672, 0.0242016, -0.0652297, 0.119672, 0.0670562, -0.0774757, 0.122735, 0.0456268, -0.0958401, 0.1411, 0.0395101, -0.0682919, 0.122735, 0.0670562, -0.0774757, 0.131914, 0.0242016, -0.0652297, 0.119672, 0.0639936, -0.0927779)
@@ -108,9 +121,13 @@ skeleton = NodePath("")
 
 [node name="GrabPointHandLeft" parent="." index="1" instance=ExtResource("4_shpia")]
 transform = Transform3D(4.37114e-08, -1, 3.82137e-15, -4.37114e-08, 1.91069e-15, 1, -1, -4.37114e-08, -4.37114e-08, -0.0851801, 0.143503, -0.00110189)
+visible = true
+hand_pose = SubResource("Resource_jjo84")
 
 [node name="GrabPointHandRight" parent="." index="2" instance=ExtResource("5_shhqf")]
 transform = Transform3D(4.37114e-08, 1, 3.82137e-15, -1.31134e-07, 1.91069e-15, 1, 1, -4.37114e-08, 1.31134e-07, 0.0307459, 0.143626, -0.000879392)
+visible = true
+hand_pose = SubResource("Resource_dqtcw")
 
 [node name="CollisionShape3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.0213736, -0.0298794)
