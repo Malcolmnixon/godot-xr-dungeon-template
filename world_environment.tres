@@ -12,5 +12,4 @@ sky_material = SubResource("PanoramaSkyMaterial_xa7m6")
 background_mode = 2
 sky = SubResource("Sky_u334c")
 ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.1
