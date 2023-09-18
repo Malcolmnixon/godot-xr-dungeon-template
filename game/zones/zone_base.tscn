@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8dus1olsfnt1"]
+[gd_scene load_steps=24 format=3 uid="uid://c8dus1olsfnt1"]
 
 [ext_resource type="PackedScene" uid="uid://di1bu0tceg332" path="res://components/persistent/persistent_zone.tscn" id="1_t2e22"]
 [ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="2_n37wm"]
@@ -15,6 +15,10 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="12_1ergk"]
 [ext_resource type="PackedScene" uid="uid://qmejywplaagw" path="res://components/persistent/persistent_pocket.tscn" id="14_qgora"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="15_w6o1l"]
+[ext_resource type="PackedScene" uid="uid://0xlsitpu17r1" path="res://addons/godot-xr-tools/functions/movement_footstep.tscn" id="16_3e8dw"]
+[ext_resource type="AudioStream" uid="uid://bpeolr1wiovqu" path="res://assets/freesound.org/371277__goulven__dark-ambient-loop.ogg" id="16_lumhq"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/audio/surface_audio_type.gd" id="17_0o6bn"]
+[ext_resource type="AudioStream" uid="uid://b2l73e0paxxpj" path="res://assets/freesound.org/505135__mitchanary__foot_stone1.wav" id="18_xxgdq"]
 
 [sub_resource type="Resource" id="Resource_kkyco"]
 script = ExtResource("12_1ergk")
@@ -40,6 +44,13 @@ radius = 0.1
 height = 0.2
 radial_segments = 16
 rings = 8
+
+[sub_resource type="Resource" id="Resource_lnuv5"]
+script = ExtResource("17_0o6bn")
+name = ""
+walk_sounds = Array[AudioStream]([ExtResource("18_xxgdq")])
+walk_pitch_minimum = 0.5
+walk_pitch_maximum = 1.0
 
 [node name="ZoneBase" instance=ExtResource("1_t2e22")]
 
@@ -112,3 +123,16 @@ snap_require = "fits_in_player_pocket"
 mesh = SubResource("SphereMesh_8xumh")
 
 [node name="HighlightRing" parent="XROrigin3D/PlayerBody/RightPocket" index="3" instance=ExtResource("15_w6o1l")]
+
+[node name="MovementFootstep" parent="XROrigin3D" index="4" instance=ExtResource("16_3e8dw")]
+default_surface_audio_type = SubResource("Resource_lnuv5")
+
+[node name="PlayerSettings" parent="XROrigin3D/MovementFootstep" index="0"]
+bus = &"Environment"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="XROrigin3D" index="5"]
+stream = ExtResource("16_lumhq")
+autoplay = true
+bus = &"Ambient"
+
+[editable path="XROrigin3D/MovementFootstep"]
