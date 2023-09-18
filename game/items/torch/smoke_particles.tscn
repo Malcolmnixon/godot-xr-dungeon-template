@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtssmncfbfma1"]
+
+[ext_resource type="Material" uid="uid://b5hwlbt7km3ob" path="res://game/items/torch/particle_flipbook_smoke.material" id="1_sjgyb"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_sfd6b"]
+size = Vector2(0.5, 0.5)
+
+[node name="SmokeParticles" type="CPUParticles3D"]
+transform = Transform3D(-1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0, 1, 0, 0.319527, 0)
+material_override = ExtResource("1_sjgyb")
+cast_shadow = 0
+amount = 10
+randomness = 0.59
+lifetime_randomness = 0.7
+mesh = SubResource("QuadMesh_sfd6b")
+gravity = Vector3(0, 0.5, 0)
+scale_amount_min = 0.1
+hue_variation_min = -0.37
+hue_variation_max = 0.35

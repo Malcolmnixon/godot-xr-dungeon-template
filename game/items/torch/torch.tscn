@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://de0q336ueqnbf"]
+[gd_scene load_steps=18 format=3 uid="uid://de0q336ueqnbf"]
 
 [ext_resource type="Script" path="res://components/persistent/persistent_item.gd" id="1_3xj40"]
 [ext_resource type="Resource" uid="uid://dagqmiwd7jxhn" path="res://game/items/torch/torch_type.tres" id="2_p8d1w"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_cwutc"]
 [ext_resource type="Texture2D" uid="uid://c1xg2xus5sj0p" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_texture.png" id="4_tu8ef"]
 [ext_resource type="Script" path="res://game/items/torch/torch_light_flicker.gd" id="5_mjy2j"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="5_wv0yj"]
+[ext_resource type="PackedScene" uid="uid://dtssmncfbfma1" path="res://game/items/torch/smoke_particles.tscn" id="8_yahpr"]
+[ext_resource type="Shader" path="res://assets/shaders/arnklit/particle_flipbook/particle_flipbook.gdshader" id="9_xk2qa"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_krmas"]
 points = PackedVector3Array(0.040263, -0.390151, 0.0111495, -0.0664818, -0.293115, -0.0082284, -0.00822837, -0.293115, -0.0664819, 0.0749914, 0.1761, 0.011949, -0.0714644, 0.173579, 0.0118606, -0.00822837, -0.27373, 0.0693897, -0.00884909, 0.171025, -0.0708371, 0.011949, 0.1761, 0.0749914, 0.0693897, -0.27373, -0.0082284, 0.0118599, 0.173558, -0.0714591, 0.0111495, -0.263983, 0.0693897, -0.0373418, -0.390151, 0.0111495, 0.0111495, -0.380459, -0.0470507, -0.0664818, -0.283423, 0.0111495, 0.0693897, -0.263983, 0.0111495, 0.0111495, -0.283423, -0.0664819, -0.0708371, 0.171025, -0.00884912, -0.00893807, 0.173567, 0.0743692, 0.0743639, 0.173545, -0.00893734)
@@ -50,6 +53,20 @@ shadow_mesh = SubResource("ArrayMesh_i806c")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0qqjp"]
 albedo_texture = ExtResource("4_tu8ef")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2u24y"]
+load_path = "res://.godot/imported/Smoke15Frames.png-858a7b24fb343e00f29a81d705c0834c.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_idg3t"]
+render_priority = 0
+shader = ExtResource("9_xk2qa")
+shader_parameter/albedo = Color(1, 1, 1, 0.12549)
+shader_parameter/particles_anim_h_frames = 5
+shader_parameter/particles_anim_v_frames = 3
+shader_parameter/particles_anim_loop = true
+shader_parameter/smoothing = true
+shader_parameter/flow_strength = 0.015
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_2u24y")
+
 [node name="Torch" type="RigidBody3D" groups=["fits_in_player_pocket", "persistent"]]
 collision_layer = 4
 collision_mask = 196615
@@ -63,6 +80,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016, 0, -0.092)
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("4_cwutc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0158875, 0, -0.0918756)
+
+[node name="HighlightRing" parent="." instance=ExtResource("5_wv0yj")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
@@ -88,6 +107,9 @@ omni_attenuation = 2.92817
 omni_shadow_mode = 0
 script = ExtResource("5_mjy2j")
 timer = NodePath("../Timer")
+
+[node name="SmokeParticles" parent="." instance=ExtResource("8_yahpr")]
+material_override = SubResource("ShaderMaterial_idg3t")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
