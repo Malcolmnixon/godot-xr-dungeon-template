@@ -1,0 +1,2 @@
+Author/ Source: https://godotshaders.com/author/arnklit/
+License: Public Domain CC0
