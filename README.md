@@ -7,4 +7,5 @@ It makes use of:
 - [Godot XR Tools](https://github.com/GodotVR/godot-xr-tools)
 - [Godot XR Template](https://github.com/GodotVR/godot-xr-template)
 - [KayKit Dungeon Remastered](https://godotengine.org/asset-library/asset/2126)
+- [Kenney Particle Pack](https://godotengine.org/asset-library/asset/784)
 - [Freesound](https://freesound.org/)

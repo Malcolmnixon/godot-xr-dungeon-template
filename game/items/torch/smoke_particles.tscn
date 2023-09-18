@@ -1,19 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtssmncfbfma1"]
+[gd_scene load_steps=6 format=3 uid="uid://dtssmncfbfma1"]
 
-[ext_resource type="Material" uid="uid://b5hwlbt7km3ob" path="res://game/items/torch/particle_flipbook_smoke.material" id="1_sjgyb"]
+[ext_resource type="Texture2D" uid="uid://bukysiccy2e63" path="res://addons/kenney_particle_pack/smoke_04.png" id="1_rux80"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgvr0"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.415686)
+albedo_texture = ExtResource("1_rux80")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_sfd6b"]
-size = Vector2(0.5, 0.5)
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="Curve" id="Curve_212eo"]
+_data = [Vector2(0, 0.515789), 0.0, 0.0, 0, 0, Vector2(0.302734, 0.747368), 0.0, 0.0, 0, 0, Vector2(1, 0.336842), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ehhcs"]
+offsets = PackedFloat32Array(0, 0.172557, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.109804, 0.109804, 0.109804, 1, 1, 1, 1, 0)
 
 [node name="SmokeParticles" type="CPUParticles3D"]
-transform = Transform3D(-1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0, 1, 0, 0.319527, 0)
-material_override = ExtResource("1_sjgyb")
+material_override = SubResource("StandardMaterial3D_lgvr0")
 cast_shadow = 0
-amount = 10
-randomness = 0.59
-lifetime_randomness = 0.7
+amount = 15
+lifetime = 1.5
 mesh = SubResource("QuadMesh_sfd6b")
-gravity = Vector3(0, 0.5, 0)
-scale_amount_min = 0.1
+direction = Vector3(0, 1, 0)
+spread = 5.0
+gravity = Vector3(0, 0.8, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.1
+angle_max = 360.0
+scale_amount_min = 0.0
+scale_amount_curve = SubResource("Curve_212eo")
+color_ramp = SubResource("Gradient_ehhcs")
 hue_variation_min = -0.37
 hue_variation_max = 0.35

@@ -7,7 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://bxkolw0tbwgvl" path="res://assets/freesound.org/422852__ipaddeh__door_unlocking.wav" id="4_apg5y"]
 
 [sub_resource type="GDScript" id="GDScript_foh3a"]
-script/source = "extends AnimatableBody3D
+script/source = "@tool
+extends AnimatableBody3D
 
 
 ## Signal emitted when pressed by pointer
