@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="1_kiqhp"]
 [ext_resource type="Material" uid="uid://dldvxy3lehnlm" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres" id="2_7n428"]
 [ext_resource type="PackedScene" uid="uid://ccxuyjfu6q3sg" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall.gltf.glb" id="3_cgif5"]
-[ext_resource type="PackedScene" uid="uid://cser85fbg1kb7" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_wood_large.gltf.glb" id="4_5wmq5"]
+[ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="4_p7waf"]
 [ext_resource type="PackedScene" uid="uid://cvrcgxqv3vp3t" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/banner_shield_brown.gltf.glb" id="5_i3mrj"]
 [ext_resource type="PackedScene" uid="uid://bb6km45gq4elq" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/torch_mounted.gltf.glb" id="6_rblet"]
 
@@ -117,14 +117,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.50697)
 
 [node name="Ceiling" type="Node3D" parent="."]
 
-[node name="floor_wood_large_gltf" parent="Ceiling" instance=ExtResource("4_5wmq5")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 4, 4)
+[node name="CeilingWoodLargeDark" parent="Ceiling" instance=ExtResource("4_p7waf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 
-[node name="floor_wood_large_gltf2" parent="Ceiling" instance=ExtResource("4_5wmq5")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 4, 0)
+[node name="CeilingWoodLargeDark2" parent="Ceiling" instance=ExtResource("4_p7waf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4)
 
-[node name="floor_wood_large_gltf3" parent="Ceiling" instance=ExtResource("4_5wmq5")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 4, -4)
+[node name="CeilingWoodLargeDark3" parent="Ceiling" instance=ExtResource("4_p7waf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -4)
 
 [node name="Decorations" type="Node3D" parent="."]
 

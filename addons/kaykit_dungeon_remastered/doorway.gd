@@ -33,8 +33,16 @@ var _tween : Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Discard the nav-blocker when playing - it's only there to
+	# block the doorway for baking.
+	if not Engine.is_editor_hint():
+		$StandardNavBlocker.queue_free()
+	
 	# Set initial value
 	$Door.rotation.y = swing if open else 0.0
+
+	# Control door navigation
+	$NavigationRegion3D.enabled = open
 
 	# Connect to door events
 	$Door.pointer_pressed.connect(_on_door_pointer_pressed)
@@ -91,6 +99,9 @@ func _set_open(p_open : bool) -> void:
 		_tween = get_tree().create_tween()
 		_tween.set_ease(Tween.EASE_IN_OUT)
 		_tween.tween_property($Door, "rotation:y", target, duration)
+
+		# Control door navigation
+		$NavigationRegion3D.enabled = open
 
 
 # Handle change of door locked state

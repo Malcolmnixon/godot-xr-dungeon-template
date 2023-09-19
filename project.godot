@@ -35,6 +35,7 @@ input/default_snap_turning=false
 3d_physics/layer_3="Pickable Objects"
 3d_physics/layer_4="Wall Walking"
 3d_physics/layer_5="Grappling Target"
+3d_physics/layer_9="Ceiling"
 3d_physics/layer_17="Held Objects"
 3d_physics/layer_18="Player Hands"
 3d_physics/layer_19="Grab Handles"

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://37v5y64x1ftw" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_corner.gltf.glb" id="2_mufm3"]
 [ext_resource type="PackedScene" uid="uid://bd6smt7a8n5d2" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_half.gltf.glb" id="3_2h5nr"]
 [ext_resource type="PackedScene" uid="uid://ccxuyjfu6q3sg" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall.gltf.glb" id="4_3b526"]
-[ext_resource type="PackedScene" uid="uid://cser85fbg1kb7" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_wood_large.gltf.glb" id="5_wdnox"]
+[ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="5_x8dih"]
 
 [sub_resource type="QuadOccluder3D" id="QuadOccluder3D_nfxws"]
 size = Vector2(9, 5)
@@ -52,14 +52,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
 
 [node name="Ceiling" type="Node3D" parent="."]
 
-[node name="floor_wood_large_gltf" parent="Ceiling" instance=ExtResource("5_wdnox")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 4, 0)
+[node name="CeilingWoodLargeDark1" parent="Ceiling" instance=ExtResource("5_x8dih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 
-[node name="floor_wood_large_gltf2" parent="Ceiling" instance=ExtResource("5_wdnox")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 4, 4)
+[node name="CeilingWoodLargeDark3" parent="Ceiling" instance=ExtResource("5_x8dih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 0)
 
-[node name="floor_wood_large_gltf3" parent="Ceiling" instance=ExtResource("5_wdnox")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 4, 4, 0)
+[node name="CeilingWoodLargeDark2" parent="Ceiling" instance=ExtResource("5_x8dih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4)
 
 [node name="Occluders" type="Node3D" parent="."]
 

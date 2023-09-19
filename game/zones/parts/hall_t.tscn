@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccxuyjfu6q3sg" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall.gltf.glb" id="2_632r4"]
 [ext_resource type="PackedScene" uid="uid://37v5y64x1ftw" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_corner.gltf.glb" id="3_ntbea"]
 [ext_resource type="PackedScene" uid="uid://bd6smt7a8n5d2" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_half.gltf.glb" id="4_ykm73"]
-[ext_resource type="PackedScene" uid="uid://cser85fbg1kb7" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_wood_large.gltf.glb" id="5_virol"]
+[ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="5_0wa4u"]
 
 [sub_resource type="QuadOccluder3D" id="QuadOccluder3D_7a75c"]
 size = Vector2(13, 5)
@@ -58,17 +58,17 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 
 
 [node name="Ceiling" type="Node3D" parent="."]
 
-[node name="floor_wood_large_gltf" parent="Ceiling" instance=ExtResource("5_virol")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 4, 0)
+[node name="CeilingWoodLargeDark" parent="Ceiling" instance=ExtResource("5_0wa4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 
-[node name="floor_wood_large_gltf2" parent="Ceiling" instance=ExtResource("5_virol")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 4, 4)
+[node name="CeilingWoodLargeDark2" parent="Ceiling" instance=ExtResource("5_0wa4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4)
 
-[node name="floor_wood_large_gltf3" parent="Ceiling" instance=ExtResource("5_virol")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 4, -4)
+[node name="CeilingWoodLargeDark3" parent="Ceiling" instance=ExtResource("5_0wa4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -4)
 
-[node name="floor_wood_large_gltf4" parent="Ceiling" instance=ExtResource("5_virol")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 4, 4, 0)
+[node name="CeilingWoodLargeDark4" parent="Ceiling" instance=ExtResource("5_0wa4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 0)
 
 [node name="Occluders" type="Node3D" parent="."]
 

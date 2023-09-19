@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckln78nwciykn"]
+[gd_scene load_steps=14 format=3 uid="uid://ckln78nwciykn"]
 
 [ext_resource type="Material" uid="uid://dldvxy3lehnlm" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres" id="1_2l1i3"]
 [ext_resource type="Script" path="res://addons/kaykit_dungeon_remastered/doorway.gd" id="1_u0gh4"]
@@ -59,6 +59,17 @@ shadow_mesh = SubResource("ArrayMesh_lxy38")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efmoi"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nrb56"]
+size = Vector3(2, 3, 0.1)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_5ddqo"]
+vertices = PackedVector3Array(-0.75, 0.5, -0.55, -0.75, 0.5, 0.55, 0.75, 0.5, 0.55, 0.75, 0.5, -0.55)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+cell_size = 0.1
+
+[sub_resource type="QuadMesh" id="QuadMesh_8fm42"]
+size = Vector2(2.5, 2.1)
+
 [node name="Doorway" type="Node3D"]
 script = ExtResource("1_u0gh4")
 open_sound = ExtResource("3_327ow")
@@ -67,7 +78,7 @@ unlock_sound = ExtResource("4_apg5y")
 
 [node name="Door" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.820099, 0, 0)
-collision_layer = 1048577
+collision_layer = 1048578
 script = SubResource("GDScript_foh3a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door"]
@@ -78,7 +89,7 @@ mesh = SubResource("ArrayMesh_cp0m6")
 skeleton = NodePath("")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Door"]
-stream = ExtResource("4_apg5y")
+stream = ExtResource("3_327ow")
 
 [node name="Lock" type="Area3D" parent="Door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 1.1, 0)
@@ -87,3 +98,18 @@ collision_mask = 65536
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door/Lock"]
 shape = SubResource("BoxShape3D_efmoi")
+
+[node name="StandardNavBlocker" type="StaticBody3D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StandardNavBlocker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_nrb56")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_5ddqo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
+mesh = SubResource("QuadMesh_8fm42")
