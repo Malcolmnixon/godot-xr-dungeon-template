@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://4it2evukpw76"]
+
+[ext_resource type="PackedScene" uid="uid://xnp6x5ktenq2" path="res://game/npcs/skeleton/skeleton.tscn" id="1_gt5d6"]
+[ext_resource type="Material" uid="uid://dft88s05d1oo0" path="res://assets/KevDev/skeleton/materials/skeleton_ghost.material" id="3_nrecc"]
+
+[node name="SkeletonGhost" instance=ExtResource("1_gt5d6")]
+
+[node name="SkeletonBody" parent="skeleton/Armature/GeneralSkeleton" index="7"]
+surface_material_override/0 = ExtResource("3_nrecc")
+
+[node name="BoneAttachment3D" parent="skeleton/Armature/GeneralSkeleton" index="10"]
+transform = Transform3D(1, 2.19792e-07, 8.19564e-07, -2.58442e-07, 0.998547, 0.0538873, -7.45058e-07, -0.0538873, 0.998547, -0.00758699, 1.52251, 0.219154)
+
+[node name="Sight" parent="." index="2"]
+transform = Transform3D(1, -2.15081e-07, 9.94282e-07, 2.63153e-07, 0.998547, -0.0538873, -9.19777e-07, 0.0538873, 0.998547, 0.00758697, 1.52251, -0.219154)
+
+[editable path="skeleton"]

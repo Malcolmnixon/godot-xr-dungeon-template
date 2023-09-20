@@ -33,11 +33,6 @@ var _tween : Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Discard the nav-blocker when playing - it's only there to
-	# block the doorway for baking.
-	if not Engine.is_editor_hint():
-		$StandardNavBlocker.queue_free()
-	
 	# Set initial value
 	$Door.rotation.y = swing if open else 0.0
 

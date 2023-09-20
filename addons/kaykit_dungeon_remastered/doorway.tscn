@@ -99,15 +99,17 @@ collision_mask = 65536
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door/Lock"]
 shape = SubResource("BoxShape3D_efmoi")
 
-[node name="StandardNavBlocker" type="StaticBody3D" parent="."]
+[node name="NavBlocker" type="StaticBody3D" parent="."]
+collision_layer = 2147483648
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StandardNavBlocker"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavBlocker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("BoxShape3D_nrb56")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_5ddqo")
+enabled = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

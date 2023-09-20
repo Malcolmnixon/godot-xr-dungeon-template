@@ -4,7 +4,10 @@ extends CharacterBody3D
 ## Skeleton states
 enum State {
 	IDLE,		## Idle
-	CHASING		## Chasing target
+	STAGGER,	## Staggering from hit
+	TRACKING,   ## Tracking target
+	SEARCHING,	## Searching for target
+	DEAD		## Killed
 }
 
 
@@ -17,8 +20,14 @@ const TURN_SPEED := 3.0
 ## Field of view
 const FIELD_OF_VIEW := deg_to_rad(80)
 
-## Memory duration
-const MEMORY := 10.0
+## Duration of tracking after last seen
+const TRACKING_DURATION := 3.0
+
+## Duration of searching after last tracking
+const SEARCHING_DURATION := 10.0
+
+## Damage from a hit
+const HIT_DAMAGE := 0.1
 
 
 ## Target node
@@ -28,8 +37,11 @@ const MEMORY := 10.0
 # Current state
 var _state := State.IDLE
 
-# Remaining memory time
-var _memory := 0.0
+# Remaining state duration
+var _duration := 0.0
+
+# Health
+var _health := 1.0
 
 
 # Sight raycast
@@ -50,35 +62,45 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta : float) -> void:
+	# Ignore all processing while staggering or dead
+	if _state == State.STAGGER or _state == State.DEAD:
+		return
+
 	# Test if we can see the target
 	var seeing_target := can_see_target()
 
 	# Handle state transitions
 	if seeing_target:
-		# Detect start of chase
+		# Detect idle -> tracking
 		if _state == State.IDLE:
-			# Start the chase
-			_state = State.CHASING
 			_animation.play("animation_library/Walk")
 			$VoicePlayer3D.play()
 			$FootstepPlayer3D.play()
 
-		# Refresh our memory
-		_memory = MEMORY
-
-		# Lock in the target location
-		_nav_agent.target_position = target_node.global_position
-	elif _state == State.CHASING:
-		# Handle memory decay
-		_memory -= delta
-		if _memory < 0.0:
+		# Track visible target
+		_state = State.TRACKING
+		_duration = TRACKING_DURATION
+	elif _state == State.TRACKING:
+		# Handle tracking expiration
+		_duration -= delta
+		if _duration <= 0.0:
+			_state = State.SEARCHING
+			_duration = SEARCHING_DURATION
+	elif _state == State.SEARCHING:
+		# Handle searching expiration
+		_duration -= delta
+		if _duration <= 0.0:
 			_state = State.IDLE
 			_animation.play("animation_library/Idle")
 			$FootstepPlayer3D.stop()
 
-	# Skip moving if idle
+	# Skip if idle or staggering
 	if _state == State.IDLE:
 		return
+
+	# If tracking then update target
+	if _state == State.TRACKING:
+		_nav_agent.target_position = target_node.global_position
 
 	# Skip if we can't move to the target
 	if _nav_agent.is_navigation_finished() or not _nav_agent.is_target_reachable():
@@ -115,3 +137,35 @@ func can_see_target() -> bool:
 	_sight.target_position = _sight.to_local(target_position)
 	_sight.force_raycast_update()
 	return _sight.get_collider() == target_node
+
+
+func _on_hit_area_body_entered(_body):
+	# Ignore hit while staggering
+	if _state == State.STAGGER:
+		return
+
+	# Switch to the hit sound
+	$FootstepPlayer3D.stop()
+	$HitPlayer3D.play()
+
+	_health -= HIT_DAMAGE
+	if _health > 0.0:
+		# Trigger the stagger
+		_state = State.STAGGER
+		_animation.play("animation_library/Hit_01")
+	else:
+		# Died
+		_state = State.DEAD
+		_animation.play("animation_library/Death_back")
+
+
+func _on_animation_finished(anim_name):
+	# Ignore if not finishing the stagger
+	if anim_name != "animation_library/Hit_01":
+		return
+
+	# Start tracking again
+	_state = State.TRACKING
+	_duration = TRACKING_DURATION
+	$FootstepPlayer3D.play()
+	_animation.play("animation_library/Walk")
