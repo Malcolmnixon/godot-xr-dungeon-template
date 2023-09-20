@@ -1,7 +1,7 @@
 // Author: DigitalN8m4r3 - Miodrag Sejic and Mux213 - Bastiaan Oli
 // License: Public Domain CC0
 shader_type spatial;
-render_mode blend_mix, specular_disabled;
+render_mode blend_mix, specular_disabled, depth_draw_always;
 
 uniform sampler2D albedo_texture : source_color;
 uniform bool useAlpha;
