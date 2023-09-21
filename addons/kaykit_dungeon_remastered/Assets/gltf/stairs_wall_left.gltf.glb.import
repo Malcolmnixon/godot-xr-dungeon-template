@@ -37,8 +37,17 @@ _subresources={
 },
 "nodes": {
 "PATH:stairs_wall_left": {
+"decomposition/advanced": true,
+"decomposition/convexhull_downsampling": 6,
+"decomposition/max_concavity": 0.001,
+"decomposition/max_convex_hulls": 36,
+"decomposition/plane_downsampling": 6,
 "decomposition/precision": 10,
-"generate/physics": true
+"decomposition/resolution": 10000000,
+"decomposition/revolution_axes_clipping_bias": 0.02,
+"decomposition/symmetry_planes_clipping_bias": 0.02,
+"generate/physics": true,
+"physics/shape_type": 2
 }
 }
 }

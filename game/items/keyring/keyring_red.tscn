@@ -14,3 +14,9 @@ item_type = ExtResource("2_dg3p6")
 
 [node name="keyring" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_hi5ar")
+
+[node name="GrabPointHandLeft" parent="." index="1"]
+visible = false
+
+[node name="GrabPointHandRight" parent="." index="2"]
+visible = false

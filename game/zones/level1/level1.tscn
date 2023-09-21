@@ -145,9 +145,11 @@ transform = Transform3D(0.0399398, 0, -0.999202, 0, 1, 0, 0.999202, 0, 0.0399398
 [node name="chair_gltf3" parent="World/Rooms/Room3x3_3" index="10" instance=ExtResource("18_7n6bm")]
 transform = Transform3D(-0.952023, 0, -0.306027, 0, 1, 0, 0.306027, 0, -0.952023, 2.88102, 0, -0.0749092)
 
-[node name="SkeletonGhost" parent="World/Rooms/Room3x3_3" index="11" node_paths=PackedStringArray("target_node") instance=ExtResource("20_xkaor")]
+[node name="SkeletonGhost" parent="World/Rooms/Room3x3_3" index="11" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("20_xkaor")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 3.20656, -1.19209e-07, -4.25367)
-target_node = NodePath("../../../../XROrigin3D/PlayerBody")
+persistent_id = "level1_skeleton1"
+target_body = NodePath("../../../../XROrigin3D/PlayerBody")
+target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
 
 [node name="Room3x3_4" parent="World/Rooms" index="3" instance=ExtResource("4_g0vhp")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 0, -24)
@@ -184,8 +186,10 @@ transform = Transform3D(0.230236, 0, 0.973135, 0, 1, 0, -0.973135, 0, 0.230236, 
 [node name="table_medium_broken_gltf" parent="World/Rooms/Room3x3_4" index="13" instance=ExtResource("24_jnsrw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1229, 0, 1.93612)
 
-[node name="Skeleton" parent="World/Rooms/Room3x3_4" index="14" node_paths=PackedStringArray("target_node") instance=ExtResource("25_euqyk")]
-target_node = NodePath("../../../../XROrigin3D/PlayerBody")
+[node name="Skeleton" parent="World/Rooms/Room3x3_4" index="14" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("25_euqyk")]
+persistent_id = "level1_skeleton2"
+target_body = NodePath("../../../../XROrigin3D/PlayerBody")
+target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
 
 [node name="Hallways" type="Node3D" parent="World" index="4"]
 

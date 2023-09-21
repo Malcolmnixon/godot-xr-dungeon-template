@@ -5,13 +5,45 @@
 
 [node name="SkeletonGhost" instance=ExtResource("1_gt5d6")]
 
+[node name="GeneralSkeleton" parent="skeleton/Armature" index="0"]
+bones/2/position = Vector3(0.076083, 0.685766, -0.07417)
+bones/2/rotation = Quaternion(0.195441, 0.364335, -0.0165537, 0.910378)
+bones/3/rotation = Quaternion(0.00629881, -0.0041237, -0.0150022, 0.999858)
+bones/4/rotation = Quaternion(0.00297951, -0.0312753, -0.00381513, 0.999499)
+bones/5/rotation = Quaternion(-0.099816, -0.171116, 0.0225042, 0.979923)
+bones/6/rotation = Quaternion(-0.109534, 0.262362, 0.0353315, 0.95808)
+bones/7/rotation = Quaternion(-0.0222148, -0.570809, -0.819557, -0.0448378)
+bones/8/rotation = Quaternion(-0.615318, -0.384517, -0.386407, 0.569403)
+bones/9/rotation = Quaternion(0.0754305, 0.908217, -0.407357, -0.0592583)
+bones/10/rotation = Quaternion(0.178322, -0.684952, 0.179759, 0.683176)
+bones/11/rotation = Quaternion(0.140088, 0.310227, -0.126474, 0.93174)
+bones/32/rotation = Quaternion(0.437915, -0.525819, -0.6055, -0.406343)
+bones/33/rotation = Quaternion(0.174954, 0.937244, -0.282773, -0.1049)
+bones/34/rotation = Quaternion(0.367663, 0.604929, -0.370625, 0.601267)
+bones/35/rotation = Quaternion(-0.0383442, -0.284064, 0.241637, 0.927065)
+bones/56/rotation = Quaternion(-0.205747, -0.547603, -0.786018, 0.199933)
+bones/57/rotation = Quaternion(-0.000448728, 0.778605, -0.627513, -0.000759073)
+bones/57/scale = Vector3(1.00032, 1.00073, 0.999543)
+bones/58/rotation = Quaternion(-0.114247, 0.559892, -0.80193, 0.174287)
+bones/61/rotation = Quaternion(0.26883, -0.631123, -0.697301, -0.207806)
+bones/62/rotation = Quaternion(0.000535088, 0.676736, -0.736225, 0.000883617)
+bones/62/scale = Vector3(1.00028, 1.00068, 0.99953)
+bones/63/rotation = Quaternion(0.0562913, 0.479687, -0.875569, -0.0104807)
+bones/66/rotation = Quaternion(-0.0387218, -0.00453259, -0.0201126, 0.999037)
+
 [node name="SkeletonBody" parent="skeleton/Armature/GeneralSkeleton" index="7"]
 surface_material_override/0 = ExtResource("3_nrecc")
 
-[node name="BoneAttachment3D" parent="skeleton/Armature/GeneralSkeleton" index="10"]
-transform = Transform3D(1, 2.19792e-07, 8.19564e-07, -2.58442e-07, 0.998547, 0.0538873, -7.45058e-07, -0.0538873, 0.998547, -0.00758699, 1.52251, 0.219154)
+[node name="HeadAttachment" parent="skeleton/Armature/GeneralSkeleton" index="10"]
+transform = Transform3D(0.640549, -0.104971, 0.760709, 0.105661, 0.993239, 0.0480873, -0.760613, 0.049575, 0.64731, 0.237398, 1.2881, 0.219272)
+
+[node name="ChestAttachment" parent="skeleton/Armature/GeneralSkeleton" index="11"]
+transform = Transform3D(0.77121, 0.212264, 0.600149, 0.0503845, 0.919459, -0.389945, -0.634584, 0.330968, 0.698401, 0.116708, 0.874821, -0.00201199)
 
 [node name="Sight" parent="." index="2"]
-transform = Transform3D(1, -2.15081e-07, 9.94282e-07, 2.63153e-07, 0.998547, -0.0538873, -9.19777e-07, 0.0538873, 0.998547, 0.00758697, 1.52251, -0.219154)
+transform = Transform3D(0.640549, 0.104971, 0.760709, -0.105661, 0.993239, -0.0480873, -0.760613, -0.049575, 0.64731, -0.237398, 1.2881, -0.219272)
+
+[node name="HitArea" parent="." index="7"]
+transform = Transform3D(-0.77121, -0.212264, -0.600149, 0.0503845, 0.919459, -0.389945, 0.634584, -0.330968, -0.698401, -0.116708, 0.874821, 0.002012)
 
 [editable path="skeleton"]
