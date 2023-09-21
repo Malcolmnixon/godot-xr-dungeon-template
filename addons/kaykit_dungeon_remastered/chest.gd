@@ -2,6 +2,13 @@
 extends Node3D
 
 
+## Signal emitted when chest is opened
+signal opened
+
+## Signal emitted when chest is closed
+signal closed
+
+
 ## Chest swing
 @export var swing := deg_to_rad(-120)
 
@@ -91,6 +98,12 @@ func _set_open(p_open : bool) -> void:
 		_tween = get_tree().create_tween()
 		_tween.set_ease(Tween.EASE_IN_OUT)
 		_tween.tween_property($Lid, "rotation:x", target, duration)
+
+		# Fire opened signal
+		if open:
+			opened.emit()
+		else:
+			closed.emit()
 
 
 # Handle change of chest locked state

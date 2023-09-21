@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bovruvfyofxy6"]
+[gd_scene load_steps=35 format=3 uid="uid://bovruvfyofxy6"]
 
 [ext_resource type="PackedScene" uid="uid://c8dus1olsfnt1" path="res://game/zones/zone_base.tscn" id="1_g6hii"]
 [ext_resource type="Resource" uid="uid://vit7ieoek04c" path="res://game/zones/level1/level1_info.tres" id="2_a6blg"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://clyk4rwuu1tlb" path="res://addons/kaykit_dungeon_remastered/chest.tscn" id="11_twdfn"]
 [ext_resource type="PackedScene" uid="uid://cu47ij1imgjd8" path="res://game/zones/parts/hall_l.tscn" id="11_x2lsh"]
 [ext_resource type="PackedScene" uid="uid://b4iuopsujybs1" path="res://game/items/keyring/keyring_blue.tscn" id="12_do38r"]
+[ext_resource type="PackedScene" uid="uid://dlk51wyp440tk" path="res://game/items/coins/coins.tscn" id="14_3e2pu"]
 [ext_resource type="PackedScene" uid="uid://ibjxvpfmqslm" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/bed_decorated.gltf.glb" id="15_bnprf"]
 [ext_resource type="PackedScene" uid="uid://cun41jwthat46" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/table_long_decorated_C.gltf.glb" id="16_m51vs"]
 [ext_resource type="PackedScene" uid="uid://ib5vpv20agna" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/table_long_tablecloth.gltf.glb" id="17_u3qjw"]
@@ -106,11 +107,16 @@ transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107
 locked = true
 key_id = "keyring_blue"
 
+[node name="Coins" parent="World/Rooms/Room3x3_1/Chest" index="2" instance=ExtResource("14_3e2pu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12911, 0)
+item_id = "level1_coins1"
+enabled = false
+
 [node name="KeyRingBlue" parent="World/Rooms/Room3x3_1" index="10" instance=ExtResource("12_do38r")]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, 1, 0, -1, 1.31134e-07, 4.19388, 1.02814, -3.12542)
 
 [node name="Torch" parent="World/Rooms/Room3x3_1" index="11" instance=ExtResource("18_d1rqo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0199599, 0.774877, -2.79227)
+transform = Transform3D(1, 0, 0, 0, 0.19918, 0.979963, 0, -0.979963, 0.19918, -0.0199599, 0.0937687, -2.79227)
 
 [node name="Room3x3_2" parent="World/Rooms" index="1" instance=ExtResource("4_g0vhp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -12)
@@ -132,6 +138,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, 0, -4.00001)
 
 [node name="table_long_decorated_C_gltf" parent="World/Rooms/Room3x3_3" index="6" instance=ExtResource("16_m51vs")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.5, 0, 4.4)
+
+[node name="Coins" parent="World/Rooms/Room3x3_3/table_long_decorated_C_gltf" index="1" instance=ExtResource("14_3e2pu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.560276, 1.00196, -1.59542)
+item_id = "level1_coins2"
 
 [node name="table_long_tablecloth_gltf" parent="World/Rooms/Room3x3_3" index="7" instance=ExtResource("17_u3qjw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
@@ -191,6 +201,10 @@ persistent_id = "level1_skeleton2"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
 
+[node name="Coins" parent="World/Rooms/Room3x3_4" index="15" instance=ExtResource("14_3e2pu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87472, 0.0843855, 4.2622)
+item_id = "level1_coins3"
+
 [node name="Hallways" type="Node3D" parent="World" index="4"]
 
 [node name="Hall" parent="World/Hallways" index="0" instance=ExtResource("5_hyc2d")]
@@ -216,6 +230,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 36, -4
 
 [node name="HallL3" parent="World/Hallways" index="6" instance=ExtResource("11_x2lsh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, -4, -48)
+
+[connection signal="closed" from="World/Rooms/Room3x3_1/Chest" to="World/Rooms/Room3x3_1/Chest/Coins" method="enable_access" binds= [false]]
+[connection signal="opened" from="World/Rooms/Room3x3_1/Chest" to="World/Rooms/Room3x3_1/Chest/Coins" method="enable_access" binds= [true]]
 
 [editable path="XROrigin3D/MovementFootstep"]
 [editable path="World/Rooms/Room3x3_1/Doorway"]

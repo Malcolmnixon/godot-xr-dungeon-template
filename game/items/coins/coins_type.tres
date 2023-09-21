@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PersistentItemType" load_steps=2 format=3 uid="uid://cgvs0idx4hbgo"]
+
+[ext_resource type="Script" path="res://components/persistent/persistent_item_type.gd" id="1_fuowg"]
+
+[resource]
+script = ExtResource("1_fuowg")
+type_id = "coins"
+instance_scene = "res://game/items/coins/coins.tscn"

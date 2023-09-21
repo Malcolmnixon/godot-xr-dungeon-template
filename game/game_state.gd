@@ -29,6 +29,9 @@ enum GameDifficulty {
 @export var game_difficulty : GameDifficulty = GameDifficulty.GAME_NORMAL:
 	set = _set_game_difficulty
 
+## Amount of gold
+@export var gold : int = 0
+
 
 ## Current zone (when playing game)
 var current_zone : PersistentZone
@@ -107,6 +110,7 @@ func save_world_state() -> bool:
 	set_value("game_difficulty", game_difficulty)
 	set_value("current_zone_id", current_zone.zone_info.zone_id)
 	set_value("current_location", body.global_transform)
+	set_value("gold", gold)
 	return true
 
 
@@ -130,6 +134,9 @@ func load_world_state() -> bool:
 
 	# Restore the game difficulty
 	game_difficulty = get_value("game_difficulty")
+
+	# Restore the amount of gold
+	gold = get_value("gold", 0)
 
 	# Get the zone
 	var zone := zone_database.get_zone(zone_id)

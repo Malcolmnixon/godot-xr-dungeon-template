@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="PersistentItemDatabase" load_steps=5 format=3 uid="uid://cfsg4lgr8r3dv"]
+[gd_resource type="Resource" script_class="PersistentItemDatabase" load_steps=6 format=3 uid="uid://cfsg4lgr8r3dv"]
 
 [ext_resource type="Resource" uid="uid://cubjrmo3w1ew" path="res://game/items/keyring/keyring_blue_type.tres" id="1_2t7i0"]
 [ext_resource type="Script" path="res://components/persistent/persistent_item_database.gd" id="1_6ugvu"]
 [ext_resource type="Resource" uid="uid://b5jw7oef3pv85" path="res://game/items/keyring/keyring_red_type.tres" id="2_hjkpe"]
 [ext_resource type="Resource" uid="uid://dagqmiwd7jxhn" path="res://game/items/torch/torch_type.tres" id="3_er7y2"]
+[ext_resource type="Resource" uid="uid://cgvs0idx4hbgo" path="res://game/items/coins/coins_type.tres" id="4_lteqp"]
 
 [resource]
 script = ExtResource("1_6ugvu")
-items = Array[Resource("res://components/persistent/persistent_item_type.gd")]([ExtResource("1_2t7i0"), ExtResource("2_hjkpe"), ExtResource("3_er7y2")])
+items = Array[Resource("res://components/persistent/persistent_item_type.gd")]([ExtResource("1_2t7i0"), ExtResource("2_hjkpe"), ExtResource("3_er7y2"), ExtResource("4_lteqp")])

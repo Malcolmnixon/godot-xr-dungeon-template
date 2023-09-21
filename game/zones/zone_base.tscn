@@ -59,6 +59,7 @@ walk_pitch_maximum = 1.0
 [node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" instance=ExtResource("3_1m1nu")]
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="2" instance=ExtResource("4_8i21c")]
+grab_distance = 0.15
 ranged_distance = 1.5
 ranged_angle = 15.0
 
@@ -80,6 +81,7 @@ target_radius = 0.02
 [node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("7_ygvia")]
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" instance=ExtResource("4_8i21c")]
+grab_distance = 0.15
 ranged_distance = 1.5
 ranged_angle = 15.0
 
