@@ -132,7 +132,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4, 2)
 locked = true
 
 [node name="SkeletonGhost" parent="World/Rooms/Gallery" index="6" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("15_788cd")]
-transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 3.4, -4, -12)
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 4.4, -4, -12)
 persistent_id = "level2_skeleton1"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
@@ -147,7 +147,7 @@ target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29111, -4, -15.2382)
 
 [node name="Coins" parent="World/Rooms/Gallery/crates_stacked_gltf" index="1" instance=ExtResource("11_xjx6q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.459282, 0.873582, 0.534477)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.938633, 0.078644, 1.19905)
 sleeping = true
 item_id = "level2_coins2"
 
