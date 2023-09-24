@@ -27,8 +27,8 @@ const TRACKING_DURATION := 3.0
 ## Duration of searching after last tracking
 const SEARCHING_DURATION := 10.0
 
-## Damage from a hit
-const HIT_DAMAGE := 0.1
+## Default health
+const DEFAULT_HEALTH : int = 30
 
 
 ## Persistent ID
@@ -40,15 +40,15 @@ const HIT_DAMAGE := 0.1
 ## Target node
 @export var target_node : Node3D
 
+## Skeleton health
+@export var health := DEFAULT_HEALTH
+
 
 # Current state
 var _state := State.IDLE
 
 # Remaining state duration
 var _duration := 0.0
-
-# Health
-var _health := 1.0
 
 
 # Sight raycast
@@ -184,7 +184,7 @@ func _load_state() -> void:
 		global_transform = location
 
 	# Restore the health
-	_health = state.get("health", 1.0)
+	health = state.get("health", DEFAULT_HEALTH)
 
 	# If the item is dead then kill it
 	if state.get("dead", false):
@@ -198,7 +198,7 @@ func _save_state() -> void:
 	# Save the state information
 	var state := {}
 	state["location"] = global_transform
-	state["health"] = _health
+	state["health"] = health
 	state["dead"] = _state == State.DEAD
 	PersistentWorld.instance.set_value(persistent_id, state)
 
@@ -225,12 +225,17 @@ func _on_hit_area_body_entered(_body):
 	if _state == State.STAGGER:
 		return
 
+	# Skip if no weapon damage
+	var weapon_damage : WeaponDamage = _body.get_node("WeaponDamage")
+	if not weapon_damage:
+		return
+
 	# Switch to the hit sound
 	$FootstepPlayer3D.stop()
 	$HitPlayer3D.play()
 
-	_health -= HIT_DAMAGE
-	if _health > 0.0:
+	health -= weapon_damage.weapon_damage
+	if health > 0:
 		# Trigger the stagger
 		_state = State.STAGGER
 		_animation.play("animation_library/Hit_01")

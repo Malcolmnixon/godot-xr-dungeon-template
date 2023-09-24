@@ -37,6 +37,7 @@ input/default_snap_turning=false
 3d_physics/layer_5="Grappling Target"
 3d_physics/layer_6="NPC"
 3d_physics/layer_9="Ceiling"
+3d_physics/layer_16="Weapon"
 3d_physics/layer_17="Held Objects"
 3d_physics/layer_18="Player Hands"
 3d_physics/layer_19="Grab Handles"

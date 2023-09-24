@@ -16,6 +16,7 @@ size = Vector3(0.4, 1, 0.4)
 collision_layer = 32
 collision_mask = 33
 script = ExtResource("1_nibk7")
+health = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -136,7 +137,7 @@ stream = ExtResource("5_bsxur")
 [node name="HitArea" type="Area3D" parent="."]
 transform = Transform3D(-0.982763, 0.0337542, -0.181765, 0.0513281, 0.994355, -0.0928655, 0.177604, -0.100594, -0.978947, 0.00429909, 1.06282, -0.0828915)
 collision_layer = 0
-collision_mask = 65536
+collision_mask = 32768
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://chsknl1f6oyne"]
+
+[ext_resource type="Texture2D" uid="uid://bcgvtqocktj2d" path="res://addons/kaykit_character_pack_adventures/Textures/mage_texture.png" id="1_iuj25"]
+
+[resource]
+albedo_texture = ExtResource("1_iuj25")
+metallic_specular = 0.0

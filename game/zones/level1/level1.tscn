@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bovruvfyofxy6"]
+[gd_scene load_steps=36 format=3 uid="uid://bovruvfyofxy6"]
 
 [ext_resource type="PackedScene" uid="uid://c8dus1olsfnt1" path="res://game/zones/zone_base.tscn" id="1_g6hii"]
 [ext_resource type="Resource" uid="uid://vit7ieoek04c" path="res://game/zones/level1/level1_info.tres" id="2_a6blg"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dlk51wyp440tk" path="res://game/items/coins/coins.tscn" id="14_3e2pu"]
 [ext_resource type="PackedScene" uid="uid://ibjxvpfmqslm" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/bed_decorated.gltf.glb" id="15_bnprf"]
 [ext_resource type="PackedScene" uid="uid://cun41jwthat46" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/table_long_decorated_C.gltf.glb" id="16_m51vs"]
+[ext_resource type="PackedScene" uid="uid://0euwmqpc2x52" path="res://game/items/sword/sword.tscn" id="17_n8nrt"]
 [ext_resource type="PackedScene" uid="uid://ib5vpv20agna" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/table_long_tablecloth.gltf.glb" id="17_u3qjw"]
 [ext_resource type="PackedScene" uid="uid://b5oo5vj4g88wk" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/chair.gltf.glb" id="18_7n6bm"]
 [ext_resource type="PackedScene" uid="uid://de0q336ueqnbf" path="res://game/items/torch/torch.tscn" id="18_d1rqo"]
@@ -118,6 +119,9 @@ transform = Transform3D(1, 0, 0, 0, 1.31134e-07, 1, 0, -1, 1.31134e-07, 4.19388,
 [node name="Torch" parent="World/Rooms/Room3x3_1" index="11" instance=ExtResource("18_d1rqo")]
 transform = Transform3D(1, 0, 0, 0, 0.19918, 0.979963, 0, -0.979963, 0.19918, -0.0199599, 0.0937687, -2.79227)
 
+[node name="Sword" parent="World/Rooms/Room3x3_1" index="12" instance=ExtResource("17_n8nrt")]
+transform = Transform3D(-0.0827818, -0.443666, -0.892361, 0.995725, -4.35245e-08, -0.0923706, 0.0409816, -0.896192, 0.441769, 3.94374, 0.528601, -2.17364)
+
 [node name="Room3x3_2" parent="World/Rooms" index="1" instance=ExtResource("4_g0vhp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -12)
 
@@ -160,6 +164,7 @@ transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819
 persistent_id = "level1_skeleton1"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
+health = 30
 
 [node name="Room3x3_4" parent="World/Rooms" index="3" instance=ExtResource("4_g0vhp")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 0, -24)
@@ -200,6 +205,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1229, 0, 1.93612)
 persistent_id = "level1_skeleton2"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
+health = 30
 
 [node name="Coins" parent="World/Rooms/Room3x3_4" index="15" instance=ExtResource("14_3e2pu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87472, 0.0843855, 4.2622)

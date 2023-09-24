@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dgs4w2u8rob07"]
+
+[ext_resource type="Texture2D" uid="uid://r6te5lqjod4b" path="res://addons/kaykit_character_pack_adventures/Textures/rogue_texture.png" id="1_uthk8"]
+
+[resource]
+albedo_texture = ExtResource("1_uthk8")
+metallic_specular = 0.0

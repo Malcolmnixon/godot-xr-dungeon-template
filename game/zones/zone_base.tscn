@@ -61,7 +61,7 @@ walk_pitch_maximum = 1.0
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="2" instance=ExtResource("4_8i21c")]
 grab_distance = 0.15
 ranged_distance = 1.5
-ranged_angle = 15.0
+ranged_angle = 25.0
 
 [node name="MovementDirect" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="3" instance=ExtResource("5_5vmxr")]
 strafe = true
@@ -83,7 +83,7 @@ target_radius = 0.02
 [node name="FunctionPickup" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" instance=ExtResource("4_8i21c")]
 grab_distance = 0.15
 ranged_distance = 1.5
-ranged_angle = 15.0
+ranged_angle = 25.0
 
 [node name="MovementDirect" parent="XROrigin3D/RightHand/CollisionHandRight" index="3" instance=ExtResource("5_5vmxr")]
 
