@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://c8dus1olsfnt1"]
+[gd_scene load_steps=25 format=3 uid="uid://c8dus1olsfnt1"]
 
 [ext_resource type="PackedScene" uid="uid://di1bu0tceg332" path="res://components/persistent/persistent_zone.tscn" id="1_t2e22"]
 [ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="2_n37wm"]
 [ext_resource type="PackedScene" uid="uid://di7xw568by31i" path="res://assets/digitaln8m4r3/hands/skeleton/scenes/left_hand_skeleton.tscn" id="3_hix4u"]
+[ext_resource type="AudioStream" uid="uid://bj823rgn3wrm1" path="res://assets/freesound.org/568992__fission9__inventory-open.wav" id="3_sjm4k"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_8i21c"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="5_5vmxr"]
 [ext_resource type="PackedScene" uid="uid://c3uoohvnshach" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_right.tscn" id="6_be880"]
@@ -54,6 +55,12 @@ walk_pitch_maximum = 1.0
 
 [node name="ZoneBase" instance=ExtResource("1_t2e22")]
 
+[node name="BackpackPocket" parent="XROrigin3D/XRCamera3D" index="0" instance=ExtResource("14_qgora")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+pocket_id = "backpack_pocket"
+stash_sound = ExtResource("3_sjm4k")
+snap_require = "backpack"
+
 [node name="CollisionHandLeft" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("2_n37wm")]
 
 [node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="0" instance=ExtResource("3_hix4u")]
@@ -62,6 +69,7 @@ walk_pitch_maximum = 1.0
 grab_distance = 0.15
 ranged_distance = 1.5
 ranged_angle = 25.0
+ranged_collision_mask = 262148
 
 [node name="MovementDirect" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="3" instance=ExtResource("5_5vmxr")]
 strafe = true
@@ -84,6 +92,7 @@ target_radius = 0.02
 grab_distance = 0.15
 ranged_distance = 1.5
 ranged_angle = 25.0
+ranged_collision_mask = 262148
 
 [node name="MovementDirect" parent="XROrigin3D/RightHand/CollisionHandRight" index="3" instance=ExtResource("5_5vmxr")]
 
@@ -107,6 +116,7 @@ physics = SubResource("Resource_kkyco")
 [node name="LeftPocket" parent="XROrigin3D/PlayerBody" index="0" instance=ExtResource("14_qgora")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1, 0)
 pocket_id = "left_pocket"
+stash_sound = ExtResource("3_sjm4k")
 grab_distance = 0.1
 snap_require = "fits_in_player_pocket"
 
@@ -118,6 +128,7 @@ mesh = SubResource("SphereMesh_8xumh")
 [node name="RightPocket" parent="XROrigin3D/PlayerBody" index="1" instance=ExtResource("14_qgora")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1, 0)
 pocket_id = "right_pocket"
+stash_sound = ExtResource("3_sjm4k")
 grab_distance = 0.1
 snap_require = "fits_in_player_pocket"
 

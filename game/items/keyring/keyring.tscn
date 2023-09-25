@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://be0vlli1ru8ie"]
+[gd_scene load_steps=37 format=3 uid="uid://be0vlli1ru8ie"]
 
 [ext_resource type="PackedScene" uid="uid://cc2akik80xtnb" path="res://components/persistent/persistent_item.tscn" id="1_tv84h"]
 [ext_resource type="Material" uid="uid://dldvxy3lehnlm" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres" id="2_ne6xh"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="6_3vb62"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_dqilr"]
 [ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="8_85b7b"]
+[ext_resource type="PackedScene" uid="uid://bikkxsbo8x7sd" path="res://addons/godot-xr-tools/audio/pickable_audio.tscn" id="10_77t0d"]
+[ext_resource type="AudioStream" uid="uid://b4rvwe3cx0xkf" path="res://assets/freesound.org/443956__anational__keys-stash.wav" id="11_2g7ie"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="12_u6eeg"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_eka1f"]
 _surfaces = [{
@@ -110,9 +113,20 @@ points = PackedVector3Array(0.0461907, 0.0915433, -0.0131788, 0.0346769, 0.02928
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sai07"]
 points = PackedVector3Array(0.0370082, 0.0946152, -0.0101159, 0.0339456, 0.0425723, 0.0449913, 0.0370082, 0.0425723, 0.0449913, 0.0339456, 0.0548189, -0.0131788, 0.0492509, 0.0640038, -0.0101159, 0.0461883, 0.0793019, 0.0204945, 0.0339456, 0.0823635, 0.0266202, 0.0461883, 0.0915484, -0.0131788, 0.0492509, 0.0609422, 0.0204945, 0.0339456, 0.0946152, -0.0131788, 0.0370082, 0.045634, 0.0480541, 0.0370082, 0.045634, 0.0174377, 0.0400692, 0.0823635, 0.0266202, 0.0492509, 0.0793019, -0.0131788, 0.0492509, 0.0578806, 0.011324, 0.0400692, 0.0548189, -0.0101159, 0.0431273, 0.0762402, 0.029677, 0.0492509, 0.0670655, 0.0204945, 0.0339456, 0.0701169, 0.0358027)
 
+[sub_resource type="Resource" id="Resource_2ci12"]
+script = ExtResource("12_u6eeg")
+name = ""
+drop_sound = ExtResource("11_2g7ie")
+
 [node name="KeyRing" groups=["fits_in_player_pocket"] instance=ExtResource("1_tv84h")]
+collision_layer = 262144
+max_contacts_reported = 1
+contact_monitor = true
+sleeping = true
+freeze = true
 item_type = ExtResource("2_o7fva")
 auto_return = true
+release_mode = 0
 
 [node name="keyring" type="MeshInstance3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.0213736, -0.0298794)
@@ -205,3 +219,6 @@ shape = SubResource("ConvexPolygonShape3D_sai07")
 
 [node name="HighlightRing" parent="." index="22" instance=ExtResource("6_3vb62")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0139443, 0.238158, 0.0101602)
+
+[node name="PickableAudio" parent="." index="23" instance=ExtResource("10_77t0d")]
+pickable_audio_type = SubResource("Resource_2ci12")

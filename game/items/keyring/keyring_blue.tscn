@@ -7,7 +7,7 @@
 albedo_color = Color(0.12549, 0.501961, 1, 1)
 albedo_texture = ExtResource("2_mj24h")
 
-[node name="KeyRingBlue" instance=ExtResource("1_spbty")]
+[node name="KeyRingBlue" groups=["keyring_blue"] instance=ExtResource("1_spbty")]
 item_id = "keyring_blue"
 
 [node name="keyring" parent="." index="0"]

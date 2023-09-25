@@ -48,6 +48,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_31hw3")
 
 [node name="Coins" instance=ExtResource("1_l2fd8")]
+collision_layer = 262144
 script = ExtResource("2_epe2u")
 gold = 10
 item_type = ExtResource("2_k8yu0")

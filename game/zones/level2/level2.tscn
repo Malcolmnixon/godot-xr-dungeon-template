@@ -136,12 +136,14 @@ transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 
 persistent_id = "level2_skeleton1"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
+health = 30
 
 [node name="Skeleton" parent="World/Rooms/Gallery" index="7" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("16_h8uos")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6898, -4, -22.8711)
 persistent_id = "level2_skeleton2"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
+health = 30
 
 [node name="crates_stacked_gltf" parent="World/Rooms/Gallery" index="8" instance=ExtResource("9_fr525")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29111, -4, -15.2382)
@@ -168,12 +170,14 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 persistent_id = "level2_skeleton3"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
+health = 30
 
 [node name="SkeletonGhost" parent="World/Rooms/Gallery2" index="7" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("15_788cd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-07, 0, -20)
 persistent_id = "level2_skeleton4"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
+health = 30
 
 [node name="Chest" parent="World/Rooms/Gallery2" index="8" instance=ExtResource("19_2gpnj")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 16, -4, -23)

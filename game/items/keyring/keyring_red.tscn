@@ -8,15 +8,9 @@
 albedo_color = Color(1, 0.25098, 0.12549, 1)
 albedo_texture = ExtResource("2_5d706")
 
-[node name="KeyRingRed" instance=ExtResource("1_1j6vu")]
+[node name="KeyRingRed" groups=["keyring_red"] instance=ExtResource("1_1j6vu")]
 item_id = "keyring_red"
 item_type = ExtResource("2_dg3p6")
 
 [node name="keyring" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_hi5ar")
-
-[node name="GrabPointHandLeft" parent="." index="1"]
-visible = false
-
-[node name="GrabPointHandRight" parent="." index="2"]
-visible = false

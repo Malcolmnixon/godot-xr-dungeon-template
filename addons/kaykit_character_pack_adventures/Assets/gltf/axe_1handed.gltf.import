@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/axe_1handed.gltf-0e1629f248360330885c9b1beb14
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=0.4
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -33,6 +33,12 @@ _subresources={
 "barbarian_texture": {
 "use_external/enabled": true,
 "use_external/path": "res://addons/kaykit_character_pack_adventures/Textures/barbarian.tres"
+}
+},
+"nodes": {
+"PATH:axe_1handed2": {
+"decomposition/precision": 10,
+"generate/physics": true
 }
 }
 }

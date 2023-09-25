@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://de0q336ueqnbf"]
+[gd_scene load_steps=27 format=3 uid="uid://de0q336ueqnbf"]
 
 [ext_resource type="Script" path="res://components/persistent/persistent_item.gd" id="1_3xj40"]
 [ext_resource type="Resource" uid="uid://dagqmiwd7jxhn" path="res://game/items/torch/torch_type.tres" id="2_p8d1w"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://d3ege842bh4bf" path="res://game/items/torch/spark_particles.tscn" id="10_bqey6"]
 [ext_resource type="AudioStream" uid="uid://cilwe86tab6na" path="res://assets/freesound.org/564621__nox_sound__ambiance_fire_bushes_loop_stereo.wav" id="11_nwx0b"]
 [ext_resource type="PackedScene" uid="uid://cjy6btn3cbobc" path="res://game/items/damage.tscn" id="15_qhwn7"]
+[ext_resource type="PackedScene" uid="uid://bikkxsbo8x7sd" path="res://addons/godot-xr-tools/audio/pickable_audio.tscn" id="16_nmau5"]
+[ext_resource type="AudioStream" uid="uid://o0nwv0jxwfi0" path="res://assets/freesound.org/616504__empiremonkey__weapon-drop.wav" id="17_cwagj"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="18_i10k4"]
 
 [sub_resource type="Resource" id="Resource_8ui4g"]
 script = ExtResource("5_g74td")
@@ -68,14 +71,24 @@ shadow_mesh = SubResource("ArrayMesh_i806c")
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0qqjp"]
 albedo_texture = ExtResource("4_tu8ef")
 
+[sub_resource type="Resource" id="Resource_wrjrx"]
+script = ExtResource("18_i10k4")
+name = ""
+drop_sound = ExtResource("17_cwagj")
+
 [node name="Torch" type="RigidBody3D" groups=["fits_in_player_pocket", "persistent"]]
-collision_layer = 4
+collision_layer = 262144
 collision_mask = 196615
+max_contacts_reported = 1
+contact_monitor = true
+sleeping = true
+freeze = true
 freeze_mode = 1
 script = ExtResource("1_3xj40")
 item_id = "torch"
 item_type = ExtResource("2_p8d1w")
 picked_up_layer = 98304
+release_mode = 0
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("3_2fru3")]
 transform = Transform3D(1, 0, 0, 0, 0.990268, -0.139173, 0, 0.139173, 0.990268, 0.016, 0, -0.09)
@@ -139,3 +152,6 @@ autostart = true
 
 [node name="WeaponDamage" parent="." instance=ExtResource("15_qhwn7")]
 weapon_damage = 3
+
+[node name="PickableAudio" parent="." instance=ExtResource("16_nmau5")]
+pickable_audio_type = SubResource("Resource_wrjrx")

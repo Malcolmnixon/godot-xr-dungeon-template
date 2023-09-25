@@ -168,7 +168,7 @@ func _initial_object_check() -> void:
 	# Check for an initial object
 	if initial_object:
 		# Force pick-up the initial object
-		pick_up_object(get_node(initial_object))
+		pick_up_object(get_node(initial_object), true)
 	else:
 		# Show highlight when empty and enabled
 		highlight_updated.emit(self, enabled)
@@ -229,7 +229,7 @@ func has_snapped_object() -> bool:
 
 
 # Pick up the specified object
-func pick_up_object(target: Node3D) -> void:
+func pick_up_object(target: Node3D, silent := false) -> void:
 	# check if already holding an object
 	if is_instance_valid(picked_up_object):
 		# skip if holding the target object
@@ -245,7 +245,7 @@ func pick_up_object(target: Node3D) -> void:
 	# Pick up our target. Note, target may do instant drop_and_free
 	picked_up_object = target
 	var player = get_node("AudioStreamPlayer3D")
-	if is_instance_valid(player):
+	if not silent and is_instance_valid(player):
 		if player.playing:
 			player.stop()
 		player.stream = stash_sound
