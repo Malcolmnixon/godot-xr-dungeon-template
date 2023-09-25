@@ -46,6 +46,10 @@ input/default_snap_turning=false
 3d_physics/layer_22="Hand Pose Areas"
 3d_physics/layer_23="UI Objects"
 
+[navigation]
+
+3d/default_cell_size=0.1
+
 [rendering]
 
 renderer/rendering_method="mobile"
