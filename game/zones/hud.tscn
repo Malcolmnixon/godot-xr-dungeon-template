@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwgvjjrn38p1k"]
+
+[ext_resource type="Script" path="res://game/zones/hud.gd" id="1_d7mn3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ttfp"]
+bg_color = Color(0.501961, 0.501961, 0.501961, 0.12549)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.501961, 0.501961, 0.501961, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arg3u"]
+bg_color = Color(0.231373, 0.717647, 0, 0.501961)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.231373, 0.717647, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 800.0
+script = ExtResource("1_d7mn3")
+
+[node name="HealthTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 51.0
+offset_right = 156.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 28
+text = "Health"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 50.0
+offset_right = 650.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/background = SubResource("StyleBoxFlat_6ttfp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_arg3u")
+value = 50.0
+rounded = true
+
+[node name="GoldTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 732.0
+offset_right = 655.0
+offset_bottom = 774.0
+theme_override_font_sizes/font_size = 28
+text = "Gold"
+
+[node name="GoldValue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 689.0
+offset_top = 732.0
+offset_right = 769.0
+offset_bottom = 774.0
+theme_override_font_sizes/font_size = 28
+text = "0
+"
+horizontal_alignment = 2

@@ -1,10 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://c8dus1olsfnt1"]
+[gd_scene load_steps=28 format=3 uid="uid://c8dus1olsfnt1"]
 
 [ext_resource type="PackedScene" uid="uid://di1bu0tceg332" path="res://components/persistent/persistent_zone.tscn" id="1_t2e22"]
 [ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="2_n37wm"]
 [ext_resource type="PackedScene" uid="uid://di7xw568by31i" path="res://assets/digitaln8m4r3/hands/skeleton/scenes/left_hand_skeleton.tscn" id="3_hix4u"]
 [ext_resource type="AudioStream" uid="uid://bj823rgn3wrm1" path="res://assets/freesound.org/568992__fission9__inventory-open.wav" id="3_sjm4k"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_0hnpi"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_8i21c"]
+[ext_resource type="PackedScene" uid="uid://bwgvjjrn38p1k" path="res://game/zones/hud.tscn" id="4_eo0cs"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="5_5vmxr"]
 [ext_resource type="PackedScene" uid="uid://c3uoohvnshach" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_right.tscn" id="6_be880"]
 [ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="7_vhlab"]
@@ -20,6 +22,11 @@
 [ext_resource type="AudioStream" uid="uid://bpeolr1wiovqu" path="res://assets/freesound.org/371277__goulven__dark-ambient-loop.ogg" id="16_lumhq"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/audio/surface_audio_type.gd" id="17_0o6bn"]
 [ext_resource type="AudioStream" uid="uid://b2l73e0paxxpj" path="res://assets/freesound.org/505135__mitchanary__foot_stone1.wav" id="18_xxgdq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_se8ix"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
 
 [sub_resource type="Resource" id="Resource_kkyco"]
 script = ExtResource("12_1ergk")
@@ -60,6 +67,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
 pocket_id = "backpack_pocket"
 stash_sound = ExtResource("3_sjm4k")
 snap_require = "backpack"
+
+[node name="Viewport2Din3D" parent="XROrigin3D/XRCamera3D" index="1" instance=ExtResource("4_0hnpi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, -1)
+screen_size = Vector2(0.8, 0.8)
+enabled = false
+collision_layer = 0
+scene = ExtResource("4_eo0cs")
+viewport_size = Vector2(800, 800)
+update_mode = 2
+throttle_fps = 15.0
+material = SubResource("StandardMaterial3D_se8ix")
+unshaded = true
 
 [node name="CollisionHandLeft" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("2_n37wm")]
 

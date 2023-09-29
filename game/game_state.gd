@@ -20,6 +20,13 @@ enum GameDifficulty {
 }
 
 
+## Signal emitted when the players health changes
+signal health_changed(value)
+
+## Signal emitted when the players gold changes
+signal gold_changed(value)
+
+
 @export_group("Game Settings")
 
 ## This property sets the starting zone for the game
@@ -29,8 +36,11 @@ enum GameDifficulty {
 @export var game_difficulty : GameDifficulty = GameDifficulty.GAME_NORMAL:
 	set = _set_game_difficulty
 
-## Amount of gold
-@export var gold : int = 0
+## Player health
+@export var health : int = 100 : set = _set_health
+
+## Player gold
+@export var gold : int = 0 : set = _set_gold
 
 
 ## Current zone (when playing game)
@@ -107,10 +117,8 @@ func save_world_state() -> bool:
 
 	# Save the current zone-state, difficulty, and spawn-info
 	current_zone.save_world_state()
-	set_value("game_difficulty", game_difficulty)
 	set_value("current_zone_id", current_zone.zone_info.zone_id)
 	set_value("current_location", body.global_transform)
-	set_value("gold", gold)
 	return true
 
 
@@ -132,10 +140,9 @@ func load_world_state() -> bool:
 		# Default to null (spawn location in level)
 		location = null
 
-	# Restore the game difficulty
+	# Restore the game data
 	game_difficulty = get_value("game_difficulty")
-
-	# Restore the amount of gold
+	health = get_value("health", 100)
 	gold = get_value("gold", 0)
 
 	# Get the zone
@@ -156,3 +163,17 @@ func _set_game_difficulty(p_game_difficulty : GameDifficulty) -> void:
 
 	game_difficulty = p_game_difficulty
 	set_value("game_difficulty", game_difficulty)
+
+
+func _set_health(p_health : int) -> void:
+	health = clamp(p_health, 0, 100)
+	set_value("health", health)
+	health_changed.emit(health)
+
+
+func _set_gold(p_gold : int) -> void:
+	gold = clamp(p_gold, 0, 99999)
+	set_value("gold", gold)
+	gold_changed.emit(gold)
+
+
