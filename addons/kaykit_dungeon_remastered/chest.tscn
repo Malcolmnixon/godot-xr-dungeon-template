@@ -92,7 +92,7 @@ shadow_mesh = SubResource("ArrayMesh_t3q8p")
 [sub_resource type="BoxShape3D" id="BoxShape3D_bqot2"]
 size = Vector3(0.5, 0.5, 0.5)
 
-[node name="Chest" type="Node3D"]
+[node name="Chest" type="Node3D" groups=["persistent"]]
 script = ExtResource("2_ldtkl")
 open_sound = ExtResource("3_r1t17")
 locked_sound = ExtResource("3_dm00w")

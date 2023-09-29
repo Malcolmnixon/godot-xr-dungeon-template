@@ -32,6 +32,9 @@ signal gold_changed(value)
 ## This property sets the starting zone for the game
 @export var starting_zone : PersistentZoneInfo
 
+## Current game slot
+@export var game_slot := "slot1"
+
 ## This property sets the difficulty of the game.
 @export var game_difficulty : GameDifficulty = GameDifficulty.GAME_NORMAL:
 	set = _set_game_difficulty
@@ -42,6 +45,9 @@ signal gold_changed(value)
 ## Player gold
 @export var gold : int = 0 : set = _set_gold
 
+## Game play time
+@export var play_time : float = 0.0
+
 
 ## Current zone (when playing game)
 var current_zone : PersistentZone
@@ -50,6 +56,11 @@ var current_zone : PersistentZone
 func _ready():
 	# Use this game state as the global world state
 	instance = self
+
+
+func _process(delta : float):
+	if not get_tree().paused:
+		play_time += delta
 
 
 ## This method starts a new game.
@@ -63,9 +74,9 @@ func new_game(difficulty := GameDifficulty.GAME_NORMAL) -> bool:
 
 
 ## This method loads a game from the specified save-game.
-func load_game(p_name : String) -> bool:
+func load_game() -> bool:
 	# Read data from the save-game file
-	if not load_file(p_name):
+	if not load_file(game_slot):
 		return false
 
 	# Load the world state from the data
@@ -86,22 +97,21 @@ func quit_game() -> bool:
 
 
 ## This method auto-saves the current game state to disk.
-func auto_save_game() -> bool:
+func save_game() -> bool:
 	# Save the world state
 	if not save_world_state():
 		return false
 
-	# Get auto save name
-	var auto_save_name = get_value("auto_save_name")
-	if !auto_save_name:
-		# First time saving? Determine this name
-		var date = Time.get_datetime_dict_from_system()
-		auto_save_name = "auto_save_%d-%d-%d" % [ date["year"], date["month"], date["day"] ]
-		set_value("auto_save_name", auto_save_name)
+	# Construct summary
+	var date := Time.get_datetime_dict_from_system()
+	var summary := {
+		"date" : "%d / %d / %d" % [ date.year, date.month, date.day ],
+		"score" : gold,
+		"play_time" : play_time
+	}
 
-	# Should give our auto save a nice summary...
-	var summary : String = auto_save_name
-	return save_file(auto_save_name, summary)
+	# Save the game
+	return save_file(game_slot, summary)
 
 
 ## This method saves the world-state to the [PersistentWorld] system.
@@ -119,6 +129,9 @@ func save_world_state() -> bool:
 	current_zone.save_world_state()
 	set_value("current_zone_id", current_zone.zone_info.zone_id)
 	set_value("current_location", body.global_transform)
+	set_value("health", health)
+	set_value("gold", gold)
+	set_value("play_time", play_time)
 	return true
 
 
@@ -144,6 +157,7 @@ func load_world_state() -> bool:
 	game_difficulty = get_value("game_difficulty")
 	health = get_value("health", 100)
 	gold = get_value("gold", 0)
+	play_time = get_value("play_time", 0.0)
 
 	# Get the zone
 	var zone := zone_database.get_zone(zone_id)
@@ -167,13 +181,9 @@ func _set_game_difficulty(p_game_difficulty : GameDifficulty) -> void:
 
 func _set_health(p_health : int) -> void:
 	health = clamp(p_health, 0, 100)
-	set_value("health", health)
 	health_changed.emit(health)
 
 
 func _set_gold(p_gold : int) -> void:
 	gold = clamp(p_gold, 0, 99999)
-	set_value("gold", gold)
 	gold_changed.emit(gold)
-
-

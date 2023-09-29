@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccn61hr2vhww0"]
+
+[ext_resource type="Theme" uid="uid://bdgm4qmec3ni6" path="res://game/objects/scroll_theme.tres" id="1_7xdo2"]
+[ext_resource type="Texture2D" uid="uid://birfkvx3huqe1" path="res://assets/wikimedia/Paper_Scroll_2.svg.png" id="3_yff45"]
+
+[node name="PauseMenu" type="Control"]
+custom_minimum_size = Vector2(319, 384)
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_7xdo2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 319.0
+offset_bottom = 384.0
+texture = ExtResource("3_yff45")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 109.0
+offset_top = 150.0
+offset_right = 209.0
+offset_bottom = 224.0
+alignment = 1
+
+[node name="Save" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Save"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Quit"

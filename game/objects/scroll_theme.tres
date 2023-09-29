@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bdgm4qmec3ni6"]
+
+[ext_resource type="FontFile" uid="uid://cjq387so6g3ao" path="res://assets/google/Kaushan_Script/KaushanScript-Regular.ttf" id="1_26yp0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swa82"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[resource]
+default_font = ExtResource("1_26yp0")
+default_font_size = 18
+Button/colors/font_color = Color(0, 0, 0, 1)
+HBoxContainer/constants/separation = 50
+Label/colors/font_color = Color(0, 0, 0, 1)
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_swa82")

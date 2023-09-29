@@ -1,0 +1,209 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm41ba5b0ioft"]
+
+[ext_resource type="Script" path="res://game/objects/main_menu_2d.gd" id="1_qqhsx"]
+[ext_resource type="Texture2D" uid="uid://birfkvx3huqe1" path="res://assets/wikimedia/Paper_Scroll_2.svg.png" id="2_4lbyg"]
+[ext_resource type="Theme" uid="uid://bdgm4qmec3ni6" path="res://game/objects/scroll_theme.tres" id="3_k5u6w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_otprv"]
+content_margin_left = 80.0
+content_margin_right = 80.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swa82"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 638.0
+offset_bottom = 768.0
+theme = ExtResource("3_k5u6w")
+script = ExtResource("1_qqhsx")
+
+[node name="Scroll" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 638.0
+offset_bottom = 768.0
+texture = ExtResource("2_4lbyg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_k5u6w")
+theme_override_font_sizes/font_size = 70
+text = "Dungeon Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tabs" type="TabContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_otprv")
+tabs_visible = false
+
+[node name="GameSlots" type="VBoxContainer" parent="VBoxContainer/Tabs"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="GameSlot1" type="PanelContainer" parent="VBoxContainer/Tabs/GameSlots"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Items" type="VBoxContainer" parent="VBoxContainer/Tabs/GameSlots/GameSlot1"]
+layout_mode = 2
+alignment = 1
+
+[node name="Date" type="Label" parent="VBoxContainer/Tabs/GameSlots/GameSlot1/Items"]
+layout_mode = 2
+text = "Empty"
+horizontal_alignment = 1
+
+[node name="PlayTime" type="Label" parent="VBoxContainer/Tabs/GameSlots/GameSlot1/Items"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer/Tabs/GameSlots/GameSlot1/Items"]
+layout_mode = 2
+alignment = 1
+
+[node name="New" type="Button" parent="VBoxContainer/Tabs/GameSlots/GameSlot1/Items/Buttons"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "New"
+
+[node name="Load" type="Button" parent="VBoxContainer/Tabs/GameSlots/GameSlot1/Items/Buttons"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+disabled = true
+text = "Load"
+
+[node name="GameSlot2" type="PanelContainer" parent="VBoxContainer/Tabs/GameSlots"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Items" type="VBoxContainer" parent="VBoxContainer/Tabs/GameSlots/GameSlot2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Date" type="Label" parent="VBoxContainer/Tabs/GameSlots/GameSlot2/Items"]
+layout_mode = 2
+text = "Empty"
+horizontal_alignment = 1
+
+[node name="PlayTime" type="Label" parent="VBoxContainer/Tabs/GameSlots/GameSlot2/Items"]
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer/Tabs/GameSlots/GameSlot2/Items"]
+layout_mode = 2
+alignment = 1
+
+[node name="New" type="Button" parent="VBoxContainer/Tabs/GameSlots/GameSlot2/Items/Buttons"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "New"
+
+[node name="Load" type="Button" parent="VBoxContainer/Tabs/GameSlots/GameSlot2/Items/Buttons"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+disabled = true
+text = "Load"
+
+[node name="GameSlot3" type="PanelContainer" parent="VBoxContainer/Tabs/GameSlots"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_swa82")
+
+[node name="Items" type="VBoxContainer" parent="VBoxContainer/Tabs/GameSlots/GameSlot3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Date" type="Label" parent="VBoxContainer/Tabs/GameSlots/GameSlot3/Items"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Empty"
+horizontal_alignment = 1
+
+[node name="PlayTime" type="Label" parent="VBoxContainer/Tabs/GameSlots/GameSlot3/Items"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-
+"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer/Tabs/GameSlots/GameSlot3/Items"]
+layout_mode = 2
+alignment = 1
+
+[node name="New" type="Button" parent="VBoxContainer/Tabs/GameSlots/GameSlot3/Items/Buttons"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "New"
+
+[node name="Load" type="Button" parent="VBoxContainer/Tabs/GameSlots/GameSlot3/Items/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+disabled = true
+text = "Load"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Tabs"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="OverwriteMessage" type="Label" parent="VBoxContainer/Tabs/VBoxContainer"]
+layout_mode = 2
+text = "Are you sure you wish to overwrite the game?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Tabs/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="OverwriteYes" type="Button" parent="VBoxContainer/Tabs/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Yes"
+
+[node name="OverwriteNo" type="Button" parent="VBoxContainer/Tabs/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "No"
+
+[connection signal="pressed" from="VBoxContainer/Tabs/GameSlots/GameSlot1/Items/Buttons/New" to="." method="_on_slot_new_pressed" binds= ["slot1"]]
+[connection signal="pressed" from="VBoxContainer/Tabs/GameSlots/GameSlot1/Items/Buttons/Load" to="." method="_on_slot_load_pressed" binds= ["slot1"]]
+[connection signal="pressed" from="VBoxContainer/Tabs/GameSlots/GameSlot2/Items/Buttons/New" to="." method="_on_slot_new_pressed" binds= ["slot2"]]
+[connection signal="pressed" from="VBoxContainer/Tabs/GameSlots/GameSlot2/Items/Buttons/Load" to="." method="_on_slot_load_pressed" binds= ["slot2"]]
+[connection signal="pressed" from="VBoxContainer/Tabs/GameSlots/GameSlot3/Items/Buttons/New" to="." method="_on_slot_new_pressed" binds= ["slot3"]]
+[connection signal="pressed" from="VBoxContainer/Tabs/GameSlots/GameSlot3/Items/Buttons/Load" to="." method="_on_slot_load_pressed" binds= ["slot3"]]
+[connection signal="pressed" from="VBoxContainer/Tabs/VBoxContainer/HBoxContainer/OverwriteYes" to="." method="_on_overwrite_yes_pressed"]
+[connection signal="pressed" from="VBoxContainer/Tabs/VBoxContainer/HBoxContainer/OverwriteNo" to="." method="_on_overwrite_no_pressed"]

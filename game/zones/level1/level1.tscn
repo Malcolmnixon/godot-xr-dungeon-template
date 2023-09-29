@@ -84,8 +84,9 @@ transform = Transform3D(-1, 0, 8.74232e-08, 0, 1, 0, -8.74232e-08, 0, -1, 0, 0.1
 
 [node name="Doorway" parent="World/Rooms/Room3x3_1" index="4" instance=ExtResource("7_benvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-locked = true
+door_id = "door_level1_room1"
 key_id = "keyring_blue"
+locked = true
 
 [node name="stool_gltf" parent="World/Rooms/Room3x3_1" index="5" instance=ExtResource("5_vghly")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
@@ -107,8 +108,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
 
 [node name="Chest" parent="World/Rooms/Room3x3_1" index="9" instance=ExtResource("11_twdfn")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -3.9, 0, 4)
-locked = true
 key_id = "keyring_blue"
+locked = true
 
 [node name="Coins" parent="World/Rooms/Room3x3_1/Chest" index="2" instance=ExtResource("14_3e2pu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12911, 0)
@@ -132,14 +133,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -12)
 
 [node name="Doorway" parent="World/Rooms/Room3x3_2" index="4" instance=ExtResource("7_benvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-locked = true
+door_id = "door_level1_room2"
 key_id = "keyring_red"
+locked = true
 
 [node name="Room3x3_3" parent="World/Rooms" index="2" instance=ExtResource("4_g0vhp")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -36)
 
 [node name="Doorway" parent="World/Rooms/Room3x3_3" index="4" instance=ExtResource("7_benvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, 0, -6)
+door_id = "door_level1_room3"
 open = true
 
 [node name="bed_decorated_gltf" parent="World/Rooms/Room3x3_3" index="5" instance=ExtResource("15_bnprf")]
@@ -175,8 +178,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 0
 
 [node name="Doorway" parent="World/Rooms/Room3x3_4" index="4" instance=ExtResource("7_benvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-locked = true
+door_id = "door_level1_room4"
 key_id = "keyring_blue"
+locked = true
 
 [node name="barrel_large_decorated_gltf" parent="World/Rooms/Room3x3_4" index="5" instance=ExtResource("19_84gq5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)

@@ -9,14 +9,17 @@ signal opened
 signal closed
 
 
+# Group for world-data properties
+@export_group("World Data")
+
+## This property specifies the unique ID for this chest
+@export var chest_id : String
+
+# Group for world-data properties
+@export_group("Configuration")
+
 ## Chest swing
 @export var swing := deg_to_rad(-120)
-
-## Chest open state
-@export var open := false : set = _set_open
-
-## Chest locked state
-@export var locked := false : set = _set_locked
 
 ## ID of the key that unlocks this chest
 @export var key_id : String
@@ -33,9 +36,21 @@ signal closed
 ## Sound to play when unlocking
 @export var unlock_sound : AudioStream
 
+# Group for world-data properties
+@export_group("State")
 
-## Current tween
+## Chest open state
+@export var open := false : set = _set_open
+
+## Chest locked state
+@export var locked := false : set = _set_locked
+
+
+# Current tween
 var _tween : Tween
+
+# Loading flag
+var _loading := false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -46,6 +61,59 @@ func _ready():
 	# Connect to lid events
 	$Lid.pointer_pressed.connect(_on_lid_pointer_pressed)
 	$Lid/Lock.body_entered.connect(_on_lock_body_entered)
+
+
+# Get configuration warnings
+func _get_configuration_warnings() -> PackedStringArray:
+	var warnings := PackedStringArray()
+
+	# Verify chest ID is set
+	if not chest_id:
+		warnings.append("Chest ID not zet")
+
+	# Verify item is in persistent group
+	if not is_in_group("persistent"):
+		warnings.append("Chest not in 'persistent' group")
+
+	# Return warnings
+	return warnings
+
+
+# Handle notifications
+func _notification(what : int) -> void:
+	# Ignore notifications on freeing objects
+	if is_queued_for_deletion():
+		return
+
+	match what:
+		Persistent.NOTIFICATION_LOAD_STATE:
+			_load_state()
+
+		Persistent.NOTIFICATION_SAVE_STATE:
+			_save_state()
+
+
+func _load_state() -> void:
+	# Restore the item state
+	var state = PersistentWorld.instance.get_value(chest_id)
+	if not state is Dictionary:
+		return
+
+	# Restore the state fields
+	_loading = true
+	open = state["open"]
+	locked = state["locked"]
+	_loading = false
+
+
+func _save_state() -> void:
+	# Save the door state
+	PersistentWorld.instance.set_value(
+		chest_id,
+		{
+			"open" : open,
+			"locked" : locked
+		})
 
 
 # Handle lid being pressed by player
@@ -84,8 +152,19 @@ func _on_lock_body_entered(body : PhysicsBody3D) -> void:
 func _set_open(p_open : bool) -> void:
 	open = p_open
 	if is_inside_tree():
-		if _tween:
-			_tween.kill()
+		# Pick target
+		var target := swing if open else 0.0
+
+		# Fire opened signal
+		if open:
+			opened.emit()
+		else:
+			closed.emit()
+
+		# If loading then update instantly
+		if _loading:
+			$Lid.rotation.x = target
+			return
 
 		# Start playing the open sound
 		if open_sound:
@@ -94,16 +173,10 @@ func _set_open(p_open : bool) -> void:
 			$Lid/AudioStreamPlayer3D.play()
 
 		# Start swinging the chest to the target
-		var target := swing if open else 0.0
+		if _tween: _tween.kill()
 		_tween = get_tree().create_tween()
 		_tween.set_ease(Tween.EASE_IN_OUT)
 		_tween.tween_property($Lid, "rotation:x", target, duration)
-
-		# Fire opened signal
-		if open:
-			opened.emit()
-		else:
-			closed.emit()
 
 
 # Handle change of chest locked state
@@ -111,7 +184,7 @@ func _set_locked(p_locked : bool) -> void:
 	locked = p_locked
 	if is_inside_tree():
 		# Start playing the unlock sound
-		if unlock_sound:
+		if unlock_sound and not _loading:
 			$Lid/AudioStreamPlayer3D.stop()
 			$Lid/AudioStreamPlayer3D.stream = unlock_sound
 			$Lid/AudioStreamPlayer3D.play()

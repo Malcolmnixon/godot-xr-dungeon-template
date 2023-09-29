@@ -70,7 +70,7 @@ cell_size = 0.1
 [sub_resource type="QuadMesh" id="QuadMesh_8fm42"]
 size = Vector2(2.5, 2.1)
 
-[node name="Doorway" type="Node3D"]
+[node name="Doorway" type="Node3D" groups=["persistent"]]
 script = ExtResource("1_u0gh4")
 open_sound = ExtResource("3_327ow")
 locked_sound = ExtResource("3_soxo0")
@@ -89,7 +89,7 @@ mesh = SubResource("ArrayMesh_cp0m6")
 skeleton = NodePath("")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Door"]
-stream = ExtResource("3_327ow")
+stream = ExtResource("4_apg5y")
 
 [node name="Lock" type="Area3D" parent="Door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 1.1, 0)

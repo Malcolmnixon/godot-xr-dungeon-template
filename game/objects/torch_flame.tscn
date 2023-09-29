@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://drlmrdnlp42mc"]
+
+[ext_resource type="Script" path="res://game/objects/torch_flame.gd" id="1_rfe3k"]
+[ext_resource type="PackedScene" uid="uid://dtssmncfbfma1" path="res://game/items/torch/smoke_particles.tscn" id="2_icb1c"]
+[ext_resource type="PackedScene" uid="uid://d3ege842bh4bf" path="res://game/items/torch/spark_particles.tscn" id="3_toab8"]
+[ext_resource type="AudioStream" uid="uid://cilwe86tab6na" path="res://assets/freesound.org/564621__nox_sound__ambiance_fire_bushes_loop_stereo.wav" id="4_kiqdc"]
+
+[node name="TorchFlame" type="Node3D"]
+script = ExtResource("1_rfe3k")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.945098, 0.729412, 0.207843, 1)
+light_energy = 0.5
+distance_fade_enabled = true
+omni_range = 7.0
+omni_attenuation = 0.967251
+omni_shadow_mode = 0
+
+[node name="SmokeParticles" parent="." instance=ExtResource("2_icb1c")]
+amount = 20
+lifetime = 1.0
+spread = 180.0
+
+[node name="SparkParticles" parent="." instance=ExtResource("3_toab8")]
+amount = 30
+lifetime = 1.0
+gravity = Vector3(0, 0.5, 0)
+initial_velocity_min = 0.1
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_kiqdc")
+unit_size = 3.0
+autoplay = true
+bus = &"Environment"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true

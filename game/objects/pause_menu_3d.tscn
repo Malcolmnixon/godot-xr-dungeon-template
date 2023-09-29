@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://0v2nnojw32xh"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_de2co"]
+[ext_resource type="Script" path="res://game/objects/pause_menu_3d.gd" id="1_o7a5h"]
+[ext_resource type="PackedScene" uid="uid://ccn61hr2vhww0" path="res://game/objects/pause_menu_2d.tscn" id="2_rj6p0"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_mfb70"]
+resource_local_to_scene = true
+size = Vector2(0.206, 0.256)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_obl83"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phc2d"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_obl83")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nlbg2"]
+resource_local_to_scene = true
+size = Vector3(0.206, 0.256, 0.02)
+
+[node name="Pause" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_o7a5h")
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_de2co")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+screen_size = Vector2(0.206, 0.256)
+collision_layer = 5242880
+viewport_size = Vector2(309, 384)
+update_mode = 2
+throttle_fps = 15.0
+unshaded = true
+
+[node name="Viewport" parent="PauseMenu" index="0"]
+size = Vector2i(309, 384)
+
+[node name="PauseMenu" parent="PauseMenu/Viewport" index="0" instance=ExtResource("2_rj6p0")]
+
+[node name="Screen" parent="PauseMenu" index="1"]
+mesh = SubResource("QuadMesh_mfb70")
+surface_material_override/0 = SubResource("StandardMaterial3D_phc2d")
+
+[node name="StaticBody3D" parent="PauseMenu" index="2"]
+collision_layer = 5242880
+screen_size = Vector2(0.206, 0.256)
+viewport_size = Vector2(309, 384)
+
+[node name="CollisionShape3D" parent="PauseMenu/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_nlbg2")
+
+[connection signal="pressed" from="PauseMenu/Viewport/PauseMenu/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="PauseMenu/Viewport/PauseMenu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+
+[editable path="PauseMenu"]
+[editable path="PauseMenu/Viewport/PauseMenu"]

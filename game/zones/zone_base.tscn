@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c8dus1olsfnt1"]
+[gd_scene load_steps=29 format=3 uid="uid://c8dus1olsfnt1"]
 
 [ext_resource type="PackedScene" uid="uid://di1bu0tceg332" path="res://components/persistent/persistent_zone.tscn" id="1_t2e22"]
 [ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="2_n37wm"]
@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bj823rgn3wrm1" path="res://assets/freesound.org/568992__fission9__inventory-open.wav" id="3_sjm4k"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_0hnpi"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_8i21c"]
-[ext_resource type="PackedScene" uid="uid://bwgvjjrn38p1k" path="res://game/zones/hud.tscn" id="4_eo0cs"]
+[ext_resource type="PackedScene" uid="uid://bwgvjjrn38p1k" path="res://game/objects/status_hud.tscn" id="5_2ywpn"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="5_5vmxr"]
 [ext_resource type="PackedScene" uid="uid://c3uoohvnshach" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_right.tscn" id="6_be880"]
 [ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="7_vhlab"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="9_7l83e"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="10_4eyc1"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="12_1ergk"]
+[ext_resource type="PackedScene" uid="uid://0v2nnojw32xh" path="res://game/objects/pause_menu_3d.tscn" id="12_7ccaj"]
 [ext_resource type="PackedScene" uid="uid://qmejywplaagw" path="res://components/persistent/persistent_pocket.tscn" id="14_qgora"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="15_w6o1l"]
 [ext_resource type="PackedScene" uid="uid://0xlsitpu17r1" path="res://addons/godot-xr-tools/functions/movement_footstep.tscn" id="16_3e8dw"]
@@ -68,23 +69,27 @@ pocket_id = "backpack_pocket"
 stash_sound = ExtResource("3_sjm4k")
 snap_require = "backpack"
 
-[node name="Viewport2Din3D" parent="XROrigin3D/XRCamera3D" index="1" instance=ExtResource("4_0hnpi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, -1)
-screen_size = Vector2(0.8, 0.8)
+[node name="StatusHud" parent="XROrigin3D/XRCamera3D" index="1" instance=ExtResource("4_0hnpi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, -1)
+screen_size = Vector2(0.8, 0.042)
 enabled = false
 collision_layer = 0
-scene = ExtResource("4_eo0cs")
-viewport_size = Vector2(800, 800)
+scene = ExtResource("5_2ywpn")
+viewport_size = Vector2(800, 42)
 update_mode = 2
 throttle_fps = 15.0
 material = SubResource("StandardMaterial3D_se8ix")
 unshaded = true
+
+[node name="LeftHand" parent="XROrigin3D" index="1"]
+process_mode = 3
 
 [node name="CollisionHandLeft" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("2_n37wm")]
 
 [node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="0" instance=ExtResource("3_hix4u")]
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="2" instance=ExtResource("4_8i21c")]
+process_mode = 1
 grab_distance = 0.15
 ranged_distance = 1.5
 ranged_angle = 25.0
@@ -101,13 +106,20 @@ distance = 3.0
 show_laser = 2
 laser_length = 1
 show_target = true
-target_radius = 0.02
+target_radius = 0.01
+
+[node name="Pause" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="6" instance=ExtResource("12_7ccaj")]
+transform = Transform3D(-0.0446424, -0.44601, 0.893914, -0.0222462, 0.895028, 0.445455, -0.998755, 0, -0.0498782, -0.108, 0.141, 0.196)
+
+[node name="RightHand" parent="XROrigin3D" index="2"]
+process_mode = 3
 
 [node name="CollisionHandRight" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("6_be880")]
 
 [node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("9_3ou3r")]
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" instance=ExtResource("4_8i21c")]
+process_mode = 1
 grab_distance = 0.15
 ranged_distance = 1.5
 ranged_angle = 25.0
@@ -127,7 +139,7 @@ distance = 3.0
 show_laser = 2
 laser_length = 1
 show_target = true
-target_radius = 0.02
+target_radius = 0.01
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" instance=ExtResource("10_4eyc1")]
 physics = SubResource("Resource_kkyco")
