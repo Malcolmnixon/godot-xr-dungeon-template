@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://0v2nnojw32xh"]
 
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_de2co"]
-[ext_resource type="Script" path="res://game/objects/pause_menu_3d.gd" id="1_o7a5h"]
-[ext_resource type="PackedScene" uid="uid://ccn61hr2vhww0" path="res://game/objects/pause_menu_2d.tscn" id="2_rj6p0"]
+[ext_resource type="Script" path="res://game/objects/pause_menu/pause_menu_3d.gd" id="1_o7a5h"]
+[ext_resource type="PackedScene" uid="uid://ccn61hr2vhww0" path="res://game/objects/pause_menu/pause_menu_2d.tscn" id="2_rj6p0"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_mfb70"]
 resource_local_to_scene = true

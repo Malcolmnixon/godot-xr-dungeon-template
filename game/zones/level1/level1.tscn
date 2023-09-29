@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bovruvfyofxy6"]
+[gd_scene load_steps=42 format=3 uid="uid://bovruvfyofxy6"]
 
 [ext_resource type="PackedScene" uid="uid://c8dus1olsfnt1" path="res://game/zones/zone_base.tscn" id="1_g6hii"]
 [ext_resource type="Resource" uid="uid://vit7ieoek04c" path="res://game/zones/level1/level1_info.tres" id="2_a6blg"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://b5oo5vj4g88wk" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/chair.gltf.glb" id="18_7n6bm"]
 [ext_resource type="PackedScene" uid="uid://de0q336ueqnbf" path="res://game/items/torch/torch.tscn" id="18_d1rqo"]
 [ext_resource type="PackedScene" uid="uid://ec672jsmcpgv" path="res://game/items/backpack/backpack.tscn" id="18_qmmw6"]
+[ext_resource type="PackedScene" uid="uid://cygp165ng3x80" path="res://game/items/beer/beer.tscn" id="19_6oo31"]
 [ext_resource type="PackedScene" uid="uid://cqwcs2vr21dvl" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/barrel_large_decorated.gltf.glb" id="19_84gq5"]
 [ext_resource type="PackedScene" uid="uid://1odmgisng2y7" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/barrel_small_stack.gltf.glb" id="20_md54a"]
 [ext_resource type="PackedScene" uid="uid://4it2evukpw76" path="res://game/npcs/skeleton/skeleton_ghost.tscn" id="20_xkaor"]
@@ -87,7 +88,7 @@ transform = Transform3D(-1, 0, 8.74232e-08, 0, 1, 0, -8.74232e-08, 0, -1, 0, 0.1
 
 [node name="Doorway" parent="World/Rooms/Room3x3_1" index="4" instance=ExtResource("7_benvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-door_id = "door_level1_room1"
+persistent_id = "door_level1_room1"
 key_id = "keyring_blue"
 locked = true
 
@@ -109,11 +110,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192608, 1, 0.252487)
 [node name="barrel_large_gltf" parent="World/Rooms/Room3x3_1" index="8" instance=ExtResource("7_on40a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
 
-[node name="Chest" parent="World/Rooms/Room3x3_1" index="9" instance=ExtResource("11_twdfn")]
+[node name="Chest" parent="World/Rooms/Room3x3_1" index="9" node_paths=PackedStringArray("holding") instance=ExtResource("11_twdfn")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -3.9, 0, 4)
-chest_id = "chest_level1_room1"
+persistent_id = "chest_level1_room1"
 key_id = "keyring_blue"
 locked = true
+holding = [NodePath("Coins")]
 
 [node name="Coins" parent="World/Rooms/Room3x3_1/Chest" index="2" instance=ExtResource("14_3e2pu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12911, 0)
@@ -132,89 +134,103 @@ transform = Transform3D(-0.0827818, -0.443666, -0.892361, 0.995725, -4.35245e-08
 [node name="Backpack" parent="World/Rooms/Room3x3_1" index="13" instance=ExtResource("18_qmmw6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01302, 0.461208, -4.65793)
 
-[node name="Room3x3_3" parent="World/Rooms" index="1" instance=ExtResource("4_g0vhp")]
+[node name="Beer" parent="World/Rooms/Room3x3_1" index="15" instance=ExtResource("19_6oo31")]
+transform = Transform3D(-0.912449, 0, -0.409191, 0, 1, 0, 0.409191, 0, -0.912449, 3.73822, 2.04264, 4.00128)
+item_id = "beer_level1_room1"
+
+[node name="Room3x3_2" parent="World/Rooms" index="1" instance=ExtResource("4_g0vhp")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0, -36)
 
-[node name="Doorway" parent="World/Rooms/Room3x3_3" index="4" instance=ExtResource("7_benvm")]
+[node name="Doorway" parent="World/Rooms/Room3x3_2" index="4" instance=ExtResource("7_benvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, 0, -6)
-door_id = "door_level1_room3"
+persistent_id = "door_level1_room2"
 open = true
 
-[node name="bed_decorated_gltf" parent="World/Rooms/Room3x3_3" index="5" instance=ExtResource("15_bnprf")]
+[node name="bed_decorated_gltf" parent="World/Rooms/Room3x3_2" index="5" instance=ExtResource("15_bnprf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, 0, -4.00001)
 
-[node name="table_long_decorated_C_gltf" parent="World/Rooms/Room3x3_3" index="6" instance=ExtResource("16_m51vs")]
+[node name="table_long_decorated_C_gltf" parent="World/Rooms/Room3x3_2" index="6" instance=ExtResource("16_m51vs")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.5, 0, 4.4)
 
-[node name="Coins" parent="World/Rooms/Room3x3_3/table_long_decorated_C_gltf" index="1" instance=ExtResource("14_3e2pu")]
+[node name="Coins" parent="World/Rooms/Room3x3_2/table_long_decorated_C_gltf" index="1" instance=ExtResource("14_3e2pu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.560276, 1.00196, -1.59542)
 item_id = "level1_coins2"
 
-[node name="table_long_tablecloth_gltf" parent="World/Rooms/Room3x3_3" index="7" instance=ExtResource("17_u3qjw")]
+[node name="table_long_tablecloth_gltf" parent="World/Rooms/Room3x3_2" index="7" instance=ExtResource("17_u3qjw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
 
-[node name="chair_gltf" parent="World/Rooms/Room3x3_3" index="8" instance=ExtResource("18_7n6bm")]
+[node name="chair_gltf" parent="World/Rooms/Room3x3_2" index="8" instance=ExtResource("18_7n6bm")]
 transform = Transform3D(0.484275, 0, 0.874916, 0, 1, 0, -0.874916, 0, 0.484275, 4.35251, 4.76837e-07, -3.50922)
 
-[node name="chair_gltf2" parent="World/Rooms/Room3x3_3" index="9" instance=ExtResource("18_7n6bm")]
+[node name="chair_gltf2" parent="World/Rooms/Room3x3_2" index="9" instance=ExtResource("18_7n6bm")]
 transform = Transform3D(0.0399398, 0, -0.999202, 0, 1, 0, 0.999202, 0, 0.0399398, 4.14173, 0, 1.40962)
 
-[node name="chair_gltf3" parent="World/Rooms/Room3x3_3" index="10" instance=ExtResource("18_7n6bm")]
+[node name="chair_gltf3" parent="World/Rooms/Room3x3_2" index="10" instance=ExtResource("18_7n6bm")]
 transform = Transform3D(-0.952023, 0, -0.306027, 0, 1, 0, 0.306027, 0, -0.952023, 2.88102, 0, -0.0749092)
 
-[node name="SkeletonGhost" parent="World/Rooms/Room3x3_3" index="11" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("20_xkaor")]
+[node name="SkeletonGhost" parent="World/Rooms/Room3x3_2" index="11" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("20_xkaor")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 3.20656, -1.19209e-07, -4.25367)
-persistent_id = "level1_skeleton1"
+persistent_id = "skeleton_level1_room2"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
+health = 30
 
-[node name="Room3x3_4" parent="World/Rooms" index="2" instance=ExtResource("4_g0vhp")]
+[node name="Beer" parent="World/Rooms/Room3x3_2" index="13" instance=ExtResource("19_6oo31")]
+transform = Transform3D(-0.466989, 0, -0.884263, 0, 1, 0, 0.884263, 0, -0.466989, -3.31596, 1.08746, -4.75059)
+item_id = "beer_level1_room2"
+
+[node name="Room3x3_3" parent="World/Rooms" index="2" instance=ExtResource("4_g0vhp")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 0, -24)
 
-[node name="Doorway" parent="World/Rooms/Room3x3_4" index="4" instance=ExtResource("7_benvm")]
+[node name="Doorway" parent="World/Rooms/Room3x3_3" index="4" instance=ExtResource("7_benvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-door_id = "door_level1_room4"
+persistent_id = "door_level1_room3"
 key_id = "keyring_blue"
 locked = true
 
-[node name="barrel_large_decorated_gltf" parent="World/Rooms/Room3x3_4" index="5" instance=ExtResource("19_84gq5")]
+[node name="barrel_large_decorated_gltf" parent="World/Rooms/Room3x3_3" index="5" instance=ExtResource("19_84gq5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
 
-[node name="barrel_small_stack_gltf" parent="World/Rooms/Room3x3_4" index="6" instance=ExtResource("20_md54a")]
+[node name="barrel_small_stack_gltf" parent="World/Rooms/Room3x3_3" index="6" instance=ExtResource("20_md54a")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -1)
 
-[node name="barrel_small_stack_gltf2" parent="World/Rooms/Room3x3_4" index="7" instance=ExtResource("20_md54a")]
+[node name="barrel_small_stack_gltf2" parent="World/Rooms/Room3x3_3" index="7" instance=ExtResource("20_md54a")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, 1)
 
-[node name="bottle_A_brown_gltf" parent="World/Rooms/Room3x3_4" index="8" instance=ExtResource("11_3nm66")]
+[node name="bottle_A_brown_gltf" parent="World/Rooms/Room3x3_3" index="8" instance=ExtResource("11_3nm66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
 
-[node name="bottle_A_labeled_brown_gltf" parent="World/Rooms/Room3x3_4" index="9" instance=ExtResource("21_fpk3l")]
+[node name="bottle_A_labeled_brown_gltf" parent="World/Rooms/Room3x3_3" index="9" instance=ExtResource("21_fpk3l")]
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -4.58008, 0, 2.70031)
 
-[node name="plate_stack_gltf" parent="World/Rooms/Room3x3_4" index="10" instance=ExtResource("22_u7fjg")]
+[node name="plate_stack_gltf" parent="World/Rooms/Room3x3_3" index="10" instance=ExtResource("22_u7fjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17739, -2.38419e-07, 3.58203)
 
-[node name="rubble_large_gltf" parent="World/Rooms/Room3x3_4" index="11" instance=ExtResource("23_qemyl")]
+[node name="rubble_large_gltf" parent="World/Rooms/Room3x3_3" index="11" instance=ExtResource("23_qemyl")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 3, 0, 4)
 
-[node name="rubble_large_gltf2" parent="World/Rooms/Room3x3_4" index="12" instance=ExtResource("23_qemyl")]
+[node name="rubble_large_gltf2" parent="World/Rooms/Room3x3_3" index="12" instance=ExtResource("23_qemyl")]
 transform = Transform3D(0.230236, 0, 0.973135, 0, 1, 0, -0.973135, 0, 0.230236, 5.09559, 0, -0.209878)
 
-[node name="table_medium_broken_gltf" parent="World/Rooms/Room3x3_4" index="13" instance=ExtResource("24_jnsrw")]
+[node name="table_medium_broken_gltf" parent="World/Rooms/Room3x3_3" index="13" instance=ExtResource("24_jnsrw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1229, 0, 1.93612)
 
-[node name="Skeleton" parent="World/Rooms/Room3x3_4" index="14" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("25_euqyk")]
-persistent_id = "level1_skeleton2"
+[node name="Skeleton" parent="World/Rooms/Room3x3_3" index="14" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("25_euqyk")]
+persistent_id = "skeleton_level1_room3"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
+health = 30
 
-[node name="Coins" parent="World/Rooms/Room3x3_4" index="15" instance=ExtResource("14_3e2pu")]
+[node name="Coins" parent="World/Rooms/Room3x3_3" index="15" instance=ExtResource("14_3e2pu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87472, 0.0843855, 4.2622)
 item_id = "level1_coins3"
 
-[node name="Axe" parent="World/Rooms/Room3x3_4" index="16" instance=ExtResource("31_liaj1")]
+[node name="Axe" parent="World/Rooms/Room3x3_3" index="16" instance=ExtResource("31_liaj1")]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, -4.51965, 0.130254, 4.70282)
+
+[node name="Beer" parent="World/Rooms/Room3x3_3" index="18" instance=ExtResource("19_6oo31")]
+transform = Transform3D(0.824354, 0, 0.566075, 0, 1, 0, -0.566075, 0, 0.824354, -3.97015, 1.81996, -0.97097)
+item_id = "beer_level1_room3"
 
 [node name="Exit" parent="World/Rooms" index="3" instance=ExtResource("32_1rt54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
@@ -222,7 +238,7 @@ script = ExtResource("33_2olkm")
 
 [node name="Doorway" parent="World/Rooms/Exit" index="2" instance=ExtResource("7_benvm")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -14)
-door_id = "door_level1_exit"
+persistent_id = "door_level1_exit"
 key_id = "keyring_red"
 locked = true
 
@@ -255,8 +271,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 36, -4
 [node name="HallL3" parent="World/Hallways" index="6" instance=ExtResource("11_x2lsh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, -4, -48)
 
-[connection signal="closed" from="World/Rooms/Room3x3_1/Chest" to="World/Rooms/Room3x3_1/Chest/Coins" method="enable_access" binds= [false]]
-[connection signal="opened" from="World/Rooms/Room3x3_1/Chest" to="World/Rooms/Room3x3_1/Chest/Coins" method="enable_access" binds= [true]]
 [connection signal="opened" from="World/Rooms/Exit/Doorway" to="World/Rooms/Exit/AudioStreamPlayer" method="play"]
 [connection signal="finished" from="World/Rooms/Exit/AudioStreamPlayer" to="World/Rooms/Exit" method="_on_audio_stream_player_finished"]
 

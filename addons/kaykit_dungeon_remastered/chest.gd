@@ -12,8 +12,8 @@ signal closed
 # Group for world-data properties
 @export_group("World Data")
 
-## This property specifies the unique ID for this chest
-@export var chest_id : String
+## This property specifies the unique persistent-ID for this chest
+@export var persistent_id : String
 
 # Group for world-data properties
 @export_group("Configuration")
@@ -45,6 +45,12 @@ signal closed
 ## Chest locked state
 @export var locked := false : set = _set_locked
 
+# Group for world-data properties
+@export_group("Holding")
+
+# Items being held by chest
+@export var holding : Array[PersistentItem] = []
+
 
 # Current tween
 var _tween : Tween
@@ -68,8 +74,8 @@ func _get_configuration_warnings() -> PackedStringArray:
 	var warnings := PackedStringArray()
 
 	# Verify chest ID is set
-	if not chest_id:
-		warnings.append("Chest ID not zet")
+	if not persistent_id:
+		warnings.append("Persistent ID not zet")
 
 	# Verify item is in persistent group
 	if not is_in_group("persistent"):
@@ -95,7 +101,7 @@ func _notification(what : int) -> void:
 
 func _load_state() -> void:
 	# Restore the item state
-	var state = PersistentWorld.instance.get_value(chest_id)
+	var state = PersistentWorld.instance.get_value(persistent_id)
 	if not state is Dictionary:
 		return
 
@@ -109,7 +115,7 @@ func _load_state() -> void:
 func _save_state() -> void:
 	# Save the door state
 	PersistentWorld.instance.set_value(
-		chest_id,
+		persistent_id,
 		{
 			"open" : open,
 			"locked" : locked
@@ -153,13 +159,16 @@ func _set_open(p_open : bool) -> void:
 	open = p_open
 	if is_inside_tree():
 		# Pick target
-		var target := swing if open else 0.0
+		var target := swing if p_open else 0.0
 
 		# Fire opened signal
-		if open:
+		if p_open:
 			opened.emit()
 		else:
 			closed.emit()
+
+		for h in holding:
+			h.enabled = p_open
 
 		# If loading then update instantly
 		if _loading:

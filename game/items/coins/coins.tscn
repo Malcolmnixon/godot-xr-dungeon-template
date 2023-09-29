@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlk51wyp440tk"]
+[gd_scene load_steps=13 format=3 uid="uid://dlk51wyp440tk"]
 
 [ext_resource type="PackedScene" uid="uid://cc2akik80xtnb" path="res://components/persistent/persistent_item.tscn" id="1_l2fd8"]
 [ext_resource type="Material" uid="uid://dldvxy3lehnlm" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres" id="2_4isvd"]
-[ext_resource type="Script" path="res://game/items/coins/coins.gd" id="2_epe2u"]
-[ext_resource type="Resource" uid="uid://cgvs0idx4hbgo" path="res://game/items/coins/coins_type.tres" id="2_k8yu0"]
+[ext_resource type="Resource" uid="uid://cgvs0idx4hbgo" path="res://game/items/coins/coins_type.tres" id="2_65xld"]
 [ext_resource type="AudioStream" uid="uid://bxfl05a7ii54o" path="res://assets/freesound.org/336567__anthousai__coins-04.wav" id="3_v7n6i"]
+[ext_resource type="Script" path="res://game/items/modifiers/drop_and_free.gd" id="5_xx5r5"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="6_5p5yw"]
+[ext_resource type="Script" path="res://game/items/modifiers/money.gd" id="6_o6ukf"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p37ph"]
 points = PackedVector3Array(0.150584, 0.0529956, 0.101748, 0.101046, 0.00104871, -0.0848113, 0.0725164, 0.127716, -0.0718362, 0.0732012, 0.00124074, 0.101492, 0.144304, 0.105871, -0.070946, 0.164018, 0.00738968, 0.0619761, 0.0704581, 0.130494, 0.00785722, 0.0704581, -0.00246234, -0.0807937, 0.144304, 0.130494, -0.016762, 0.0803106, 0.0763018, 0.111215, 0.144304, -0.00246234, -0.0660004, 0.133499, 0.00190978, 0.109824, 0.119701, 0.0713823, 0.121062, 0.168945, 0.0517173, 0.0767477, 0.110471, 0.112542, -0.0838723, 0.14924, 0.0713823, 0.106291, 0.114785, 0.130494, 0.0127811, 0.0704581, 0.0763018, 0.101367, 0.101109, 0.0152171, 0.124727, 0.154166, 0.110777, -0.0364791)
@@ -49,9 +50,7 @@ shadow_mesh = SubResource("ArrayMesh_31hw3")
 
 [node name="Coins" instance=ExtResource("1_l2fd8")]
 collision_layer = 262144
-script = ExtResource("2_epe2u")
-gold = 10
-item_type = ExtResource("2_k8yu0")
+item_type = ExtResource("2_65xld")
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("ConvexPolygonShape3D_p37ph")
@@ -70,3 +69,10 @@ skeleton = NodePath("")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
 stream = ExtResource("3_v7n6i")
+
+[node name="DropAndFree" type="Node" parent="." index="6" node_paths=PackedStringArray("audio")]
+script = ExtResource("5_xx5r5")
+audio = NodePath("../AudioStreamPlayer")
+
+[node name="Money" type="Node" parent="." index="7"]
+script = ExtResource("6_o6ukf")

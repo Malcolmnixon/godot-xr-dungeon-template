@@ -40,7 +40,7 @@ signal gold_changed(value)
 	set = _set_game_difficulty
 
 ## Player health
-@export var health : int = 100 : set = _set_health
+@export var health : int = 50 : set = _set_health
 
 ## Player gold
 @export var gold : int = 0 : set = _set_gold
@@ -155,7 +155,7 @@ func load_world_state() -> bool:
 
 	# Restore the game data
 	game_difficulty = get_value("game_difficulty")
-	health = get_value("health", 100)
+	health = get_value("health", 50)
 	gold = get_value("gold", 0)
 	play_time = get_value("play_time", 0.0)
 

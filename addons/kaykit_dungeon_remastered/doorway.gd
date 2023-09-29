@@ -13,7 +13,7 @@ signal closed
 @export_group("World Data")
 
 ## This property specifies the unique ID for this door
-@export var door_id : String
+@export var persistent_id : String
 
 # Group for world-data properties
 @export_group("Configuration")
@@ -71,8 +71,8 @@ func _get_configuration_warnings() -> PackedStringArray:
 	var warnings := PackedStringArray()
 
 	# Verify door ID is set
-	if not door_id:
-		warnings.append("Door ID not zet")
+	if not persistent_id:
+		warnings.append("Persistent ID not zet")
 
 	# Verify item is in persistent group
 	if not is_in_group("persistent"):
@@ -98,7 +98,7 @@ func _notification(what : int) -> void:
 
 func _load_state() -> void:
 	# Restore the item state
-	var state = PersistentWorld.instance.get_value(door_id)
+	var state = PersistentWorld.instance.get_value(persistent_id)
 	if not state is Dictionary:
 		return
 
@@ -112,7 +112,7 @@ func _load_state() -> void:
 func _save_state() -> void:
 	# Save the door state
 	PersistentWorld.instance.set_value(
-		door_id,
+		persistent_id,
 		{
 			"open" : open,
 			"locked" : locked

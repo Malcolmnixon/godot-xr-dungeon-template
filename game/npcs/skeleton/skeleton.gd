@@ -225,16 +225,16 @@ func _on_hit_area_body_entered(_body):
 	if _state == State.STAGGER:
 		return
 
-	# Skip if no weapon damage
-	var weapon_damage : WeaponDamage = _body.get_node("WeaponDamage")
-	if not weapon_damage:
+	# Skip if not a weapon
+	var weapon : Weapon = _body.get_node("Weapon")
+	if not weapon:
 		return
 
 	# Switch to the hit sound
 	$FootstepPlayer3D.stop()
 	$HitPlayer3D.play()
 
-	health -= weapon_damage.weapon_damage
+	health -= weapon.weapon_damage
 	if health > 0:
 		# Trigger the stagger
 		_state = State.STAGGER

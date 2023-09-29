@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_g74td"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="5_wv0yj"]
 [ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="7_xllr0"]
-[ext_resource type="PackedScene" uid="uid://cjy6btn3cbobc" path="res://game/items/damage.tscn" id="15_qhwn7"]
-[ext_resource type="PackedScene" uid="uid://drlmrdnlp42mc" path="res://game/objects/torch_flame.tscn" id="15_y6f4u"]
+[ext_resource type="Script" path="res://game/items/modifiers/weapon.gd" id="15_oud2p"]
+[ext_resource type="PackedScene" uid="uid://drlmrdnlp42mc" path="res://game/objects/torch_flame/torch_flame.tscn" id="15_y6f4u"]
 [ext_resource type="PackedScene" uid="uid://bikkxsbo8x7sd" path="res://addons/godot-xr-tools/audio/pickable_audio.tscn" id="16_nmau5"]
 [ext_resource type="AudioStream" uid="uid://o0nwv0jxwfi0" path="res://assets/freesound.org/616504__empiremonkey__weapon-drop.wav" id="17_cwagj"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="18_i10k4"]
@@ -109,11 +109,12 @@ mesh = SubResource("ArrayMesh_dnx46")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ORMMaterial3D_0qqjp")
 
-[node name="WeaponDamage" parent="." instance=ExtResource("15_qhwn7")]
-weapon_damage = 3
-
 [node name="PickableAudio" parent="." instance=ExtResource("16_nmau5")]
 pickable_audio_type = SubResource("Resource_wrjrx")
 
 [node name="TorchFlame" parent="." instance=ExtResource("15_y6f4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.210597, 0)
+
+[node name="Weapon" type="Node" parent="."]
+script = ExtResource("15_oud2p")
+weapon_damage = 3

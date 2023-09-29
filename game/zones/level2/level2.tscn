@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://gxif3mpu2x1n"]
+[gd_scene load_steps=29 format=3 uid="uid://gxif3mpu2x1n"]
 
 [ext_resource type="PackedScene" uid="uid://c8dus1olsfnt1" path="res://game/zones/zone_base.tscn" id="1_osh15"]
 [ext_resource type="Resource" uid="uid://dgv46ff1h06iy" path="res://game/zones/level2/level2_info.tres" id="2_nwyiu"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://clf72psxsot4w" path="res://game/items/keyring/keyring_red.tscn" id="12_pqse4"]
 [ext_resource type="PackedScene" uid="uid://4it2evukpw76" path="res://game/npcs/skeleton/skeleton_ghost.tscn" id="15_788cd"]
 [ext_resource type="PackedScene" uid="uid://xnp6x5ktenq2" path="res://game/npcs/skeleton/skeleton.tscn" id="16_h8uos"]
+[ext_resource type="PackedScene" uid="uid://cygp165ng3x80" path="res://game/items/beer/beer.tscn" id="16_mutnh"]
 [ext_resource type="PackedScene" uid="uid://bdxl53qjmef1o" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/banner_blue.gltf.glb" id="16_yoatw"]
 [ext_resource type="PackedScene" uid="uid://clyk4rwuu1tlb" path="res://addons/kaykit_dungeon_remastered/chest.tscn" id="19_2gpnj"]
 [ext_resource type="PackedScene" uid="uid://dvf6ioywfnnx0" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_doorway_no_door.glb" id="23_tqgsq"]
@@ -92,110 +93,127 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.5367
 [node name="box_stacked_gltf" parent="World/Rooms/Room3x3_1" index="5" instance=ExtResource("8_osodc")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 3.38993, 0, 3.17813)
 
+[node name="Beer" parent="World/Rooms/Room3x3_1/box_stacked_gltf" index="1" instance=ExtResource("16_mutnh")]
+transform = Transform3D(0.825055, 0, 0.565054, 0, 1, 0, -0.565054, 0, 0.825055, 0.707211, 2.04393, 0.401189)
+item_id = "beer_level2_room1"
+
 [node name="crates_stacked_gltf" parent="World/Rooms/Room3x3_1" index="6" instance=ExtResource("9_fr525")]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 4, 0, -4)
 
 [node name="table_long_tablecloth_gltf" parent="World/Rooms/Room3x3_1" index="7" instance=ExtResource("10_mxdy5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3.8147e-06)
 
-[node name="Coins" parent="World/Rooms/Room3x3_1/table_long_tablecloth_gltf" index="1" instance=ExtResource("11_xjx6q")]
+[node name="plate_stack_gltf" parent="World/Rooms/Room3x3_1/table_long_tablecloth_gltf" index="1" instance=ExtResource("12_ilmmg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223558, 0.938423, 0.296564)
+
+[node name="plate_stack_gltf2" parent="World/Rooms/Room3x3_1/table_long_tablecloth_gltf" index="2" instance=ExtResource("12_ilmmg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223558, 0.938423, -0.98126)
+
+[node name="Coins" parent="World/Rooms/Room3x3_1/table_long_tablecloth_gltf" index="3" instance=ExtResource("11_xjx6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0391531, 1.03063, 1.05524)
 item_id = "level2_coins1"
 
-[node name="plate_stack_gltf" parent="World/Rooms/Room3x3_1/table_long_tablecloth_gltf" index="2" instance=ExtResource("12_ilmmg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223558, 0.938423, 0.296564)
-
-[node name="plate_stack_gltf2" parent="World/Rooms/Room3x3_1/table_long_tablecloth_gltf" index="3" instance=ExtResource("12_ilmmg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223558, 0.938423, -0.98126)
+[node name="KeyRingRed" parent="World/Rooms/Room3x3_1/table_long_tablecloth_gltf" index="4" instance=ExtResource("12_pqse4")]
+transform = Transform3D(0.602957, 0.797773, 8.7584e-08, -8.74228e-08, -4.37114e-08, 1, 0.797773, -0.602957, 4.33875e-08, -0.12106, 1.05437, 1.57926)
 
 [node name="chair_gltf" parent="World/Rooms/Room3x3_1" index="8" instance=ExtResource("11_4by5g")]
 transform = Transform3D(-0.559511, 0, 0.828823, 0, 1, 0, -0.828823, 0, -0.559511, -4.11497, 0, -2.65252)
 
-[node name="KeyRingRed" parent="World/Rooms/Room3x3_1" index="9" instance=ExtResource("12_pqse4")]
-transform = Transform3D(0.602957, 0.797773, 8.7584e-08, -8.74228e-08, -4.37114e-08, 1, 0.797773, -0.602957, 4.33875e-08, -4.12106, 1.05437, 1.57926)
-
-[node name="Doorway" parent="World/Rooms/Room3x3_1" index="10" instance=ExtResource("8_hf5s7")]
+[node name="Doorway" parent="World/Rooms/Room3x3_1" index="9" instance=ExtResource("8_hf5s7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.53674e-07, 0, -6)
-door_id = "door_level2_room1"
+persistent_id = "door_level2_room1"
 key_id = "keyring_blue"
 locked = true
 
-[node name="Gallery1" parent="World/Rooms" index="1" instance=ExtResource("7_22s83")]
+[node name="Gallery_2" parent="World/Rooms" index="1" instance=ExtResource("7_22s83")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -16)
 
-[node name="Doorway1" parent="World/Rooms/Gallery1" index="4" instance=ExtResource("8_hf5s7")]
+[node name="Doorway1" parent="World/Rooms/Gallery_2" index="4" instance=ExtResource("8_hf5s7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-door_id = "door_level2_gallery1_1"
+persistent_id = "door_level2_room2_a"
 key_id = "keyring_red"
 locked = true
 
-[node name="Doorway2" parent="World/Rooms/Gallery1" index="5" instance=ExtResource("8_hf5s7")]
+[node name="Doorway2" parent="World/Rooms/Gallery_2" index="5" instance=ExtResource("8_hf5s7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4, 2)
-door_id = "door_level2_gallery1_2"
+persistent_id = "door_level2_room2_b"
 locked = true
 
-[node name="SkeletonGhost" parent="World/Rooms/Gallery1" index="6" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("15_788cd")]
-transform = Transform3D(-0.0991634, 0, -0.995071, 0, 1, 0, 0.995071, 0, -0.0991634, 3.55576, -4, -20.4402)
-persistent_id = "level2_skeleton1"
-target_body = NodePath("../../../../XROrigin3D/PlayerBody")
-target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
-
-[node name="Skeleton" parent="World/Rooms/Gallery1" index="7" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("16_h8uos")]
+[node name="Skeleton" parent="World/Rooms/Gallery_2" index="6" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("16_h8uos")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6898, -4, -22.8711)
-persistent_id = "level2_skeleton2"
+persistent_id = "skeleton_level2_room2_a"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
+health = 30
 
-[node name="crates_stacked_gltf" parent="World/Rooms/Gallery1" index="8" instance=ExtResource("9_fr525")]
+[node name="SkeletonGhost" parent="World/Rooms/Gallery_2" index="7" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("15_788cd")]
+transform = Transform3D(-0.0991634, 0, -0.995071, 0, 1, 0, 0.995071, 0, -0.0991634, 3.55576, -4, -20.4402)
+persistent_id = "skeleton_level2_room2_b"
+target_body = NodePath("../../../../XROrigin3D/PlayerBody")
+target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
+health = 30
+
+[node name="crates_stacked_gltf" parent="World/Rooms/Gallery_2" index="8" instance=ExtResource("9_fr525")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29111, -4, -15.2382)
 
-[node name="Coins" parent="World/Rooms/Gallery1/crates_stacked_gltf" index="1" instance=ExtResource("11_xjx6q")]
+[node name="Coins" parent="World/Rooms/Gallery_2/crates_stacked_gltf" index="1" instance=ExtResource("11_xjx6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.938633, 0.078644, 1.19905)
 sleeping = true
-item_id = "level2_coins2"
+item_id = "coins_level2_room2"
 
-[node name="Gallery2" parent="World/Rooms" index="2" instance=ExtResource("7_22s83")]
+[node name="Gallery_3" parent="World/Rooms" index="2" instance=ExtResource("7_22s83")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -44, 0, 16)
 
-[node name="Doorway" parent="World/Rooms/Gallery2" index="4" instance=ExtResource("8_hf5s7")]
+[node name="Doorway" parent="World/Rooms/Gallery_3" index="4" instance=ExtResource("8_hf5s7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-door_id = "door_level2_gallery2_1"
+persistent_id = "door_level2_room3_a"
 key_id = "keyring_red"
 locked = true
 
-[node name="Doorway2" parent="World/Rooms/Gallery2" index="5" instance=ExtResource("8_hf5s7")]
+[node name="Doorway2" parent="World/Rooms/Gallery_3" index="5" instance=ExtResource("8_hf5s7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4, 2)
-door_id = "door_level2_gallery2_2"
+persistent_id = "door_level2_room3_b"
 locked = true
 
-[node name="Skeleton" parent="World/Rooms/Gallery2" index="6" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("16_h8uos")]
+[node name="Skeleton" parent="World/Rooms/Gallery_3" index="6" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("16_h8uos")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -6)
-persistent_id = "level2_skeleton3"
+persistent_id = "skeleton_level2_room3_a"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
+health = 30
 
-[node name="SkeletonGhost" parent="World/Rooms/Gallery2" index="7" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("15_788cd")]
+[node name="SkeletonGhost" parent="World/Rooms/Gallery_3" index="7" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("15_788cd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-07, 0, -20)
-persistent_id = "level2_skeleton4"
+persistent_id = "skeleton_level2_room3_b"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
+health = 30
 
-[node name="Chest" parent="World/Rooms/Gallery2" index="8" instance=ExtResource("19_2gpnj")]
+[node name="Chest" parent="World/Rooms/Gallery_3" index="8" node_paths=PackedStringArray("holding") instance=ExtResource("19_2gpnj")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 16, -4, -23)
-chest_id = "chest_level2_gallery2_1"
+persistent_id = "chest_level2_room3_a"
+holding = [NodePath("Coins")]
 
-[node name="Coins" parent="World/Rooms/Gallery2/Chest" index="2" instance=ExtResource("11_xjx6q")]
+[node name="Coins" parent="World/Rooms/Gallery_3/Chest" index="2" instance=ExtResource("11_xjx6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135186, 0)
-item_id = "level2_coins3"
+item_id = "coins_level2_room3_a"
 enabled = false
 
-[node name="Chest2" parent="World/Rooms/Gallery2" index="9" instance=ExtResource("19_2gpnj")]
+[node name="Chest2" parent="World/Rooms/Gallery_3" index="9" node_paths=PackedStringArray("holding") instance=ExtResource("19_2gpnj")]
 transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 16, -4, -18)
-chest_id = "chest_level2_gallery2_2"
+persistent_id = "chest_level2_room3_b"
+holding = [NodePath("Coins")]
 
-[node name="Coins" parent="World/Rooms/Gallery2/Chest2" index="2" instance=ExtResource("11_xjx6q")]
-item_id = "level2_coins4"
+[node name="Coins" parent="World/Rooms/Gallery_3/Chest2" index="2" instance=ExtResource("11_xjx6q")]
+item_id = "coins_level2_room3_b"
 enabled = false
+
+[node name="box_stacked_gltf" parent="World/Rooms/Gallery_3" index="11" instance=ExtResource("8_osodc")]
+transform = Transform3D(-0.983076, 0, -0.183196, 0, 1, 0, 0.183196, 0, -0.983076, 15.667, -3.94108, 0.193058)
+
+[node name="Beer" parent="World/Rooms/Gallery_3/box_stacked_gltf" index="1" instance=ExtResource("16_mutnh")]
+transform = Transform3D(0.700424, 0, -0.713727, 0, 1, 0, 0.713727, 0, 0.700424, -0.3887, 1.46081, 1.25814)
+item_id = "beer_level2_room3"
 
 [node name="Hallways" type="Node3D" parent="World" index="5"]
 
@@ -239,13 +257,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -36, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -2)
 
 [node name="Doorway" parent="World/Hallways/wall_doorway_no_door" index="1" instance=ExtResource("8_hf5s7")]
-door_id = "door_level2_hall_1"
+persistent_id = "door_level2_hall_a"
 key_id = "keyring_red"
 locked = true
-
-[connection signal="closed" from="World/Rooms/Gallery2/Chest" to="World/Rooms/Gallery2/Chest/Coins" method="enable_access" binds= [false]]
-[connection signal="opened" from="World/Rooms/Gallery2/Chest" to="World/Rooms/Gallery2/Chest/Coins" method="enable_access" binds= [true]]
-[connection signal="closed" from="World/Rooms/Gallery2/Chest2" to="World/Rooms/Gallery2/Chest2/Coins" method="enable_access" binds= [false]]
-[connection signal="opened" from="World/Rooms/Gallery2/Chest2" to="World/Rooms/Gallery2/Chest2/Coins" method="enable_access" binds= [true]]
 
 [editable path="XROrigin3D/MovementFootstep"]

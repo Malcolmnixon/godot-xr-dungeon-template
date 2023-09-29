@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PersistentItemDatabase" load_steps=9 format=3 uid="uid://cfsg4lgr8r3dv"]
+[gd_resource type="Resource" script_class="PersistentItemDatabase" load_steps=10 format=3 uid="uid://cfsg4lgr8r3dv"]
 
 [ext_resource type="Resource" uid="uid://cubjrmo3w1ew" path="res://game/items/keyring/keyring_blue_type.tres" id="1_2t7i0"]
 [ext_resource type="Script" path="res://components/persistent/persistent_item_database.gd" id="1_6ugvu"]
@@ -8,7 +8,8 @@
 [ext_resource type="Resource" uid="uid://ccvlrnnothsqt" path="res://game/items/sword/sword_type.tres" id="5_fwu0v"]
 [ext_resource type="Resource" uid="uid://c7s1fpbc3pb0c" path="res://game/items/backpack/backpack_type.tres" id="6_24fg7"]
 [ext_resource type="Resource" uid="uid://bywbc58xs0j21" path="res://game/items/axe/axe_type.tres" id="7_nxco7"]
+[ext_resource type="Resource" uid="uid://8g7fmjukque2" path="res://game/items/beer/beer_type.tres" id="8_8kefh"]
 
 [resource]
 script = ExtResource("1_6ugvu")
-items = Array[Resource("res://components/persistent/persistent_item_type.gd")]([ExtResource("1_2t7i0"), ExtResource("2_hjkpe"), ExtResource("3_er7y2"), ExtResource("4_lteqp"), ExtResource("5_fwu0v"), ExtResource("6_24fg7"), ExtResource("7_nxco7")])
+items = Array[Resource("res://components/persistent/persistent_item_type.gd")]([ExtResource("1_2t7i0"), ExtResource("2_hjkpe"), ExtResource("3_er7y2"), ExtResource("4_lteqp"), ExtResource("5_fwu0v"), ExtResource("6_24fg7"), ExtResource("7_nxco7"), ExtResource("8_8kefh")])

@@ -59,42 +59,43 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0,
 
 [node name="Doorway" parent="World/Rooms/Room3x3" index="4" instance=ExtResource("7_amuqy")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.8147e-06, 0, -6)
-door_id = "door_level3_room1"
+persistent_id = "door_level3_room1"
 
 [node name="Skeleton" parent="World/Rooms/Room3x3" index="5" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("8_0a84y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1.90735e-06)
-persistent_id = "level3_skeleton1"
+persistent_id = "skeleton_level3_room1_a"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
 
 [node name="Skeleton2" parent="World/Rooms/Room3x3" index="6" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("8_0a84y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.90735e-06)
-persistent_id = "level3_skeleton2"
+persistent_id = "skeleton_level3_room2_b"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
 
 [node name="Skeleton3" parent="World/Rooms/Room3x3" index="7" node_paths=PackedStringArray("target_body", "target_node") instance=ExtResource("8_0a84y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1.90735e-06)
-persistent_id = "level3_skeleton3"
+persistent_id = "skeleton_level3_room1_c"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
 
-[node name="Chest" parent="World/Rooms/Room3x3" index="8" instance=ExtResource("9_2ybm0")]
+[node name="Chest" parent="World/Rooms/Room3x3" index="8" node_paths=PackedStringArray("holding") instance=ExtResource("9_2ybm0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 4)
-chest_id = "chest_level3_room1"
+persistent_id = "chest_level3_room1"
+holding = [NodePath("Coins"), NodePath("Coins2"), NodePath("Coins3")]
 
 [node name="Coins" parent="World/Rooms/Room3x3/Chest" index="2" instance=ExtResource("10_th6pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0)
-item_id = "coins_level3_room1_1"
+item_id = "coins_level3_room1_a"
 enabled = false
 
 [node name="Coins2" parent="World/Rooms/Room3x3/Chest" index="3" instance=ExtResource("10_th6pe")]
-item_id = "coins_level3_room1_2"
+item_id = "coins_level3_room1_b"
 enabled = false
 
 [node name="Coins3" parent="World/Rooms/Room3x3/Chest" index="4" instance=ExtResource("10_th6pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
-item_id = "coins_level3_room1_3"
+item_id = "coins_level3_room1_c"
 enabled = false
 
 [node name="Hallways" type="Node3D" parent="World" index="4"]
@@ -110,12 +111,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4, -12)
 
 [node name="HallL3" parent="World/Hallways" index="3" instance=ExtResource("5_7jefh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 12)
-
-[connection signal="closed" from="World/Rooms/Room3x3/Chest" to="World/Rooms/Room3x3/Chest/Coins" method="enable_access" binds= [false]]
-[connection signal="closed" from="World/Rooms/Room3x3/Chest" to="World/Rooms/Room3x3/Chest/Coins2" method="enable_access" binds= [false]]
-[connection signal="closed" from="World/Rooms/Room3x3/Chest" to="World/Rooms/Room3x3/Chest/Coins3" method="enable_access" binds= [false]]
-[connection signal="opened" from="World/Rooms/Room3x3/Chest" to="World/Rooms/Room3x3/Chest/Coins" method="enable_access" binds= [true]]
-[connection signal="opened" from="World/Rooms/Room3x3/Chest" to="World/Rooms/Room3x3/Chest/Coins2" method="enable_access" binds= [true]]
-[connection signal="opened" from="World/Rooms/Room3x3/Chest" to="World/Rooms/Room3x3/Chest/Coins3" method="enable_access" binds= [true]]
 
 [editable path="XROrigin3D/MovementFootstep"]

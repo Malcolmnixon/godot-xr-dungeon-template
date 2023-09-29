@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bm41ba5b0ioft"]
 
-[ext_resource type="Script" path="res://game/objects/main_menu_2d.gd" id="1_qqhsx"]
+[ext_resource type="Script" path="res://game/objects/main_menu/main_menu_2d.gd" id="1_qqhsx"]
 [ext_resource type="Texture2D" uid="uid://birfkvx3huqe1" path="res://assets/wikimedia/Paper_Scroll_2.svg.png" id="2_4lbyg"]
 [ext_resource type="Theme" uid="uid://bdgm4qmec3ni6" path="res://game/objects/scroll_theme.tres" id="3_k5u6w"]
 

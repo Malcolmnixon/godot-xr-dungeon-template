@@ -1,4 +1,4 @@
-class_name WeaponDamage
+class_name Weapon
 extends Node
 
 

@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_fs5v7"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_ecfet"]
 [ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="6_rtvry"]
-[ext_resource type="PackedScene" uid="uid://cjy6btn3cbobc" path="res://game/items/damage.tscn" id="7_e2d4h"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_eyt7h"]
 [ext_resource type="Animation" uid="uid://ccds2u22gbxn7" path="res://addons/godot-xr-tools/hands/animations/right/Grip.res" id="9_ucsyn"]
 [ext_resource type="PackedScene" uid="uid://bikkxsbo8x7sd" path="res://addons/godot-xr-tools/audio/pickable_audio.tscn" id="11_5y65e"]
 [ext_resource type="AudioStream" uid="uid://o0nwv0jxwfi0" path="res://assets/freesound.org/616504__empiremonkey__weapon-drop.wav" id="12_p38qr"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="13_enb7n"]
+[ext_resource type="Script" path="res://game/items/modifiers/weapon.gd" id="13_nqgg6"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ha5oc"]
 points = PackedVector3Array(0.0264513, -0.0259768, 0.0101229, -0.0334286, 0.0928551, -0.00859395, -0.0334286, 0.0928551, 0.00810579, -0.0267432, -0.100864, 0.0114468, 0.0133319, -0.107548, -0.0219582, 0.00998916, 0.132983, -0.00859395, 0.0116986, 0.0363446, 0.0250652, 0.00998916, -0.107548, 0.0248111, -0.0234005, 0.132983, 0.018129, -0.0234005, -0.104206, -0.0152761, -0.0234005, 0.132983, -0.0186171, 0.0115162, 0.0359999, -0.0252085, 0.0271455, 0.0368368, -0.0108668, 0.0266964, -0.11089, -0.00859395, 0.00998916, 0.132983, 0.00810579, -0.0100422, -0.104206, 0.0248111, -0.00921529, 0.0366197, -0.0258285, 0.0256369, 0.0354876, 0.0126999, 0.0266964, -0.11089, 0.0114468, -0.0334286, 0.122957, 0.0114468, -0.0133786, -0.104206, -0.0219582, -3.27113e-05, 0.132983, 0.018129, -0.00335677, 0.132983, -0.0186171, -0.0267432, -0.100864, -0.011935, -0.0334286, 0.116273, -0.011935, -0.0115705, 0.0350388, 0.0237588, -0.0167213, -0.104206, 0.02147, 0.00862631, -0.0258335, -0.0253272, 0.0166745, -0.11089, 0.018129, -0.0300859, 0.106223, 0.0147879, 0.00330998, 0.132983, -0.0152761, 0.0200172, -0.11089, -0.0152761, -0.0234005, -0.104206, 0.0147879, 0.00889528, -0.026795, 0.0254929, -0.000226167, -0.025836, -0.0253289, -0.0334286, 0.106223, -0.011935, -0.00335677, -0.107548, 0.0248111, -0.0334286, 0.106223, 0.0114468, -0.0116959, -0.0246935, 0.0240637)
@@ -102,7 +102,8 @@ hand_pose = SubResource("Resource_c1b2f")
 transform = Transform3D(-1, 8.74228e-08, -3.56435e-15, -8.62521e-08, -0.986609, 0.163102, 1.42588e-08, 0.163102, 0.986609, 0.01, -0.000329528, -0.087)
 hand_pose = SubResource("Resource_xabgn")
 
-[node name="WeaponDamage" parent="." index="6" instance=ExtResource("7_e2d4h")]
-
-[node name="PickableAudio" parent="." index="7" instance=ExtResource("11_5y65e")]
+[node name="PickableAudio" parent="." index="6" instance=ExtResource("11_5y65e")]
 pickable_audio_type = SubResource("Resource_kej6b")
+
+[node name="Weapon" type="Node" parent="." index="7"]
+script = ExtResource("13_nqgg6")

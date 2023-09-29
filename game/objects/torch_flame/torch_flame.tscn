@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://drlmrdnlp42mc"]
 
-[ext_resource type="Script" path="res://game/objects/torch_flame.gd" id="1_rfe3k"]
-[ext_resource type="PackedScene" uid="uid://dtssmncfbfma1" path="res://game/items/torch/smoke_particles.tscn" id="2_icb1c"]
-[ext_resource type="PackedScene" uid="uid://d3ege842bh4bf" path="res://game/items/torch/spark_particles.tscn" id="3_toab8"]
+[ext_resource type="Script" path="res://game/objects/torch_flame/torch_flame.gd" id="1_rfe3k"]
+[ext_resource type="PackedScene" uid="uid://dtssmncfbfma1" path="res://game/objects/torch_flame/smoke_particles.tscn" id="2_icb1c"]
+[ext_resource type="PackedScene" uid="uid://d3ege842bh4bf" path="res://game/objects/torch_flame/spark_particles.tscn" id="3_toab8"]
 [ext_resource type="AudioStream" uid="uid://cilwe86tab6na" path="res://assets/freesound.org/564621__nox_sound__ambiance_fire_bushes_loop_stereo.wav" id="4_kiqdc"]
 
 [node name="TorchFlame" type="Node3D"]
