@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://4om31hj88kpa"]
+[gd_scene load_steps=7 format=3 uid="uid://4om31hj88kpa"]
 
 [ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="1_olc4o"]
 [ext_resource type="PackedScene" uid="uid://ccxuyjfu6q3sg" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall.gltf.glb" id="2_84k7n"]
 [ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="3_c8wu4"]
+[ext_resource type="PackedScene" uid="uid://7wbtnrumyrjt" path="res://assets/electronsandsuch.com/triangleweb.tscn" id="4_5k0j7"]
+[ext_resource type="PackedScene" uid="uid://cchuaohe0ji1b" path="res://assets/electronsandsuch.com/cornerweb_bl.tscn" id="5_gcra1"]
 
 [sub_resource type="QuadOccluder3D" id="QuadOccluder3D_mmbct"]
 size = Vector2(13, 5)
@@ -59,3 +61,17 @@ occluder = SubResource("QuadOccluder3D_mmbct")
 [node name="OccluderInstance3D2" type="OccluderInstance3D" parent="Occluders"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -2, 2, 0)
 occluder = SubResource("QuadOccluder3D_mmbct")
+
+[node name="Spiderwebs" type="Node3D" parent="."]
+
+[node name="TriangleWeb" parent="Spiderwebs" instance=ExtResource("4_5k0j7")]
+transform = Transform3D(-4.37114e-08, -0.866025, -0.5, 0, 0.5, -0.866025, 1, -3.78552e-08, -2.18557e-08, 0.901499, 3.47362, -2)
+
+[node name="TriangleWeb2" parent="Spiderwebs" instance=ExtResource("4_5k0j7")]
+transform = Transform3D(-4.37114e-08, 0.866025, 0.5, 1.77636e-15, 0.5, -0.866025, -1, -3.78552e-08, -2.18557e-08, -0.925488, 3.44899, 2)
+
+[node name="CornerWebBl" parent="Spiderwebs" instance=ExtResource("5_gcra1")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -1.05312, 0.937701, -0.0776112)
+
+[node name="CornerWebBl2" parent="Spiderwebs" instance=ExtResource("5_gcra1")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 1.07297, 0.937701, -0.0776112)

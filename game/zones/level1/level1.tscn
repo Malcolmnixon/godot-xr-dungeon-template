@@ -111,6 +111,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
 
 [node name="Chest" parent="World/Rooms/Room3x3_1" index="9" instance=ExtResource("11_twdfn")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -3.9, 0, 4)
+chest_id = "chest_level1_room1"
 key_id = "keyring_blue"
 locked = true
 

@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dttaaoe7p86gf"]
+[gd_scene load_steps=10 format=3 uid="uid://dttaaoe7p86gf"]
 
 [ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="1_mtjte"]
 [ext_resource type="PackedScene" uid="uid://ccxuyjfu6q3sg" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall.gltf.glb" id="2_632r4"]
 [ext_resource type="PackedScene" uid="uid://37v5y64x1ftw" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_corner.gltf.glb" id="3_ntbea"]
 [ext_resource type="PackedScene" uid="uid://bd6smt7a8n5d2" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_half.gltf.glb" id="4_ykm73"]
 [ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="5_0wa4u"]
+[ext_resource type="PackedScene" uid="uid://cwntsq667o7tk" path="res://assets/electronsandsuch.com/cornerweb_tl.tscn" id="6_bik5c"]
+[ext_resource type="PackedScene" uid="uid://cchuaohe0ji1b" path="res://assets/electronsandsuch.com/cornerweb_bl.tscn" id="7_mbdpn"]
 
 [sub_resource type="QuadOccluder3D" id="QuadOccluder3D_7a75c"]
 size = Vector2(13, 5)
@@ -91,3 +93,11 @@ occluder = SubResource("QuadOccluder3D_kygda")
 [node name="OccluderInstance3D5" type="OccluderInstance3D" parent="Occluders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -2)
 occluder = SubResource("QuadOccluder3D_kygda")
+
+[node name="Decorations" type="Node3D" parent="."]
+
+[node name="CornerWebTl" parent="Decorations" instance=ExtResource("6_bik5c")]
+transform = Transform3D(-0.74318, 0, 0.669092, 0, 1, 0, -0.669092, 0, -0.74318, 1.11435, 3.15332, 1.27711)
+
+[node name="CornerWebBl" parent="Decorations" instance=ExtResource("7_mbdpn")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 1.28192, 0.982558, -1.29585)

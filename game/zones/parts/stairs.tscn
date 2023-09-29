@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://w613gtwau88u"]
+[gd_scene load_steps=15 format=3 uid="uid://w613gtwau88u"]
 
 [ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="1_kiqhp"]
 [ext_resource type="Material" uid="uid://dldvxy3lehnlm" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres" id="2_7n428"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="4_p7waf"]
 [ext_resource type="PackedScene" uid="uid://cvrcgxqv3vp3t" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/banner_shield_brown.gltf.glb" id="5_i3mrj"]
 [ext_resource type="PackedScene" uid="uid://bb6km45gq4elq" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/torch_mounted.gltf.glb" id="6_rblet"]
+[ext_resource type="PackedScene" uid="uid://7wbtnrumyrjt" path="res://assets/electronsandsuch.com/triangleweb.tscn" id="7_6r7f4"]
+[ext_resource type="PackedScene" uid="uid://cchuaohe0ji1b" path="res://assets/electronsandsuch.com/cornerweb_bl.tscn" id="8_g3wma"]
+[ext_resource type="PackedScene" uid="uid://cwntsq667o7tk" path="res://assets/electronsandsuch.com/cornerweb_tl.tscn" id="9_40uwr"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_l4vce"]
 _surfaces = [{
@@ -146,3 +149,20 @@ occluder = SubResource("QuadOccluder3D_tmyea")
 [node name="OccluderInstance3D2" type="OccluderInstance3D" parent="Occluders"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 0)
 occluder = SubResource("QuadOccluder3D_tmyea")
+
+[node name="Spiderwebs" type="Node3D" parent="."]
+
+[node name="TriangleWeb" parent="Spiderwebs" instance=ExtResource("7_6r7f4")]
+transform = Transform3D(0.707107, 0.612372, 0.353553, 0, 0.5, -0.866025, -0.707107, 0.612372, 0.353553, -1.02511, 3.46767, -5.60204)
+
+[node name="TriangleWeb2" parent="Spiderwebs" instance=ExtResource("7_6r7f4")]
+transform = Transform3D(0.5, -0.75, -0.433013, 0, 0.5, -0.866025, 0.866025, 0.433013, 0.25, 1.06223, 3.46767, -5.59261)
+
+[node name="CornerWebBl" parent="Spiderwebs" instance=ExtResource("8_g3wma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59237, -0.559627, 0.328344)
+
+[node name="CornerWebBl2" parent="Spiderwebs" instance=ExtResource("8_g3wma")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.708346, -0.0620784, 0.786861)
+
+[node name="CornerWebTl" parent="Spiderwebs" instance=ExtResource("9_40uwr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.777074, 2.99828, 3.35322)

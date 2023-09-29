@@ -182,6 +182,7 @@ target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
 
 [node name="Chest" parent="World/Rooms/Gallery2" index="8" instance=ExtResource("19_2gpnj")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 16, -4, -23)
+chest_id = "chest_level2_gallery2_1"
 
 [node name="Coins" parent="World/Rooms/Gallery2/Chest" index="2" instance=ExtResource("11_xjx6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135186, 0)
@@ -190,6 +191,7 @@ enabled = false
 
 [node name="Chest2" parent="World/Rooms/Gallery2" index="9" instance=ExtResource("19_2gpnj")]
 transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 16, -4, -18)
+chest_id = "chest_level2_gallery2_2"
 
 [node name="Coins" parent="World/Rooms/Gallery2/Chest2" index="2" instance=ExtResource("11_xjx6q")]
 item_id = "level2_coins4"

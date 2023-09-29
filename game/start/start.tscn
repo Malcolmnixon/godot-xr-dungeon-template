@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmt1p0ph3084w"]
+[gd_scene load_steps=14 format=3 uid="uid://cmt1p0ph3084w"]
 
 [ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_qyw0r"]
 [ext_resource type="PackedScene" uid="uid://di7xw568by31i" path="res://assets/digitaln8m4r3/hands/skeleton/scenes/left_hand_skeleton.tscn" id="2_kuu2o"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://drlmrdnlp42mc" path="res://game/objects/torch_flame.tscn" id="8_qdl3d"]
 [ext_resource type="PackedScene" uid="uid://j2dl6pkvoped" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_doorway.glb" id="8_r1gwg"]
 [ext_resource type="PackedScene" uid="uid://bm41ba5b0ioft" path="res://game/objects/main_menu_2d.tscn" id="12_l1ivw"]
+[ext_resource type="AudioStream" uid="uid://riaaupn8rlhe" path="res://assets/freepd.com/The Land of the Dead.mp3" id="13_mwvo8"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="16_6cudi"]
 
 [node name="Start" instance=ExtResource("1_qyw0r")]
@@ -74,3 +75,9 @@ scene = ExtResource("12_l1ivw")
 viewport_size = Vector2(638, 768)
 transparent = 2
 unshaded = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("13_mwvo8")
+volume_db = -5.0
+autoplay = true
+bus = &"Ambient"

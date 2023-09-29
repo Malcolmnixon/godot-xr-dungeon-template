@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlq5txy1khbrp"]
+[gd_scene load_steps=10 format=3 uid="uid://dlq5txy1khbrp"]
 
 [ext_resource type="PackedScene" uid="uid://dvf6ioywfnnx0" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_doorway_no_door.glb" id="1_o7gbt"]
 [ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="2_abnp6"]
 [ext_resource type="PackedScene" uid="uid://ccxuyjfu6q3sg" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall.gltf.glb" id="3_4tjht"]
 [ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="4_6agvc"]
+[ext_resource type="PackedScene" uid="uid://7wbtnrumyrjt" path="res://assets/electronsandsuch.com/triangleweb.tscn" id="5_oicab"]
+[ext_resource type="PackedScene" uid="uid://cchuaohe0ji1b" path="res://assets/electronsandsuch.com/cornerweb_bl.tscn" id="6_2o6qs"]
+[ext_resource type="PackedScene" uid="uid://cwntsq667o7tk" path="res://assets/electronsandsuch.com/cornerweb_tl.tscn" id="7_ve6vp"]
 
 [sub_resource type="QuadOccluder3D" id="QuadOccluder3D_52kc2"]
 size = Vector2(13, 5)
@@ -129,3 +132,17 @@ occluder = SubResource("QuadOccluder3D_ntlbn")
 [node name="OccluderInstance3D5" type="OccluderInstance3D" parent="Occluders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -6.1)
 occluder = SubResource("QuadOccluder3D_ntlbn")
+
+[node name="Spiderwebs" type="Node3D" parent="."]
+
+[node name="TriangleWeb" parent="Spiderwebs" instance=ExtResource("5_oicab")]
+transform = Transform3D(0.866025, 0.433013, 0.25, 0, 0.5, -0.866025, -0.5, 0.75, 0.433013, -5.12015, 3.49553, -5.13413)
+
+[node name="TriangleWeb2" parent="Spiderwebs" instance=ExtResource("5_oicab")]
+transform = Transform3D(-0.707107, -0.612373, -0.353553, -4.27071e-08, 0.5, -0.866025, 0.707107, -0.612372, -0.353553, 5.09491, 3.47419, 5.09512)
+
+[node name="CornerWebBl" parent="Spiderwebs" instance=ExtResource("6_2o6qs")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -4.89993, 1, 5.24174)
+
+[node name="CornerWebTl" parent="Spiderwebs" instance=ExtResource("7_ve6vp")]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 4.77839, 2.99042, -3.00633)
