@@ -70,3 +70,7 @@ func _on_slot_load_pressed(slot : String) -> void:
 	# Load the game from the slot
 	GameState.game_slot = slot
 	GameState.load_game()
+
+
+func _on_quit_pressed():
+	get_tree().quit()

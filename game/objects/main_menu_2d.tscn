@@ -44,7 +44,7 @@ offset_top = 100.0
 offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -175,6 +175,12 @@ layout_mode = 2
 disabled = true
 text = "Load"
 
+[node name="Quit" type="Button" parent="VBoxContainer/Tabs/GameSlots"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit	"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Tabs"]
 visible = false
 layout_mode = 2
@@ -182,7 +188,10 @@ alignment = 1
 
 [node name="OverwriteMessage" type="Label" parent="VBoxContainer/Tabs/VBoxContainer"]
 layout_mode = 2
-text = "Are you sure you wish to overwrite the game?"
+text = "Are you sure you wish to overwrite the game?
+
+"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Tabs/VBoxContainer"]
 layout_mode = 2
@@ -205,5 +214,6 @@ text = "No"
 [connection signal="pressed" from="VBoxContainer/Tabs/GameSlots/GameSlot2/Items/Buttons/Load" to="." method="_on_slot_load_pressed" binds= ["slot2"]]
 [connection signal="pressed" from="VBoxContainer/Tabs/GameSlots/GameSlot3/Items/Buttons/New" to="." method="_on_slot_new_pressed" binds= ["slot3"]]
 [connection signal="pressed" from="VBoxContainer/Tabs/GameSlots/GameSlot3/Items/Buttons/Load" to="." method="_on_slot_load_pressed" binds= ["slot3"]]
+[connection signal="pressed" from="VBoxContainer/Tabs/GameSlots/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tabs/VBoxContainer/HBoxContainer/OverwriteYes" to="." method="_on_overwrite_yes_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tabs/VBoxContainer/HBoxContainer/OverwriteNo" to="." method="_on_overwrite_no_pressed"]

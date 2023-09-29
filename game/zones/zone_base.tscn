@@ -63,6 +63,9 @@ walk_pitch_maximum = 1.0
 
 [node name="ZoneBase" instance=ExtResource("1_t2e22")]
 
+[node name="XRCamera3D" parent="XROrigin3D" index="0"]
+far = 25.0
+
 [node name="BackpackPocket" parent="XROrigin3D/XRCamera3D" index="0" instance=ExtResource("14_qgora")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
 pocket_id = "backpack_pocket"

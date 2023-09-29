@@ -2,6 +2,13 @@
 extends Node3D
 
 
+## Signal emitted when chest is opened
+signal opened
+
+## Signal emitted when chest is closed
+signal closed
+
+
 # Group for world-data properties
 @export_group("World Data")
 
@@ -153,6 +160,12 @@ func _set_open(p_open : bool) -> void:
 
 		# Pick target
 		var target := swing if open else 0.0
+
+		# Fire opened signal
+		if open:
+			opened.emit()
+		else:
+			closed.emit()
 
 		# If loading then update instantly
 		if _loading:
