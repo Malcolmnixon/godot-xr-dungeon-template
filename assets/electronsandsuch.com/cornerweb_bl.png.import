@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqyxvnr1safey"
 path.s3tc="res://.godot/imported/cornerweb_bl.png-96a8b4633c12ee8dbe16cfa4f4f2d1d0.s3tc.ctex"
+path.etc2="res://.godot/imported/cornerweb_bl.png-96a8b4633c12ee8dbe16cfa4f4f2d1d0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/electronsandsuch.com/cornerweb_bl.png"
-dest_files=["res://.godot/imported/cornerweb_bl.png-96a8b4633c12ee8dbe16cfa4f4f2d1d0.s3tc.ctex"]
+dest_files=["res://.godot/imported/cornerweb_bl.png-96a8b4633c12ee8dbe16cfa4f4f2d1d0.s3tc.ctex", "res://.godot/imported/cornerweb_bl.png-96a8b4633c12ee8dbe16cfa4f4f2d1d0.etc2.ctex"]
 
 [params]
 

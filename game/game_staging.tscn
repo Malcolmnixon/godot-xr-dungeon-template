@@ -1,12 +1,129 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6ahju26kcp6g"]
+[gd_scene load_steps=24 format=3 uid="uid://b6ahju26kcp6g"]
 
 [ext_resource type="PackedScene" uid="uid://c2u2yasyfotxr" path="res://components/persistent/persistent_staging.tscn" id="1_umevk"]
 [ext_resource type="Script" path="res://game/game_staging.gd" id="2_8gjjk"]
+[ext_resource type="Material" uid="uid://dldvxy3lehnlm" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres" id="3_4ta3g"]
 [ext_resource type="Texture2D" uid="uid://bbrd3hm4cbiiu" path="res://assets/splash/splash.png" id="3_hmcns"]
+[ext_resource type="Material" uid="uid://cbm8j8cdp6k44" path="res://addons/kaykit_character_pack_adventures/Textures/barbarian.tres" id="3_j26u5"]
+[ext_resource type="Material" uid="uid://cmq5jbekntgkj" path="res://addons/kaykit_character_pack_adventures/Textures/knight.tres" id="5_xga0s"]
+[ext_resource type="Material" uid="uid://chsknl1f6oyne" path="res://addons/kaykit_character_pack_adventures/Textures/mage.tres" id="6_v8qni"]
+[ext_resource type="Material" uid="uid://dgs4w2u8rob07" path="res://addons/kaykit_character_pack_adventures/Textures/rogue.tres" id="7_k2hpa"]
+[ext_resource type="Material" uid="uid://b27gsu8j0j6mk" path="res://assets/KevDev/skeleton/materials/skeleton.material" id="8_rswcr"]
+[ext_resource type="Material" uid="uid://dft88s05d1oo0" path="res://assets/KevDev/skeleton/materials/skeleton_ghost.material" id="9_1gsb6"]
+[ext_resource type="Material" uid="uid://cfh0qjqh4035w" path="res://assets/electronsandsuch.com/cornerweb_bl.tres" id="10_kwsvx"]
+[ext_resource type="Material" uid="uid://dyg7d1er4cao0" path="res://assets/electronsandsuch.com/cornerweb_tl.tres" id="11_x4ocg"]
+[ext_resource type="Material" uid="uid://c2ndqygw05fh8" path="res://assets/electronsandsuch.com/triangleweb.tres" id="12_8gj1w"]
+[ext_resource type="Material" uid="uid://byd4ch5ew41iu" path="res://assets/quaternius/backpack_brown.tres" id="13_migs1"]
+[ext_resource type="Material" uid="uid://cr6ui3ayijpnb" path="res://assets/quaternius/backpack_darkbrown.tres" id="14_bni4w"]
+[ext_resource type="Material" uid="uid://cqni7w1fpg75m" path="res://assets/quaternius/backpack_gold.tres" id="15_yrw5g"]
+[ext_resource type="Material" uid="uid://b73aprvpw0h42" path="res://game/items/keyring/keyring_red_material.tres" id="16_qcfsq"]
+[ext_resource type="Material" uid="uid://cmoj24hjul8v4" path="res://game/items/keyring/keyring_red_transparent_material.tres" id="17_6wsyl"]
+[ext_resource type="Material" uid="uid://uovptik2lu4g" path="res://game/items/keyring/keyring_blue_material.tres" id="18_ytps7"]
+[ext_resource type="Material" uid="uid://b0s5mn4n6a0bk" path="res://game/items/keyring/keyring_blue_transparent_material.tres" id="19_p07cs"]
+[ext_resource type="Material" uid="uid://dflhtqdfinui" path="res://game/items/sword/sword_material_transparent.tres" id="20_e512m"]
+[ext_resource type="Material" uid="uid://k0htsfan6p2j" path="res://game/items/axe/axe_material_transparent.tres" id="21_kb6uh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_pidho"]
+size = Vector2(0.1, 0.1)
 
 [node name="GameStaging" instance=ExtResource("1_umevk")]
 script = ExtResource("2_8gjjk")
 main_scene = "res://game/start/start.tscn"
+
+[node name="Dungeon" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.1, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("3_4ta3g")
+
+[node name="Barbarian" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.1, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("3_j26u5")
+
+[node name="Knight" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0.1, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("5_xga0s")
+
+[node name="Mage" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.1, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("6_v8qni")
+
+[node name="Rogue" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.1, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("7_k2hpa")
+
+[node name="Skeleton" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("8_rswcr")
+
+[node name="SkeletonGhost" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("9_1gsb6")
+
+[node name="CornerWebBl" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, 0, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("10_kwsvx")
+
+[node name="CornerWebTl" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("11_x4ocg")
+
+[node name="TriangleWeb" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("12_8gj1w")
+
+[node name="BackpackBrown" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.1, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("13_migs1")
+
+[node name="BackpackDarkBrown" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.1, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("14_bni4w")
+
+[node name="BackpackGold" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23517e-08, -0.1, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("15_yrw5g")
+
+[node name="KeyringRed" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.1, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("16_qcfsq")
+
+[node name="KeyringRedTransparent" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.1, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("17_6wsyl")
+
+[node name="KeyringBlue" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.2, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("18_ytps7")
+
+[node name="KeyringBlueTransparent" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.2, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("19_p07cs")
+
+[node name="SwordTransparent" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, -0.2, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("20_e512m")
+
+[node name="AxeTransparent" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.2, -1)
+mesh = SubResource("QuadMesh_pidho")
+surface_material_override/0 = ExtResource("21_kb6uh")
 
 [node name="LoadingScreen" parent="." index="2"]
 splash_screen = ExtResource("3_hmcns")

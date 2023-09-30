@@ -37,6 +37,7 @@ _subresources={
 },
 "nodes": {
 "PATH:barrel_large": {
+"decomposition/precision": 2,
 "generate/physics": true
 }
 }

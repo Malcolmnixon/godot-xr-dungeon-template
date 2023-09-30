@@ -173,7 +173,6 @@ transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819
 persistent_id = "skeleton_level1_room2"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
-health = 30
 
 [node name="Beer" parent="World/Rooms/Room3x3_2" index="13" instance=ExtResource("19_6oo31")]
 transform = Transform3D(-0.466989, 0, -0.884263, 0, 1, 0, 0.884263, 0, -0.466989, -3.31596, 1.08746, -4.75059)
@@ -219,7 +218,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1229, 0, 1.93612)
 persistent_id = "skeleton_level1_room3"
 target_body = NodePath("../../../../XROrigin3D/PlayerBody")
 target_node = NodePath("../../../../XROrigin3D/XRCamera3D")
-health = 30
 
 [node name="Coins" parent="World/Rooms/Room3x3_3" index="15" instance=ExtResource("14_3e2pu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87472, 0.0843855, 4.2622)

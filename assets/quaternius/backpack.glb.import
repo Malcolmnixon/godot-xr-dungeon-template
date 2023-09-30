@@ -29,6 +29,20 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
+"materials": {
+"Brown": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/quaternius/backpack_brown.tres"
+},
+"DarkBrown": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/quaternius/backpack_darkbrown.tres"
+},
+"Gold": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/quaternius/backpack_gold.tres"
+}
+},
 "nodes": {
 "PATH:Backpack": {
 "generate/physics": true

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c2ndqygw05fh8"]
+
+[ext_resource type="Texture2D" uid="uid://bilxm6j2nfru8" path="res://assets/electronsandsuch.com/triangleweb.png" id="1_xpx2j"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.25
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_xpx2j")

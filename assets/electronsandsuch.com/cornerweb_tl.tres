@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dyg7d1er4cao0"]
+
+[ext_resource type="Texture2D" uid="uid://dtmnxtt6goim" path="res://assets/electronsandsuch.com/cornerweb_tl.png" id="1_p00fd"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.25
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_p00fd")

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbef6anpn8ffe"
 path.s3tc="res://.godot/imported/GhostSkeletonOutlaw.png-7712ddb49e2f630d38e04c267be438af.s3tc.ctex"
+path.etc2="res://.godot/imported/GhostSkeletonOutlaw.png-7712ddb49e2f630d38e04c267be438af.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/KevDev/skeleton/textures/GhostSkeletonOutlaw.png"
-dest_files=["res://.godot/imported/GhostSkeletonOutlaw.png-7712ddb49e2f630d38e04c267be438af.s3tc.ctex"]
+dest_files=["res://.godot/imported/GhostSkeletonOutlaw.png-7712ddb49e2f630d38e04c267be438af.s3tc.ctex", "res://.godot/imported/GhostSkeletonOutlaw.png-7712ddb49e2f630d38e04c267be438af.etc2.ctex"]
 
 [params]
 

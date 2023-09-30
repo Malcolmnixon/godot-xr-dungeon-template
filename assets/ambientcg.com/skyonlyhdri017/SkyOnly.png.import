@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyvjpr1b2frd4"
 path.s3tc="res://.godot/imported/SkyOnly.png-8be40aaef5d4e4d55bb356de207ddcfe.s3tc.ctex"
+path.etc2="res://.godot/imported/SkyOnly.png-8be40aaef5d4e4d55bb356de207ddcfe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/ambientcg.com/skyonlyhdri017/SkyOnly.png"
-dest_files=["res://.godot/imported/SkyOnly.png-8be40aaef5d4e4d55bb356de207ddcfe.s3tc.ctex"]
+dest_files=["res://.godot/imported/SkyOnly.png-8be40aaef5d4e4d55bb356de207ddcfe.s3tc.ctex", "res://.godot/imported/SkyOnly.png-8be40aaef5d4e4d55bb356de207ddcfe.etc2.ctex"]
 
 [params]
 

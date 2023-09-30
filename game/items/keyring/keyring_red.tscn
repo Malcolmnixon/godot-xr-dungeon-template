@@ -1,16 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://clf72psxsot4w"]
+[gd_scene load_steps=4 format=3 uid="uid://clf72psxsot4w"]
 
 [ext_resource type="PackedScene" uid="uid://be0vlli1ru8ie" path="res://game/items/keyring/keyring.tscn" id="1_1j6vu"]
-[ext_resource type="Texture2D" uid="uid://c1xg2xus5sj0p" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_texture.png" id="2_5d706"]
 [ext_resource type="Resource" uid="uid://b5jw7oef3pv85" path="res://game/items/keyring/keyring_red_type.tres" id="2_dg3p6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hi5ar"]
-albedo_color = Color(1, 0.25098, 0.12549, 1)
-albedo_texture = ExtResource("2_5d706")
+[ext_resource type="Material" uid="uid://b73aprvpw0h42" path="res://game/items/keyring/keyring_red_material.tres" id="3_o31si"]
 
 [node name="KeyRingRed" groups=["keyring_red"] instance=ExtResource("1_1j6vu")]
 item_id = "keyring_red"
 item_type = ExtResource("2_dg3p6")
 
 [node name="keyring" parent="." index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_hi5ar")
+surface_material_override/0 = ExtResource("3_o31si")

@@ -1,14 +1,12 @@
-[gd_scene load_steps=29 format=3 uid="uid://c8dus1olsfnt1"]
+[gd_scene load_steps=27 format=3 uid="uid://c8dus1olsfnt1"]
 
 [ext_resource type="PackedScene" uid="uid://di1bu0tceg332" path="res://components/persistent/persistent_zone.tscn" id="1_t2e22"]
-[ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="2_n37wm"]
 [ext_resource type="PackedScene" uid="uid://di7xw568by31i" path="res://assets/digitaln8m4r3/hands/skeleton/scenes/left_hand_skeleton.tscn" id="3_hix4u"]
 [ext_resource type="AudioStream" uid="uid://bj823rgn3wrm1" path="res://assets/freesound.org/568992__fission9__inventory-open.wav" id="3_sjm4k"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_0hnpi"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_8i21c"]
 [ext_resource type="PackedScene" uid="uid://bwgvjjrn38p1k" path="res://game/objects/status_hud/status_hud.tscn" id="5_2ywpn"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="5_5vmxr"]
-[ext_resource type="PackedScene" uid="uid://c3uoohvnshach" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_right.tscn" id="6_be880"]
 [ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="7_vhlab"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="8_tc6ec"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="8_v3p7m"]
@@ -87,57 +85,53 @@ unshaded = true
 [node name="LeftHand" parent="XROrigin3D" index="1"]
 process_mode = 3
 
-[node name="CollisionHandLeft" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("2_n37wm")]
+[node name="LeftHand" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("3_hix4u")]
 
-[node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="0" instance=ExtResource("3_hix4u")]
-
-[node name="FunctionPickup" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="2" instance=ExtResource("4_8i21c")]
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand" index="1" instance=ExtResource("4_8i21c")]
 process_mode = 1
 grab_distance = 0.15
 ranged_distance = 1.5
 ranged_angle = 25.0
 ranged_collision_mask = 262148
 
-[node name="MovementDirect" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="3" instance=ExtResource("5_5vmxr")]
+[node name="MovementDirect" parent="XROrigin3D/LeftHand" index="2" instance=ExtResource("5_5vmxr")]
 strafe = true
 
-[node name="MovementJump" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="4" instance=ExtResource("7_vhlab")]
+[node name="MovementJump" parent="XROrigin3D/LeftHand" index="3" instance=ExtResource("7_vhlab")]
 jump_button_action = "ax_button"
 
-[node name="FunctionPointer" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="5" instance=ExtResource("8_tc6ec")]
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand" index="4" instance=ExtResource("8_tc6ec")]
 distance = 3.0
 show_laser = 2
 laser_length = 1
 show_target = true
 target_radius = 0.01
 
-[node name="Pause" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="6" instance=ExtResource("12_7ccaj")]
+[node name="Pause" parent="XROrigin3D/LeftHand" index="5" instance=ExtResource("12_7ccaj")]
 transform = Transform3D(-0.0446424, -0.44601, 0.893914, -0.0222462, 0.895028, 0.445455, -0.998755, 0, -0.0498782, -0.108, 0.141, 0.196)
 
 [node name="RightHand" parent="XROrigin3D" index="2"]
 process_mode = 3
 
-[node name="CollisionHandRight" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("6_be880")]
+[node name="RightHand" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("9_3ou3r")]
 
-[node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("9_3ou3r")]
-
-[node name="FunctionPickup" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" instance=ExtResource("4_8i21c")]
+[node name="FunctionPickup" parent="XROrigin3D/RightHand" index="1" instance=ExtResource("4_8i21c")]
 process_mode = 1
 grab_distance = 0.15
 ranged_distance = 1.5
 ranged_angle = 25.0
 ranged_collision_mask = 262148
 
-[node name="MovementDirect" parent="XROrigin3D/RightHand/CollisionHandRight" index="3" instance=ExtResource("5_5vmxr")]
+[node name="MovementDirect" parent="XROrigin3D/RightHand" index="2" instance=ExtResource("5_5vmxr")]
 
-[node name="MovementTurn" parent="XROrigin3D/RightHand/CollisionHandRight" index="4" instance=ExtResource("8_v3p7m")]
+[node name="MovementTurn" parent="XROrigin3D/RightHand" index="3" instance=ExtResource("8_v3p7m")]
 
-[node name="MovementCrouch" parent="XROrigin3D/RightHand/CollisionHandRight" index="5" instance=ExtResource("9_7l83e")]
+[node name="MovementCrouch" parent="XROrigin3D/RightHand" index="4" instance=ExtResource("9_7l83e")]
 
-[node name="MovementJump" parent="XROrigin3D/RightHand/CollisionHandRight" index="6" instance=ExtResource("7_vhlab")]
+[node name="MovementJump" parent="XROrigin3D/RightHand" index="5" instance=ExtResource("7_vhlab")]
 jump_button_action = "ax_button"
 
-[node name="FunctionPointer" parent="XROrigin3D/RightHand/CollisionHandRight" index="7" instance=ExtResource("8_tc6ec")]
+[node name="FunctionPointer" parent="XROrigin3D/RightHand" index="6" instance=ExtResource("8_tc6ec")]
 distance = 3.0
 show_laser = 2
 laser_length = 1
