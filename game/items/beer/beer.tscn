@@ -48,6 +48,7 @@ shadow_mesh = SubResource("ArrayMesh_on43d")
 [node name="Beer" instance=ExtResource("1_fesij")]
 freeze = true
 item_type = ExtResource("2_p0lnb")
+release_mode = 0
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("ConvexPolygonShape3D_jgs2a")

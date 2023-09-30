@@ -8,6 +8,7 @@ enum State {
 	STAGGER,	## Staggering from hit
 	TRACKING,   ## Tracking target
 	SEARCHING,	## Searching for target
+	ATTACKING,	## Attacking player
 	DEAD		## Killed
 }
 
@@ -26,6 +27,12 @@ const TRACKING_DURATION := 3.0
 
 ## Duration of searching after last tracking
 const SEARCHING_DURATION := 10.0
+
+## Attack distance
+const ATTACK_DISTANCE := 1.5
+
+## Damage delivered for each attack
+const ATTACK_DAMAGE := 5.0
 
 ## Default health
 const DEFAULT_HEALTH : int = 30
@@ -77,8 +84,8 @@ func _physics_process(delta : float) -> void:
 	if Engine.is_editor_hint():
 		return
 
-	# Ignore all processing while staggering or dead
-	if _state == State.STAGGER or _state == State.DEAD:
+	# Ignore all processing if dead or "busy"
+	if _state == State.DEAD or _state == State.STAGGER or _state == State.ATTACKING:
 		return
 
 	# Test if we can see the target
@@ -116,6 +123,16 @@ func _physics_process(delta : float) -> void:
 	# If tracking then update target
 	if _state == State.TRACKING:
 		_nav_agent.target_position = target_body.global_position
+
+	# If close enough to attack then attack
+	if global_position.distance_to(target_body.global_position) < ATTACK_DISTANCE:
+		_state = State.ATTACKING
+		$FootstepPlayer3D.stop()
+		if randi_range(0, 1) == 0:
+			_animation.play("animation_library/Attach_01")
+		else:
+			_animation.play("animation_library/Attack_02")
+		return
 
 	# Skip if we can't move to the target
 	if _nav_agent.is_navigation_finished() or not _nav_agent.is_target_reachable():
@@ -247,6 +264,19 @@ func _on_hit_area_body_entered(_body):
 
 func _on_animation_finished(anim_name):
 	match anim_name:
+		"animation_library/Attach_01", "animation_library/Attack_02":
+			# Attack finished, back to tracking
+			_state = State.TRACKING
+			_duration = TRACKING_DURATION
+			$FootstepPlayer3D.play()
+			_animation.play("animation_library/Walk")
+
+			# Account for player damage
+			$PlayerHurt.play()
+			GameState.health = max(0, GameState.health - ATTACK_DAMAGE)
+			if GameState.health <= 0:
+				GameState.quit_game()
+
 		"animation_library/Hit_01":
 			# Hit finished, back to tracking
 			_state = State.TRACKING
