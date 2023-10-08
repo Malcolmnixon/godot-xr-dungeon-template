@@ -1,20 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://ck4wcbivsj3fq"]
+[gd_scene load_steps=18 format=3 uid="uid://ck4wcbivsj3fq"]
 
 [ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="1_2gqgg"]
 [ext_resource type="PackedScene" uid="uid://dvf6ioywfnnx0" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_doorway_no_door.glb" id="2_1a24g"]
-[ext_resource type="PackedScene" uid="uid://ccxuyjfu6q3sg" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall.gltf.glb" id="3_nn1ri"]
+[ext_resource type="PackedScene" uid="uid://cec55d73ud5bx" path="res://addons/kaykit_dungeon_remastered/Assets/scenes/wall.tscn" id="3_nn1ri"]
 [ext_resource type="PackedScene" uid="uid://djgu8vk4vm0xc" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/barrier.gltf.glb" id="4_8vhhr"]
+[ext_resource type="PackedScene" uid="uid://rfyl2njrs282" path="res://addons/kaykit_dungeon_remastered/Assets/scenes/stairs_wall_left.tscn" id="4_kbxt3"]
 [ext_resource type="PackedScene" uid="uid://dn8u8wl7chyhi" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/barrier_half.gltf.glb" id="5_eg7hk"]
 [ext_resource type="PackedScene" uid="uid://bouw4mh3eohcb" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/barrier_colum_half.gltf.glb" id="6_edwee"]
-[ext_resource type="PackedScene" uid="uid://i21db2qli734" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/stairs_wall_left.gltf.glb" id="7_xsq7w"]
 [ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="8_fbiyd"]
 [ext_resource type="PackedScene" uid="uid://coda18dve3jlg" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/pillar_decorated.gltf.glb" id="8_iilae"]
 [ext_resource type="PackedScene" uid="uid://b2cmm3k8i01yc" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/pillar.gltf.glb" id="9_lsuid"]
 [ext_resource type="PackedScene" uid="uid://7wbtnrumyrjt" path="res://assets/electronsandsuch.com/triangleweb.tscn" id="11_cnrg7"]
 [ext_resource type="PackedScene" uid="uid://cchuaohe0ji1b" path="res://assets/electronsandsuch.com/cornerweb_bl.tscn" id="12_ef2jn"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cfn8g"]
-size = Vector3(5.6, 1, 3.4)
 
 [sub_resource type="QuadOccluder3D" id="QuadOccluder3D_epoyp"]
 size = Vector2(29, 9)
@@ -136,15 +133,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -4, -16)
 [node name="floor_tile_large_gltf13" parent="Floor" instance=ExtResource("1_2gqgg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -4, -20)
 
-[node name="stairs_wall_left_gltf" parent="Floor" instance=ExtResource("7_xsq7w")]
+[node name="StairsWallLeft" parent="Floor" instance=ExtResource("4_kbxt3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -4, -26)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor/stairs_wall_left_gltf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/stairs_wall_left_gltf/StaticBody3D"]
-transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0.0418825, -0.327831, 0)
-shape = SubResource("BoxShape3D_cfn8g")
 
 [node name="Walls" type="Node3D" parent="."]
 
@@ -450,12 +440,16 @@ occluder = SubResource("QuadOccluder3D_onxbu")
 
 [node name="TriangleWeb" parent="Spiderwebs" instance=ExtResource("11_cnrg7")]
 transform = Transform3D(0.707107, 0.612372, 0.353553, 0, 0.5, -0.866025, -0.707107, 0.612372, 0.353553, -1.03195, 3.45793, -24.9956)
+visible = false
 
 [node name="TriangleWeb2" parent="Spiderwebs" instance=ExtResource("11_cnrg7")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 3.03247, -3.0144, -21.0498)
+visible = false
 
 [node name="CornerWebBl" parent="Spiderwebs" instance=ExtResource("12_ef2jn")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -0.812287, 1.00287, -9.78129)
+visible = false
 
 [node name="CornerWebBl2" parent="Spiderwebs" instance=ExtResource("12_ef2jn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.46635, -3.01948, -16.1177)
+visible = false

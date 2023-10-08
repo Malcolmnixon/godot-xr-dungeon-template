@@ -48,7 +48,6 @@ _subresources={
 "decomposition/resolution": 10000000,
 "decomposition/revolution_axes_clipping_bias": 0.02,
 "decomposition/symmetry_planes_clipping_bias": 0.02,
-"generate/physics": true,
 "physics/shape_type": 2
 }
 }

@@ -37,8 +37,7 @@ _subresources={
 },
 "nodes": {
 "PATH:wall": {
-"decomposition/precision": 7,
-"generate/physics": true
+"decomposition/precision": 7
 }
 }
 }

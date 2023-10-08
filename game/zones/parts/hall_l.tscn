@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="1_fpmmk"]
 [ext_resource type="PackedScene" uid="uid://37v5y64x1ftw" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_corner.gltf.glb" id="2_mufm3"]
 [ext_resource type="PackedScene" uid="uid://bd6smt7a8n5d2" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_half.gltf.glb" id="3_2h5nr"]
-[ext_resource type="PackedScene" uid="uid://ccxuyjfu6q3sg" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall.gltf.glb" id="4_3b526"]
+[ext_resource type="PackedScene" uid="uid://cec55d73ud5bx" path="res://addons/kaykit_dungeon_remastered/Assets/scenes/wall.tscn" id="4_3b526"]
 [ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="5_x8dih"]
 [ext_resource type="PackedScene" uid="uid://7wbtnrumyrjt" path="res://assets/electronsandsuch.com/triangleweb.tscn" id="6_elgok"]
 [ext_resource type="PackedScene" uid="uid://cchuaohe0ji1b" path="res://assets/electronsandsuch.com/cornerweb_bl.tscn" id="7_l88f6"]

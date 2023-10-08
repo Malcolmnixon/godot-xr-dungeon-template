@@ -37,8 +37,7 @@ _subresources={
 },
 "nodes": {
 "PATH:stairs": {
-"decomposition/precision": 10,
-"generate/physics": true
+"decomposition/precision": 10
 }
 }
 }

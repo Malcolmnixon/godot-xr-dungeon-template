@@ -1,16 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwntsq667o7tk"]
+[gd_scene load_steps=3 format=3 uid="uid://cwntsq667o7tk"]
 
-[ext_resource type="Texture2D" uid="uid://dtmnxtt6goim" path="res://assets/electronsandsuch.com/cornerweb_tl.png" id="1_38o6d"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h407r"]
-transparency = 2
-alpha_scissor_threshold = 0.25
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_texture = ExtResource("1_38o6d")
+[ext_resource type="Material" uid="uid://dyg7d1er4cao0" path="res://assets/electronsandsuch.com/cornerweb_tl.tres" id="1_gtfg7"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_3bdd3"]
-material = SubResource("StandardMaterial3D_h407r")
+material = ExtResource("1_gtfg7")
 size = Vector2(2, 2)
 
 [node name="CornerWebTl" type="MeshInstance3D"]

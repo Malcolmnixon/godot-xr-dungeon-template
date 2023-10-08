@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dttaaoe7p86gf"]
 
 [ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="1_mtjte"]
-[ext_resource type="PackedScene" uid="uid://ccxuyjfu6q3sg" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall.gltf.glb" id="2_632r4"]
+[ext_resource type="PackedScene" uid="uid://cec55d73ud5bx" path="res://addons/kaykit_dungeon_remastered/Assets/scenes/wall.tscn" id="2_632r4"]
 [ext_resource type="PackedScene" uid="uid://37v5y64x1ftw" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_corner.gltf.glb" id="3_ntbea"]
 [ext_resource type="PackedScene" uid="uid://bd6smt7a8n5d2" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_half.gltf.glb" id="4_ykm73"]
 [ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="5_0wa4u"]

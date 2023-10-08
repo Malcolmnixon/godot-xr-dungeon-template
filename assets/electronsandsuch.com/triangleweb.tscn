@@ -1,16 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://7wbtnrumyrjt"]
+[gd_scene load_steps=3 format=3 uid="uid://7wbtnrumyrjt"]
 
-[ext_resource type="Texture2D" uid="uid://bilxm6j2nfru8" path="res://assets/electronsandsuch.com/triangleweb.png" id="1_btojj"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgdgw"]
-transparency = 2
-alpha_scissor_threshold = 0.25
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_texture = ExtResource("1_btojj")
+[ext_resource type="Material" uid="uid://c2ndqygw05fh8" path="res://assets/electronsandsuch.com/triangleweb.tres" id="1_h2gis"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_162fi"]
-material = SubResource("StandardMaterial3D_cgdgw")
+material = ExtResource("1_h2gis")
 size = Vector2(2, 2)
 
 [node name="TriangleWeb" type="MeshInstance3D"]

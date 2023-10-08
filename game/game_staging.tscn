@@ -127,3 +127,6 @@ surface_material_override/0 = ExtResource("21_kb6uh")
 
 [node name="LoadingScreen" parent="." index="2"]
 splash_screen = ExtResource("3_hmcns")
+
+[node name="StartXR" parent="." index="4"]
+target_refresh_rate = 90.0
