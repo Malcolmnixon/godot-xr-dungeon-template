@@ -9,7 +9,7 @@
 [ext_resource type="Material" uid="uid://cr6ui3ayijpnb" path="res://assets/quaternius/backpack_darkbrown.tres" id="4_lvj71"]
 [ext_resource type="Material" uid="uid://cqni7w1fpg75m" path="res://assets/quaternius/backpack_gold.tres" id="5_2833u"]
 [ext_resource type="AudioStream" uid="uid://b4rvwe3cx0xkf" path="res://assets/freesound.org/443956__anational__keys-stash.wav" id="6_jwe5p"]
-[ext_resource type="Material" uid="uid://dldvxy3lehnlm" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres" id="6_pbd4y"]
+[ext_resource type="Material" uid="uid://42bx6lgsjv2n" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_material.tres" id="6_pbd4y"]
 [ext_resource type="AudioStream" uid="uid://bj823rgn3wrm1" path="res://assets/freesound.org/568992__fission9__inventory-open.wav" id="6_rtrr3"]
 [ext_resource type="PackedScene" uid="uid://qmejywplaagw" path="res://components/persistent/persistent_pocket.tscn" id="7_t5gck"]
 [ext_resource type="Material" uid="uid://cmq5jbekntgkj" path="res://addons/kaykit_character_pack_adventures/Textures/knight.tres" id="8_ting4"]

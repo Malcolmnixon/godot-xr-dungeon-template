@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://0t5j2j033ilb"]
+
+[ext_resource type="PackedScene" uid="uid://21vi82qg4qpx" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_half_endcap.gltf.glb" id="1_w2op8"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hja1d"]
+points = PackedVector3Array(-2, 3.44996, -0.5, -2, 3.99992, -0.5, 0, 3.44996, -0.5, -2, 3.2, -0.250098, -2, 3.99992, 0.499902, 0, 3.99992, -0.5, -0.300117, 3.2, -0.250098, 0, 3.44996, 0.499902, -2, 3.2, 0.25, -2, 3.44996, 0.499902, 0, 3.99992, 0.499902, -0.300117, 3.2, 0.25)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_if8nt"]
+points = PackedVector3Array(-2, 0, -0.5, -2, 0, 0.499902, -2, 0.25, -0.5, 0, 0, -0.5, -2, 0.25, 0.499902, 0, 0, 0.499902, -2, 0.5, -0.250098, 0, 0.25, -0.5, -2, 0.5, 0.25, 0, 0.25, 0.499902, -0.300117, 0.5, -0.250098, -0.300117, 0.5, 0.25)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o0xdt"]
+points = PackedVector3Array(-2, 0.5, -0.25, -2, 0.5, 0.25, -2, 3.2, -0.25, -0.3, 0.5, -0.25, -0.3, 0.5, 0.25, -2, 3.2, 0.25, -0.3, 3.2, -0.25, -0.3, 3.2, 0.25)
+
+[node name="wall_half_endcap_gltf" instance=ExtResource("1_w2op8")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_half_endcap" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_half_endcap/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_hja1d")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="wall_half_endcap/StaticBody3D" index="1"]
+shape = SubResource("ConvexPolygonShape3D_if8nt")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="wall_half_endcap/StaticBody3D" index="2"]
+shape = SubResource("ConvexPolygonShape3D_o0xdt")

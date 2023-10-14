@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dhb66afr80hfa"
+uid="uid://k20ox0p080d1"
 path="res://.godot/imported/banner_thin_white.gltf.glb-46f4ea8fa97b0e7b70b2704492ebe94f.scn"
 
 [deps]
@@ -20,7 +20,7 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
 animation/import=true
@@ -32,7 +32,7 @@ _subresources={
 "materials": {
 "texture": {
 "use_external/enabled": true,
-"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres"
+"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_material.tres"
 }
 }
 }

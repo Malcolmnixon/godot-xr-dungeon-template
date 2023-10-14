@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ksgfmg25segs"
+uid="uid://dnfo83c3ysqni"
 path="res://.godot/imported/wall_scaffold.gltf.glb-017331efc8e1e57de8ff7714d7c57061.scn"
 
 [deps]
@@ -20,7 +20,7 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
 animation/import=true
@@ -32,13 +32,7 @@ _subresources={
 "materials": {
 "texture": {
 "use_external/enabled": true,
-"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres"
-}
-},
-"nodes": {
-"PATH:wall_scaffold": {
-"decomposition/precision": 8,
-"generate/physics": true
+"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_material.tres"
 }
 }
 }

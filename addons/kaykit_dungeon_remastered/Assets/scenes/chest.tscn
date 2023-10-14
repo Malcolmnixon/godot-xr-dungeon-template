@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://0f70ufuvyo5g"]
+
+[ext_resource type="PackedScene" uid="uid://bi3ktwel7x6l" path="res://addons/kaykit_dungeon_remastered/Assets/scenes/chest_base.tscn" id="1_ougos"]
+[ext_resource type="PackedScene" uid="uid://bbjrd81fc1dfb" path="res://addons/kaykit_dungeon_remastered/Assets/scenes/chest_lid.tscn" id="2_pt6dc"]
+
+[node name="Chest" type="Node3D"]
+
+[node name="ChestBase" parent="." instance=ExtResource("1_ougos")]
+
+[node name="ChestLid" parent="." instance=ExtResource("2_pt6dc")]
+transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0.5, -0.566)

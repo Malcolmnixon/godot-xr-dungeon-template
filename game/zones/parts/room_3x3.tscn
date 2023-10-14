@@ -1,9 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlq5txy1khbrp"]
+[gd_scene load_steps=7 format=3 uid="uid://dlq5txy1khbrp"]
 
-[ext_resource type="PackedScene" uid="uid://dvf6ioywfnnx0" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_doorway_no_door.glb" id="1_o7gbt"]
-[ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="2_abnp6"]
-[ext_resource type="PackedScene" uid="uid://cec55d73ud5bx" path="res://addons/kaykit_dungeon_remastered/Assets/scenes/wall.tscn" id="3_4tjht"]
-[ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="4_6agvc"]
+[ext_resource type="MeshLibrary" path="res://addons/kaykit_dungeon_remastered/Assets/mesh_library.meshlib" id="1_3oo3w"]
 [ext_resource type="PackedScene" uid="uid://7wbtnrumyrjt" path="res://assets/electronsandsuch.com/triangleweb.tscn" id="5_oicab"]
 [ext_resource type="PackedScene" uid="uid://cchuaohe0ji1b" path="res://assets/electronsandsuch.com/cornerweb_bl.tscn" id="6_2o6qs"]
 [ext_resource type="PackedScene" uid="uid://cwntsq667o7tk" path="res://assets/electronsandsuch.com/cornerweb_tl.tscn" id="7_ve6vp"]
@@ -16,100 +13,16 @@ size = Vector2(5, 5)
 
 [node name="Room3x3" type="Node3D"]
 
-[node name="Floor" type="Node3D" parent="."]
-
-[node name="floor_tile_large_gltf" parent="Floor" instance=ExtResource("2_abnp6")]
-
-[node name="floor_tile_large_gltf2" parent="Floor" instance=ExtResource("2_abnp6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-
-[node name="floor_tile_large_gltf3" parent="Floor" instance=ExtResource("2_abnp6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
-
-[node name="floor_tile_large_gltf4" parent="Floor" instance=ExtResource("2_abnp6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
-
-[node name="floor_tile_large_gltf5" parent="Floor" instance=ExtResource("2_abnp6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
-
-[node name="floor_tile_large_gltf6" parent="Floor" instance=ExtResource("2_abnp6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-
-[node name="floor_tile_large_gltf7" parent="Floor" instance=ExtResource("2_abnp6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
-
-[node name="floor_tile_large_gltf8" parent="Floor" instance=ExtResource("2_abnp6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-
-[node name="floor_tile_large_gltf9" parent="Floor" instance=ExtResource("2_abnp6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
-
-[node name="Walls" type="Node3D" parent="."]
-
-[node name="Wall" parent="Walls" instance=ExtResource("3_4tjht")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
-
-[node name="Wall2" parent="Walls" instance=ExtResource("3_4tjht")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, -4)
-
-[node name="Wall3" parent="Walls" instance=ExtResource("3_4tjht")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, 0)
-
-[node name="Wall4" parent="Walls" instance=ExtResource("3_4tjht")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, 4)
-
-[node name="Wall5" parent="Walls" instance=ExtResource("3_4tjht")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, 6)
-
-[node name="Wall6" parent="Walls" instance=ExtResource("3_4tjht")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 6)
-
-[node name="Wall7" parent="Walls" instance=ExtResource("3_4tjht")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 0, 6)
-
-[node name="Wall8" parent="Walls" instance=ExtResource("3_4tjht")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 6, 0, 4)
-
-[node name="Wall9" parent="Walls" instance=ExtResource("3_4tjht")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 6, 0, 0)
-
-[node name="Wall10" parent="Walls" instance=ExtResource("3_4tjht")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 6, 0, -4)
-
-[node name="Wall11" parent="Walls" instance=ExtResource("3_4tjht")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 4, 0, -6)
-
-[node name="wall_doorway_no_door" parent="Walls" instance=ExtResource("1_o7gbt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-
-[node name="Ceiling" type="Node3D" parent="."]
-
-[node name="CeilingWoodLargeDark1" parent="Ceiling" instance=ExtResource("4_6agvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, -4)
-
-[node name="CeilingWoodLargeDark2" parent="Ceiling" instance=ExtResource("4_6agvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -4)
-
-[node name="CeilingWoodLargeDark3" parent="Ceiling" instance=ExtResource("4_6agvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, -4)
-
-[node name="CeilingWoodLargeDark4" parent="Ceiling" instance=ExtResource("4_6agvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, 0)
-
-[node name="CeilingWoodLargeDark5" parent="Ceiling" instance=ExtResource("4_6agvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-
-[node name="CeilingWoodLargeDark6" parent="Ceiling" instance=ExtResource("4_6agvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 0)
-
-[node name="CeilingWoodLargeDark7" parent="Ceiling" instance=ExtResource("4_6agvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, 4)
-
-[node name="CeilingWoodLargeDark8" parent="Ceiling" instance=ExtResource("4_6agvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4)
-
-[node name="CeilingWoodLargeDark9" parent="Ceiling" instance=ExtResource("4_6agvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 4)
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_3oo3w")
+cell_size = Vector3(0.5, 0.5, 0.5)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65528, 65524, 147, 8, 65524, 147, 0, 65524, 149, 65524, 65528, 1441939, 65524, 0, 1441939, 65524, 8, 1441939, 12, 65528, 1441939, 12, 0, 1441939, 12, 8, 1441939, 8, 12, 655507, 0, 12, 655507, 65528, 12, 655507, 0, 65528, 655552, 65528, 65528, 655552, 8, 65528, 655552, 0, 0, 655552, 65528, 0, 655552, 8, 0, 655552, 8, 8, 655552, 0, 8, 655552, 65528, 8, 655552, 589816, 65528, 524464, 589816, 0, 524464, 589816, 8, 524464, 524288, 65528, 524464, 524288, 0, 524464, 524288, 8, 524464, 524296, 8, 524464, 524296, 0, 524464, 524296, 65528, 524464)
+}
+metadata/_editor_floor_ = Vector3(0, 8, 0)
 
 [node name="Occluders" type="Node3D" parent="."]
 

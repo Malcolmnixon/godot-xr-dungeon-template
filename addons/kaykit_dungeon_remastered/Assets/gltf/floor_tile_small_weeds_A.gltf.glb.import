@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://6aldbduppj7m"
+uid="uid://dtvkp5t17sewf"
 path="res://.godot/imported/floor_tile_small_weeds_A.gltf.glb-c155655b83628b5f26c01308d9dae977.scn"
 
 [deps]
@@ -20,7 +20,7 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
 animation/import=true
@@ -32,7 +32,7 @@ _subresources={
 "materials": {
 "texture": {
 "use_external/enabled": true,
-"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres"
+"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_material.tres"
 }
 },
 "nodes": {

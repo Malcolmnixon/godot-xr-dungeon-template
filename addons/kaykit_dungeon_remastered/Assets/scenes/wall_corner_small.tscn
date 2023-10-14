@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://t6a4fvg75syd"]
+
+[ext_resource type="PackedScene" uid="uid://c4xne82fdapp5" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_corner_small.gltf.glb" id="1_6igwh"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hg3u2"]
+points = PackedVector3Array(0.5, 4, -6.73532e-05, -0.5, 4, 0.499963, -0.25, 3.2, 0.500061, 0.5, 3.44996, -6.73532e-05, 0, 4, -0.5, -0.5, 3.2, 0.249948, -0.5, 3.44996, 0.499963, 0.25, 3.2, -6.73532e-05, 0, 3.2, -0.250083, 0, 3.44996, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4vxpa"]
+points = PackedVector3Array(-1, 3.44996, -0.5, -1, 3.2, -0.25, -1, 3.99992, -0.5, 0, 3.44996, -0.5, -1, 3.2, 0.25, 0, 3.2, -0.25, -1, 3.99992, 0.5, 0, 3.99992, -0.5, -0.500001, 3.2, 0.25, -1, 3.44996, 0.5, -0.500001, 3.99992, 0.5, -0.500001, 3.44996, 0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x0ro0"]
+points = PackedVector3Array(0.5, 4, 0.999965, 0.5, 3.44996, 0.999965, 0.5, 4, 1.74846e-08, -0.5, 4, 0.999965, -0.5, 3.44996, 1.00006, 0.249902, 3.2, 0.999965, 0.25, 3.2, 1.74846e-08, 0.5, 3.44996, 1.74846e-08, -0.5, 4, 0.499933, -0.5, 3.44996, 0.499933, -0.25, 3.2, 0.999965, -0.25, 3.2, 0.500031)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s8xub"]
+points = PackedVector3Array(0.5, 0.249951, -6.73532e-05, -0.25, 0.5, 0.500061, 0.5, 0, -6.73532e-05, 2.98023e-08, 0.249951, -0.5, 2.98023e-08, 0.499951, -0.250083, 0.25, 0.499951, -6.73532e-05, -0.5, 0, 0.499963, -0.5, 0.499951, 0.249948, -0.5, 0.249951, 0.499963, 2.98023e-08, 0, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qgwvx"]
+points = PackedVector3Array(-1, 0, -0.5, -1, 0, 0.499902, -1, 0.25, -0.5, 0, 0, -0.5, -1, 0.25, 0.499902, -0.5, 0, 0.499902, -1, 0.5, -0.250098, 0, 0.25, -0.5, 0, 0.5, -0.250098, -1, 0.5, 0.25, -0.5, 0.25, 0.499902, -0.5, 0.5, 0.25)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lc34u"]
+points = PackedVector3Array(0.5, 0.249951, 0.999938, 0.5, 0, 0.999938, 0.5, 0.249951, 1.74846e-08, 0.25, 0.499951, 1.74846e-08, 0.249902, 0.499951, 0.999938, -0.25, 0.5, 1.00004, -0.5, 0, 1.00004, 0.5, 0, 1.74846e-08, -0.5, 0, 0.49992, -0.5, 0.249951, 0.49992, -0.25, 0.5, 0.500018, -0.5, 0.25, 1.00004)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ord1d"]
+points = PackedVector3Array(-1, 0.5, -0.25, -1, 0.5, 0.25, -1, 3.2, -0.25, -9.78708e-05, 0.5, -0.25, -0.500049, 0.5, 0.25, -1, 3.2, 0.25, -9.78708e-05, 3.2, -0.25, 0.25, 0.5, 0, -0.500049, 3.2, 0.25, 0.25, 3.2, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_77tiy"]
+points = PackedVector3Array(-0.5, 0.5, 0.249982, -0.249951, 0.5, 0.500061, -0.5, 3.2, 0.249982, 0.25, 0.5, 1.74846e-08, -0.249951, 3.2, 0.500061, 0.25, 3.2, 1.74846e-08)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ug6y1"]
+points = PackedVector3Array(-0.249939, 3.2, 1.00004, 0.249951, 3.2, 0.999938, -0.249939, 3.2, 0.500018, -0.249939, 0.5, 1.00004, 0.249951, 0.5, 0.999938, 0.25, 3.2, 1.74846e-08, -0.249939, 0.5, 0.500018, 0.25, 0.5, 1.74846e-08)
+
+[node name="wall_corner_small_gltf" instance=ExtResource("1_6igwh")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_corner_small" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_corner_small/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_hg3u2")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="wall_corner_small/StaticBody3D" index="1"]
+shape = SubResource("ConvexPolygonShape3D_4vxpa")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="wall_corner_small/StaticBody3D" index="2"]
+shape = SubResource("ConvexPolygonShape3D_x0ro0")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="wall_corner_small/StaticBody3D" index="3"]
+shape = SubResource("ConvexPolygonShape3D_s8xub")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="wall_corner_small/StaticBody3D" index="4"]
+shape = SubResource("ConvexPolygonShape3D_qgwvx")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="wall_corner_small/StaticBody3D" index="5"]
+shape = SubResource("ConvexPolygonShape3D_lc34u")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="wall_corner_small/StaticBody3D" index="6"]
+shape = SubResource("ConvexPolygonShape3D_ord1d")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="wall_corner_small/StaticBody3D" index="7"]
+shape = SubResource("ConvexPolygonShape3D_77tiy")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="wall_corner_small/StaticBody3D" index="8"]
+shape = SubResource("ConvexPolygonShape3D_ug6y1")

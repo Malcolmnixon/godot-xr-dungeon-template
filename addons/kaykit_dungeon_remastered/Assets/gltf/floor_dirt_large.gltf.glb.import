@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ckcls7jrt71tv"
+uid="uid://diaaguhnfpj8h"
 path="res://.godot/imported/floor_dirt_large.gltf.glb-694fad5feb2e1173ff8aceef20d5c8c4.scn"
 
 [deps]
@@ -20,7 +20,7 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
 animation/import=true
@@ -32,12 +32,11 @@ _subresources={
 "materials": {
 "texture": {
 "use_external/enabled": true,
-"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres"
+"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_material.tres"
 }
 },
 "nodes": {
 "PATH:floor_dirt_large": {
-"decomposition/precision": 10,
 "generate/physics": true,
 "physics/shape_type": 3,
 "primitive/position": Vector3(0, -0.04, 0),

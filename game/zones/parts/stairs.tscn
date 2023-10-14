@@ -1,11 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://w613gtwau88u"]
+[gd_scene load_steps=8 format=3 uid="uid://w613gtwau88u"]
 
-[ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="1_kiqhp"]
-[ext_resource type="PackedScene" uid="uid://cec55d73ud5bx" path="res://addons/kaykit_dungeon_remastered/Assets/scenes/wall.tscn" id="3_cgif5"]
-[ext_resource type="PackedScene" uid="uid://dhuceb0od6wq5" path="res://addons/kaykit_dungeon_remastered/Assets/scenes/stairs_walled.tscn" id="3_kkffs"]
-[ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="4_p7waf"]
-[ext_resource type="PackedScene" uid="uid://cvrcgxqv3vp3t" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/banner_shield_brown.gltf.glb" id="5_i3mrj"]
-[ext_resource type="PackedScene" uid="uid://bb6km45gq4elq" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/torch_mounted.gltf.glb" id="6_rblet"]
+[ext_resource type="MeshLibrary" path="res://addons/kaykit_dungeon_remastered/Assets/mesh_library.meshlib" id="1_f8tpb"]
+[ext_resource type="PackedScene" uid="uid://qlqxxfmd2s1m" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/banner_shield_brown.gltf.glb" id="5_i3mrj"]
+[ext_resource type="PackedScene" uid="uid://coc76qo8qu00t" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/torch_mounted.gltf.glb" id="6_rblet"]
 [ext_resource type="PackedScene" uid="uid://7wbtnrumyrjt" path="res://assets/electronsandsuch.com/triangleweb.tscn" id="7_6r7f4"]
 [ext_resource type="PackedScene" uid="uid://cchuaohe0ji1b" path="res://assets/electronsandsuch.com/cornerweb_bl.tscn" id="8_g3wma"]
 [ext_resource type="PackedScene" uid="uid://cwntsq667o7tk" path="res://assets/electronsandsuch.com/cornerweb_tl.tscn" id="9_40uwr"]
@@ -15,62 +12,16 @@ size = Vector2(13, 9)
 
 [node name="Stairs" type="Node3D"]
 
-[node name="Floor" type="Node3D" parent="."]
-
-[node name="floor_tile_large_gltf" parent="Floor" instance=ExtResource("1_kiqhp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-
-[node name="floor_tile_large_gltf2" parent="Floor" instance=ExtResource("1_kiqhp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, -4)
-
-[node name="StairsWalled" parent="Floor" instance=ExtResource("3_kkffs")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -4, 2)
-
-[node name="Walls" type="Node3D" parent="."]
-
-[node name="Wall1" parent="Walls" instance=ExtResource("3_cgif5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 4)
-
-[node name="Wall2" parent="Walls" instance=ExtResource("3_cgif5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 4)
-
-[node name="Wall3" parent="Walls" instance=ExtResource("3_cgif5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 0)
-
-[node name="Wall4" parent="Walls" instance=ExtResource("3_cgif5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
-
-[node name="Wall5" parent="Walls" instance=ExtResource("3_cgif5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, -4)
-
-[node name="Wall6" parent="Walls" instance=ExtResource("3_cgif5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, -4)
-
-[node name="Wall11" parent="Walls" instance=ExtResource("3_cgif5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, -8)
-
-[node name="Wall12" parent="Walls" instance=ExtResource("3_cgif5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, -8)
-
-[node name="Wall9" parent="Walls" instance=ExtResource("3_cgif5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, -4, -4)
-
-[node name="Wall10" parent="Walls" instance=ExtResource("3_cgif5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, -4, -4)
-
-[node name="Wall15" parent="Walls" instance=ExtResource("3_cgif5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.50697)
-
-[node name="Ceiling" type="Node3D" parent="."]
-
-[node name="CeilingWoodLargeDark" parent="Ceiling" instance=ExtResource("4_p7waf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-
-[node name="CeilingWoodLargeDark2" parent="Ceiling" instance=ExtResource("4_p7waf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4)
-
-[node name="CeilingWoodLargeDark3" parent="Ceiling" instance=ExtResource("4_p7waf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -4)
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_f8tpb")
+cell_size = Vector3(0.5, 0.5, 0.5)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(-524288, 4, 655531, 4, 8, 1048723, 0, 65523, 147, 65532, 0, 1441939, 65532, 65528, 1441939, 65532, 65520, 1441939, 4, 0, 1441939, 4, 65528, 1441939, 4, 65520, 1441939, -524284, 65528, 1441939, -458756, 65528, 1441939, 0, 8, 1441984, 65532, 8, 1441939, -524288, 65528, 1441984, 524288, 8, 1310896, 524288, 0, 1310896, 524288, 65528, 1310896, 524288, 65520, 1310896, 0, 65520, 1310896)
+}
+metadata/_editor_floor_ = Vector3(0, 4, 0)
 
 [node name="Decorations" type="Node3D" parent="."]
 

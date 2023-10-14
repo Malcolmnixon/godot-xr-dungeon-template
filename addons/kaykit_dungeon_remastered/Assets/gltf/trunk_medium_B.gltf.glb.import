@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bbveb8ahlf7xi"
+uid="uid://dr0gmdw3l8tan"
 path="res://.godot/imported/trunk_medium_B.gltf.glb-0c416596223d07f3d9796f57c4e7286a.scn"
 
 [deps]
@@ -20,7 +20,7 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
 animation/import=true
@@ -32,12 +32,13 @@ _subresources={
 "materials": {
 "texture": {
 "use_external/enabled": true,
-"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres"
+"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_material.tres"
 }
 },
 "nodes": {
 "PATH:trunk_medium_B": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 1
 }
 }
 }

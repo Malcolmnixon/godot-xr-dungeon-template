@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdits53x6rlad"]
+
+[ext_resource type="PackedScene" uid="uid://ccj4veqdbd1il" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/barrier_colum_half.gltf.glb" id="1_utu7t"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dv5i0"]
+points = PackedVector3Array(2, 1.1, 0.1875, 2, 1.1, -0.1875, 0.35, 1.1, 0.187451, 2, 1.07491, 0.25, 2, 1.07491, -0.25, 0.35, 1.1, -0.187549, 0.35, 1.07491, 0.249951, 2, 0, 0.25, 2, 0, -0.25, 0.35, 1.07491, -0.25, 0.35, 0, 0.249951, 0.35, 0, -0.25)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f7rhp"]
+points = PackedVector3Array(-0.35, 0, -0.35, -0.35, 0, 0.35, -0.35, 1.19992, -0.35, 0.349931, 0, -0.35, 0.35, 0, 0.349931, -0.35, 1.19992, 0.35, -2.98023e-08, 1.4, -2.98023e-08, 0.349931, 1.19992, -0.35, 0.35, 1.19992, 0.349931)
+
+[node name="barrier_colum_half_gltf" instance=ExtResource("1_utu7t")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="barrier_colum_half" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barrier_colum_half/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_dv5i0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="barrier_colum_half/StaticBody3D" index="1"]
+shape = SubResource("ConvexPolygonShape3D_f7rhp")

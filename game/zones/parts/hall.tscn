@@ -1,8 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://4om31hj88kpa"]
+[gd_scene load_steps=5 format=3 uid="uid://4om31hj88kpa"]
 
-[ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="1_olc4o"]
-[ext_resource type="PackedScene" uid="uid://cec55d73ud5bx" path="res://addons/kaykit_dungeon_remastered/Assets/scenes/wall.tscn" id="2_84k7n"]
-[ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="3_c8wu4"]
+[ext_resource type="MeshLibrary" path="res://addons/kaykit_dungeon_remastered/Assets/mesh_library.meshlib" id="1_ehto1"]
 [ext_resource type="PackedScene" uid="uid://7wbtnrumyrjt" path="res://assets/electronsandsuch.com/triangleweb.tscn" id="4_5k0j7"]
 [ext_resource type="PackedScene" uid="uid://cchuaohe0ji1b" path="res://assets/electronsandsuch.com/cornerweb_bl.tscn" id="5_gcra1"]
 
@@ -11,46 +9,16 @@ size = Vector2(13, 5)
 
 [node name="Hall" type="Node3D"]
 
-[node name="Floor" type="Node3D" parent="."]
-
-[node name="floor_tile_large_gltf" parent="Floor" instance=ExtResource("1_olc4o")]
-
-[node name="floor_tile_large_gltf2" parent="Floor" instance=ExtResource("1_olc4o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-
-[node name="floor_tile_large_gltf3" parent="Floor" instance=ExtResource("1_olc4o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
-
-[node name="Walls" type="Node3D" parent="."]
-
-[node name="wall_gltf" parent="Walls" instance=ExtResource("2_84k7n")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
-
-[node name="wall_gltf2" parent="Walls" instance=ExtResource("2_84k7n")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 4)
-
-[node name="wall_gltf3" parent="Walls" instance=ExtResource("2_84k7n")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, -4)
-
-[node name="wall_gltf4" parent="Walls" instance=ExtResource("2_84k7n")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 0)
-
-[node name="wall_gltf5" parent="Walls" instance=ExtResource("2_84k7n")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 4)
-
-[node name="wall_gltf6" parent="Walls" instance=ExtResource("2_84k7n")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, -4)
-
-[node name="Ceiling" type="Node3D" parent="."]
-
-[node name="CeilingWoodLargeDark" parent="Ceiling" instance=ExtResource("3_c8wu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-
-[node name="CeilingWoodLargeDark2" parent="Ceiling" instance=ExtResource("3_c8wu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4)
-
-[node name="CeilingWoodLargeDark3" parent="Ceiling" instance=ExtResource("3_c8wu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -4)
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_ehto1")
+cell_size = Vector3(0.5, 0.5, 0.5)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65532, 8, 1441939, 65532, 0, 1441939, 65532, 65528, 1441939, 4, 8, 1441939, 4, 0, 1441939, 4, 65528, 1441939, 0, 8, 1441984, 0, 0, 1441984, 0, 65528, 1441984, 524288, 8, 1310896, 524288, 0, 1310896, 524288, 65528, 1310896)
+}
+metadata/_editor_floor_ = Vector3(0, 8, 0)
 
 [node name="Occluders" type="Node3D" parent="."]
 

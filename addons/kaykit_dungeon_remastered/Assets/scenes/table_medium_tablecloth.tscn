@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckdnbihj44a8g"]
+
+[ext_resource type="PackedScene" uid="uid://cx83a6wl1mm4d" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/table_medium_tablecloth.gltf.glb" id="1_67us1"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sxtsg"]
+points = PackedVector3Array(-0.975137, 0.975, -1, -0.975137, 0.8, -0.975137, -1, 0.975, -0.975137, -0.975137, 1, -0.975137, 0.974942, 0.975, -1, -0.975137, 0.8, 0.974942, 0.974942, 0.8, -0.975137, -1, 0.975, 0.974942, -0.975137, 1, 0.974942, 0.974942, 1, -0.975137, 0.999805, 0.975, -0.975137, -0.975137, 0.975, 0.999805, 0.974942, 0.8, 0.974942, 0.524863, 0.975, 1, 1, 0.975, 0.974942, 0.974942, 1, 0.974942, 0.974942, 0.975, 0.999805)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1hovs"]
+points = PackedVector3Array(0.799922, 0.799922, 0.77498, 0.799922, 0.799922, 0.5, 0.774902, 0.799922, 0.8, 0.9, 8.19564e-08, 0.874981, 0.9, 8.19564e-08, 0.6, -0.800098, 0.799922, 0.5, 0.87498, 8.19564e-08, 0.9, -0.775078, 0.799922, 0.8, -0.9, 8.19564e-08, 0.6, -0.800098, 0.799922, 0.77498, -0.875157, 8.19564e-08, 0.9, -0.9, 8.19564e-08, 0.874981)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_upfrv"]
+points = PackedVector3Array(0.799922, 0.799922, -0.5, 0.9, 8.19564e-08, -0.6, 0.799922, 0.799922, -0.77502, -0.800098, 0.799922, -0.5, 0.9, 8.19564e-08, -0.875019, -0.9, 8.19564e-08, -0.6, 0.774902, 0.799922, -0.8, -0.800098, 0.799922, -0.77502, 0.87498, 8.19564e-08, -0.9, -0.9, 8.19564e-08, -0.875019, -0.775078, 0.799922, -0.8, -0.875157, 8.19564e-08, -0.9)
+
+[node name="table_medium_tablecloth_gltf" instance=ExtResource("1_67us1")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="table_medium_tablecloth" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="table_medium_tablecloth/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_sxtsg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="table_medium_tablecloth/StaticBody3D" index="1"]
+shape = SubResource("ConvexPolygonShape3D_1hovs")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="table_medium_tablecloth/StaticBody3D" index="2"]
+shape = SubResource("ConvexPolygonShape3D_upfrv")

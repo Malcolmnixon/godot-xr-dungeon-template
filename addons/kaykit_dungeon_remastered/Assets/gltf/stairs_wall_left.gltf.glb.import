@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://i21db2qli734"
+uid="uid://bg1hhr8lavwrh"
 path="res://.godot/imported/stairs_wall_left.gltf.glb-7d9295a409edc0ef5df519bdcd0525ce.scn"
 
 [deps]
@@ -20,7 +20,7 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
 animation/import=true
@@ -32,21 +32,7 @@ _subresources={
 "materials": {
 "texture": {
 "use_external/enabled": true,
-"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres"
-}
-},
-"nodes": {
-"PATH:stairs_wall_left": {
-"decomposition/advanced": true,
-"decomposition/convexhull_downsampling": 6,
-"decomposition/max_concavity": 0.001,
-"decomposition/max_convex_hulls": 36,
-"decomposition/plane_downsampling": 6,
-"decomposition/precision": 10,
-"decomposition/resolution": 10000000,
-"decomposition/revolution_axes_clipping_bias": 0.02,
-"decomposition/symmetry_planes_clipping_bias": 0.02,
-"physics/shape_type": 2
+"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_material.tres"
 }
 }
 }

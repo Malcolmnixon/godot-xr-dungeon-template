@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdfwym814jhry"]
+
+[ext_resource type="PackedScene" uid="uid://boabcxcoko0nb" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_half_endcap_sloped.gltf.glb" id="1_t6w4s"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3b05g"]
+points = PackedVector3Array(-2, 3.44996, -0.5, -2, 3.2, -0.250098, -2, 3.99992, -0.5, -0.9, 3.44996, -0.5, -2, 3.2, 0.25, -1.30819, 3.2, -0.250098, -2, 3.99992, 0.499902, -0.9, 3.99992, -0.5, -1.13538, 3.25388, -0.303935, -0.9, 3.44996, 0.499902, -1.30819, 3.2, 0.25, -2, 3.44996, 0.499902, -1.20009, 3.2, -0.150059, -0.9, 3.99992, 0.499902, -1.13538, 3.25388, 0.303837, -1.20009, 3.2, 0.149961)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qt6ek"]
+points = PackedVector3Array(-2, 0, -0.5, -2, 0, 0.499902, -2, 0.25, -0.5, 0, 0, -0.5, -2, 0.25, 0.499902, 0, 0, 0.499902, -2, 0.5, -0.250098, 0, 0.25, -0.5, -2, 0.5, 0.25, 0, 0.25, 0.499902, -0.408183, 0.5, -0.250098, -0.235317, 0.446065, -0.303935, -0.408183, 0.5, 0.25, -0.235317, 0.446065, 0.303837, -0.300117, 0.5, -0.150059, -0.300117, 0.5, 0.149961)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s200s"]
+points = PackedVector3Array(-2, 0.5, -0.25, -0.408164, 0.5, -0.25, -2, 0.5, 0.25, -2, 2.29982, -0.25, -0.3, 0.5, -0.15001, -0.408496, 1.4, -0.25, -0.3, 1.4, -0.15001, -0.408164, 0.5, 0.25, -2, 2.29982, 0.25, -1.30842, 2.3, -0.25, -0.3, 0.5, 0.149961, -1.20009, 2.3, -0.15001, -0.3, 1.39982, 0.149961, -0.408496, 1.39982, 0.25, -1.30842, 2.29982, 0.25, -1.20009, 2.29982, 0.149961)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pnf4h"]
+points = PackedVector3Array(-2, 2.3, -0.25, -2, 2.3, 0.25, -2, 3.2, -0.25, -1.30846, 2.3, -0.25, -1.30846, 2.3, 0.25, -2, 3.2, 0.25, -1.30814, 3.2, -0.25, -1.20008, 2.3, -0.15001, -1.20008, 2.3, 0.149961, -1.30814, 3.2, 0.25, -1.20008, 3.2, -0.15001, -1.20008, 3.2, 0.149961)
+
+[node name="wall_half_endcap_sloped_gltf" instance=ExtResource("1_t6w4s")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_half_endcap_sloped" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_half_endcap_sloped/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_3b05g")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="wall_half_endcap_sloped/StaticBody3D" index="1"]
+shape = SubResource("ConvexPolygonShape3D_qt6ek")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="wall_half_endcap_sloped/StaticBody3D" index="2"]
+shape = SubResource("ConvexPolygonShape3D_s200s")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="wall_half_endcap_sloped/StaticBody3D" index="3"]
+shape = SubResource("ConvexPolygonShape3D_pnf4h")

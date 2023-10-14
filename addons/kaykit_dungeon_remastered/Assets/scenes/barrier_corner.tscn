@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7bkxpwxmerdl"]
+
+[ext_resource type="PackedScene" uid="uid://dlfd5pss1vwj5" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/barrier_corner.gltf.glb" id="1_24u33"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7c6cl"]
+points = PackedVector3Array(-0.2, 1.1, 0.1875, -0.2, 1.1, -0.1875, -2, 1.1, 0.1875, -0.2, 1.07491, 0.25, -0.2, 1.07491, -0.25, -2, 1.1, -0.1875, -2, 1.07491, 0.25, -0.2, 0, 0.25, -0.2, 0, -0.25, -2, 1.07491, -0.25, -2, 0, 0.25, -2, 0, -0.25)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vvbmt"]
+points = PackedVector3Array(-0.25, 0, 0.2, 0.249951, 0, 0.2, -0.25, 0, 2, -0.25, 1.07491, 0.2, 0.249951, 1.07491, 0.2, 0.25, 0, 2, -0.25, 1.07491, 2, -0.187549, 1.1, 0.2, 0.187451, 1.1, 0.2, 0.25, 1.07491, 2, -0.1875, 1.1, 2, 0.1875, 1.1, 2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xr0bl"]
+points = PackedVector3Array(-0.594975, 0, 0.1, -0.1, 0, -0.394975, -0.1, 0, 0.594975, -0.594975, 1.19992, 0.1, 0.394975, 0, 0.0999031, -0.1, 1.19992, -0.394975, -0.1, 1.19992, 0.594975, -0.1, 1.4, 0.1, 0.394975, 1.19992, 0.0999031)
+
+[node name="barrier_corner_gltf" instance=ExtResource("1_24u33")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="barrier_corner" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barrier_corner/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_7c6cl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="barrier_corner/StaticBody3D" index="1"]
+shape = SubResource("ConvexPolygonShape3D_vvbmt")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="barrier_corner/StaticBody3D" index="2"]
+shape = SubResource("ConvexPolygonShape3D_xr0bl")

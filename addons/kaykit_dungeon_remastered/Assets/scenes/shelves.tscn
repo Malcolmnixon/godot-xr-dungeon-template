@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://calpe3jkblacn"]
+
+[ext_resource type="PackedScene" uid="uid://1px71qbw7c3b" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/shelves.gltf.glb" id="1_7xdwi"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n70mr"]
+points = PackedVector3Array(-1, 0.999976, 0.25, -1, 1.19996, 0.25, -0.800117, 0.75, 0.25, -1, 0.999976, 0.72499, -1, 1.19996, 0.72499, 1, 1.19996, 0.25, -0.800117, 0.75, 0.375, 0.799922, 0.75, 0.25, -1, 1.025, 0.75, 1, 0.999976, 0.72499, -1, 1.17498, 0.75, 1, 1.19996, 0.72499, 1, 0.999976, 0.25, 0.799922, 0.75, 0.375, 1, 1.025, 0.75, 1, 1.17498, 0.75)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yx8vu"]
+points = PackedVector3Array(-1, 2.49998, 0.25, -1, 2.7, 0.25, -0.800117, 2.25, 0.25, -1, 2.49998, 0.72499, -1, 2.7, 0.72499, 1, 2.7, 0.25, -0.800117, 2.25, 0.375, 0.799922, 2.25, 0.25, -1, 2.52499, 0.75, 1, 2.49998, 0.72499, -1, 2.67498, 0.75, 1, 2.7, 0.72499, 1, 2.49998, 0.25, 0.799922, 2.25, 0.375, 1, 2.52499, 0.75, 1, 2.67498, 0.75)
+
+[node name="shelves_gltf" instance=ExtResource("1_7xdwi")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="shelves" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shelves/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_n70mr")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="shelves/StaticBody3D" index="1"]
+shape = SubResource("ConvexPolygonShape3D_yx8vu")

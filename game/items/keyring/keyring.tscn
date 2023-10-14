@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=3 uid="uid://be0vlli1ru8ie"]
 
 [ext_resource type="PackedScene" uid="uid://cc2akik80xtnb" path="res://components/persistent/persistent_item.tscn" id="1_tv84h"]
-[ext_resource type="Material" uid="uid://dldvxy3lehnlm" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres" id="2_ne6xh"]
+[ext_resource type="Material" uid="uid://42bx6lgsjv2n" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_material.tres" id="2_ne6xh"]
 [ext_resource type="Resource" uid="uid://cubjrmo3w1ew" path="res://game/items/keyring/keyring_blue_type.tres" id="2_o7fva"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_shpia"]
 [ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="5_84b52"]

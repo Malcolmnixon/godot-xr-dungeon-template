@@ -1,10 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cu47ij1imgjd8"]
+[gd_scene load_steps=6 format=3 uid="uid://cu47ij1imgjd8"]
 
-[ext_resource type="PackedScene" uid="uid://dpmk4rv2d44ip" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/floor_tile_large.gltf.glb" id="1_fpmmk"]
-[ext_resource type="PackedScene" uid="uid://37v5y64x1ftw" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_corner.gltf.glb" id="2_mufm3"]
-[ext_resource type="PackedScene" uid="uid://bd6smt7a8n5d2" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_half.gltf.glb" id="3_2h5nr"]
-[ext_resource type="PackedScene" uid="uid://cec55d73ud5bx" path="res://addons/kaykit_dungeon_remastered/Assets/scenes/wall.tscn" id="4_3b526"]
-[ext_resource type="PackedScene" uid="uid://bni8tamjqyypo" path="res://addons/kaykit_dungeon_remastered/Assets/ceiling_wood_large_dark.tscn" id="5_x8dih"]
+[ext_resource type="MeshLibrary" path="res://addons/kaykit_dungeon_remastered/Assets/mesh_library.meshlib" id="1_oo53r"]
 [ext_resource type="PackedScene" uid="uid://7wbtnrumyrjt" path="res://assets/electronsandsuch.com/triangleweb.tscn" id="6_elgok"]
 [ext_resource type="PackedScene" uid="uid://cchuaohe0ji1b" path="res://assets/electronsandsuch.com/cornerweb_bl.tscn" id="7_l88f6"]
 
@@ -16,52 +12,16 @@ size = Vector2(4.5, 5)
 
 [node name="HallL" type="Node3D"]
 
-[node name="Floor" type="Node3D" parent="."]
-
-[node name="floor_tile_large_gltf" parent="Floor" instance=ExtResource("1_fpmmk")]
-
-[node name="floor_tile_large_gltf2" parent="Floor" instance=ExtResource("1_fpmmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-
-[node name="floor_tile_large_gltf3" parent="Floor" instance=ExtResource("1_fpmmk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-
-[node name="Walls" type="Node3D" parent="."]
-
-[node name="wall_corner_gltf" parent="Walls" instance=ExtResource("2_mufm3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, -2)
-
-[node name="wall_half_gltf" parent="Walls" instance=ExtResource("3_2h5nr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-
-[node name="wall_half_gltf2" parent="Walls" instance=ExtResource("3_2h5nr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, 0)
-
-[node name="wall_corner_gltf2" parent="Walls" instance=ExtResource("2_mufm3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 2)
-
-[node name="wall_half_gltf3" parent="Walls" instance=ExtResource("3_2h5nr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
-
-[node name="wall_half_gltf4" parent="Walls" instance=ExtResource("3_2h5nr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 4)
-
-[node name="wall_gltf" parent="Walls" instance=ExtResource("4_3b526")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 4)
-
-[node name="wall_gltf2" parent="Walls" instance=ExtResource("4_3b526")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
-
-[node name="Ceiling" type="Node3D" parent="."]
-
-[node name="CeilingWoodLargeDark1" parent="Ceiling" instance=ExtResource("5_x8dih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-
-[node name="CeilingWoodLargeDark3" parent="Ceiling" instance=ExtResource("5_x8dih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 0)
-
-[node name="CeilingWoodLargeDark2" parent="Ceiling" instance=ExtResource("5_x8dih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4)
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_oo53r")
+cell_size = Vector3(0.5, 0.5, 0.5)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65532, 8, 1048723, 8, 65532, 147, 65532, 65532, 1048722, 4, 4, 1048722, 4, 8, 1441937, 8, 4, 145, 0, 65532, 145, 65532, 0, 1441937, 0, 8, 1441984, 0, 0, 1441984, 8, 0, 1441984, 524288, 8, 1310896, 524288, 0, 1310896, 524296, 0, 1310896)
+}
+metadata/_editor_floor_ = Vector3(0, 8, 0)
 
 [node name="Occluders" type="Node3D" parent="."]
 

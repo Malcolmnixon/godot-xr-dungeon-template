@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dlk51wyp440tk"]
 
 [ext_resource type="PackedScene" uid="uid://cc2akik80xtnb" path="res://components/persistent/persistent_item.tscn" id="1_l2fd8"]
-[ext_resource type="Material" uid="uid://dldvxy3lehnlm" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres" id="2_4isvd"]
+[ext_resource type="Material" uid="uid://42bx6lgsjv2n" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_material.tres" id="2_4isvd"]
 [ext_resource type="Resource" uid="uid://cgvs0idx4hbgo" path="res://game/items/coins/coins_type.tres" id="2_65xld"]
 [ext_resource type="AudioStream" uid="uid://bxfl05a7ii54o" path="res://assets/freesound.org/336567__anthousai__coins-04.wav" id="3_v7n6i"]
 [ext_resource type="Script" path="res://game/items/modifiers/drop_and_free.gd" id="5_xx5r5"]

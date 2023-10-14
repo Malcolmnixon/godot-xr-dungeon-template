@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dpmk4rv2d44ip"
+uid="uid://bu4avh6lscm1l"
 path="res://.godot/imported/floor_tile_large.gltf.glb-3a49ade1306b9d5a4076b2a2b61db853.scn"
 
 [deps]
@@ -20,7 +20,7 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
 animation/import=true
@@ -32,15 +32,15 @@ _subresources={
 "materials": {
 "texture": {
 "use_external/enabled": true,
-"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres"
+"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_material.tres"
 }
 },
 "nodes": {
 "PATH:floor_tile_large": {
 "generate/physics": true,
-"physics/shape_type": 1,
-"primitive/position": Vector3(0, -0.23, 0),
-"primitive/size": Vector3(4, 0.5, 4)
+"physics/shape_type": 3,
+"primitive/position": Vector3(0, -0.025, 0),
+"primitive/size": Vector3(4, 0.15, 4)
 }
 }
 }

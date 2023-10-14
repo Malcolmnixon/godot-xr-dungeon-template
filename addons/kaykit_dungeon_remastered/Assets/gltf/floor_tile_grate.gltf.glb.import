@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://xrk8c7otx7yc"
+uid="uid://tyfqc60dc22b"
 path="res://.godot/imported/floor_tile_grate.gltf.glb-6aac705d3eae7271f470e4413f310c66.scn"
 
 [deps]
@@ -20,7 +20,7 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
 animation/import=true
@@ -32,15 +32,13 @@ _subresources={
 "materials": {
 "texture": {
 "use_external/enabled": true,
-"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres"
+"use_external/path": "res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_material.tres"
 }
 },
 "nodes": {
 "PATH:floor_tile_grate": {
 "generate/physics": true,
-"physics/shape_type": 1,
-"primitive/position": Vector3(0, -0.5, 0),
-"primitive/size": Vector3(4, 1.1, 2)
+"physics/shape_type": 1
 }
 }
 }
