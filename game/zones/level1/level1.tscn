@@ -57,6 +57,12 @@ zone_info = ExtResource("2_a6blg")
 [node name="XROrigin3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand" index="1"]
+ranged_angle = 30.0
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHand" index="1"]
+ranged_angle = 30.0
+
 [node name="World" type="NavigationRegion3D" parent="." index="1"]
 navigation_mesh = SubResource("NavigationMesh_rjt3l")
 
@@ -273,4 +279,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, -4, -48)
 [connection signal="finished" from="World/Rooms/Exit/AudioStreamPlayer" to="World/Rooms/Exit" method="_on_audio_stream_player_finished"]
 
 [editable path="XROrigin3D/MovementFootstep"]
-[editable path="World/Rooms/Room3x3_1/Doorway"]

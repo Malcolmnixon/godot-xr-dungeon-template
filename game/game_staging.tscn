@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c2u2yasyfotxr" path="res://components/persistent/persistent_staging.tscn" id="1_umevk"]
 [ext_resource type="Script" path="res://game/game_staging.gd" id="2_8gjjk"]
-[ext_resource type="Material" uid="uid://dldvxy3lehnlm" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon.tres" id="3_4ta3g"]
+[ext_resource type="Material" uid="uid://42bx6lgsjv2n" path="res://addons/kaykit_dungeon_remastered/Assets/texture/dungeon_material.tres" id="3_4ta3g"]
 [ext_resource type="Texture2D" uid="uid://bbrd3hm4cbiiu" path="res://assets/splash/splash.png" id="3_hmcns"]
 [ext_resource type="Material" uid="uid://cbm8j8cdp6k44" path="res://addons/kaykit_character_pack_adventures/Textures/barbarian.tres" id="3_j26u5"]
 [ext_resource type="Material" uid="uid://cmq5jbekntgkj" path="res://addons/kaykit_character_pack_adventures/Textures/knight.tres" id="5_xga0s"]

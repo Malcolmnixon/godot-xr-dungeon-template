@@ -27,6 +27,12 @@ size = Vector3(4, 4, 4)
 [node name="Level3" instance=ExtResource("1_60r81")]
 zone_info = ExtResource("2_lxxgv")
 
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand" index="1"]
+ranged_angle = 30.0
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHand" index="1"]
+ranged_angle = 30.0
+
 [node name="World" type="NavigationRegion3D" parent="." index="1"]
 navigation_mesh = SubResource("NavigationMesh_mcd7t")
 
