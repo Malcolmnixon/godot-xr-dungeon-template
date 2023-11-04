@@ -7,4 +7,5 @@ material = ExtResource("1_l7c6t")
 size = Vector2(2, 2)
 
 [node name="CornerWebBl" type="MeshInstance3D"]
+cast_shadow = 0
 mesh = SubResource("QuadMesh_0uiys")

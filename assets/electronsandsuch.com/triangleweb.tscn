@@ -7,4 +7,5 @@ material = ExtResource("1_h2gis")
 size = Vector2(2, 2)
 
 [node name="TriangleWeb" type="MeshInstance3D"]
+cast_shadow = 0
 mesh = SubResource("QuadMesh_162fi")
