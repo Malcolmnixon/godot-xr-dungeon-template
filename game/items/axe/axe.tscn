@@ -69,6 +69,9 @@ drop_sound = ExtResource("12_p38qr")
 
 [node name="Axe" groups=["axe", "fits_in_player_pocket"] instance=ExtResource("1_3ejfg")]
 collision_layer = 262144
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.2, -0.1)
+continuous_cd = true
 max_contacts_reported = 1
 contact_monitor = true
 sleeping = true

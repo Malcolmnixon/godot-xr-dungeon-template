@@ -168,7 +168,8 @@ func _set_open(p_open : bool) -> void:
 			closed.emit()
 
 		for h in holding:
-			h.enabled = p_open
+			if is_instance_valid(h):
+				h.enabled = p_open
 
 		# If loading then update instantly
 		if _loading:

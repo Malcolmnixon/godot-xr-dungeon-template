@@ -75,6 +75,9 @@ drop_sound = ExtResource("12_4lsms")
 
 [node name="Sword" groups=["fits_in_player_pocket", "sword"] instance=ExtResource("1_m0jgl")]
 collision_layer = 262144
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.2, 0)
+continuous_cd = true
 max_contacts_reported = 1
 contact_monitor = true
 item_id = "sword"

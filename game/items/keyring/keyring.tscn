@@ -120,6 +120,7 @@ drop_sound = ExtResource("11_2g7ie")
 
 [node name="KeyRing" groups=["fits_in_player_pocket"] instance=ExtResource("1_tv84h")]
 collision_layer = 262144
+continuous_cd = true
 max_contacts_reported = 1
 contact_monitor = true
 sleeping = true

@@ -72,6 +72,9 @@ drop_sound = ExtResource("17_cwagj")
 [node name="Torch" type="RigidBody3D" groups=["fits_in_player_pocket", "persistent"]]
 collision_layer = 262144
 collision_mask = 196615
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.1, 0)
+continuous_cd = true
 max_contacts_reported = 1
 contact_monitor = true
 freeze_mode = 1
