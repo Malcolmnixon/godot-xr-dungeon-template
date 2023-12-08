@@ -146,7 +146,7 @@ func _physics_process(delta : float) -> void:
 	var right := forward.cross(Vector3.UP)
 	var new_basis := Basis(right, Vector3.UP, -forward)
 	global_transform.basis = global_transform.basis.slerp(
-			new_basis, 
+			new_basis,
 			delta * TURN_SPEED).orthonormalized()
 
 	# Move in the direction being faced

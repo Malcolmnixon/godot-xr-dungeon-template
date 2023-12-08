@@ -21,7 +21,7 @@ func _show_menu(show := true) -> void:
 	visible = show
 	$PauseMenu.enabled = show
 	get_tree().paused = show
-	
+
 
 func _on_save_pressed():
 	_show_menu(false)

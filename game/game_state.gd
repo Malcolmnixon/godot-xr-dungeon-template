@@ -11,6 +11,13 @@ extends PersistentWorld
 ## of this script in response to scene switching.
 
 
+## Signal emitted when the players health changes
+signal health_changed(value)
+
+## Signal emitted when the players gold changes
+signal gold_changed(value)
+
+
 ## Game difficulty options
 enum GameDifficulty {
 	GAME_EASY,
@@ -18,13 +25,6 @@ enum GameDifficulty {
 	GAME_HARD,
 	GAME_MAX
 }
-
-
-## Signal emitted when the players health changes
-signal health_changed(value)
-
-## Signal emitted when the players gold changes
-signal gold_changed(value)
 
 
 @export_group("Game Settings")
@@ -84,7 +84,7 @@ func load_game() -> bool:
 
 
 ## This method saves the current game-state to memory then quits to the main
-## menu. It's possible to restore the previous game state by calling 
+## menu. It's possible to restore the previous game state by calling
 ## [method load_world_state].
 func quit_game() -> bool:
 	# Save the world state to memory in case we want to resume
