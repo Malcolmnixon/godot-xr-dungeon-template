@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dym4m8qcs2rmc"]
+
+[ext_resource type="Shader" path="res://assets/digitaln8m4r3/shaders/diffuse_no_spec_glow.gdshader" id="1_lu6xn"]
+[ext_resource type="Texture2D" uid="uid://d2brb2w2i57hh" path="res://assets/KevDev/skeleton/textures/SkeletonOutlaw.png" id="2_am1fg"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lu6xn")
+shader_parameter/useEmission = true
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/albedo_texture = ExtResource("2_am1fg")

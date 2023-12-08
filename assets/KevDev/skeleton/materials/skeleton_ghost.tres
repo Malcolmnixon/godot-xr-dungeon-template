@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cqkeru20t2ke0"]
+
+[ext_resource type="Shader" path="res://assets/digitaln8m4r3/shaders/diffuse_alpha_glow.gdshader" id="1_ddt46"]
+[ext_resource type="Texture2D" uid="uid://cbef6anpn8ffe" path="res://assets/KevDev/skeleton/textures/GhostSkeletonOutlaw.png" id="2_rsatl"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ddt46")
+shader_parameter/useAlpha = true
+shader_parameter/useEmission = true
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/albedo_texture = ExtResource("2_rsatl")

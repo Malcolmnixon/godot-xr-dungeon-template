@@ -140,7 +140,7 @@ func _populate_pocket() -> void:
 
 	# Put the item in the pocket
 	item.global_transform = global_transform
-	pick_up_object.call_deferred(item, true)
+	pick_up_object.call_deferred(item)
 
 
 # Called when the parent pickable body is picked up
@@ -167,8 +167,7 @@ func _update_held_behavior() -> void:
 		return
 
 	# Test if the parent pickable is held
-	var held_by := _parent_body.picked_up_by
-	var is_held := is_instance_valid(held_by) and held_by is XRToolsFunctionPickup
+	var is_held := _parent_body.is_picked_up()
 
 	# Update the enabled state based on whether the parent body is held and
 	# the desired behavior

@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ble7062d2mjqu"]
+
+[ext_resource type="Shader" path="res://assets/digitaln8m4r3/shaders/diffuse_textured.gdshader" id="1_qe8au"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qe8au")
+shader_parameter/color = null

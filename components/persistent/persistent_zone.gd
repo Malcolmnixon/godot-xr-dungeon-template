@@ -54,7 +54,7 @@ func scene_loaded(user_data = null):
 
 	# Find the zone items the PersistentWorld thinks should be in this zone.
 	var zone_items = PersistentWorld.instance.get_value(zone_info.zone_id)
-	
+
 	# Free items designed into the zone but PersistentWorld thinks should
 	# be removed.
 	if zone_items is Array:
@@ -102,7 +102,6 @@ func scene_exiting(user_data = null):
 
 	# Clear the current zone
 	GameState.current_zone = self
-	
 
 
 ## This method saves the state of the zone to the [PersistentWorld]. This gets
@@ -111,7 +110,7 @@ func scene_exiting(user_data = null):
 func save_world_state() -> void:
 	# Save world-state for all items in the zone
 	propagate_notification(Persistent.NOTIFICATION_SAVE_STATE)
-	
+
 	# Identify items held directly by the zone
 	var items_in_zone : Array[String] = []
 	for node in get_tree().get_nodes_in_group("persistent"):
@@ -123,26 +122,20 @@ func save_world_state() -> void:
 
 	# Handle items held in the players left hand
 	var left_pickup := XRToolsFunctionPickup.find_left($XROrigin3D)
-	if left_pickup and \
-		is_instance_valid(left_pickup.picked_up_object) and \
-		left_pickup.picked_up_object is PersistentItem:
+	var left_item := _get_held_persistent_item(left_pickup)
+	if left_item:
 		# The player.left_hand holds the item
-		PersistentWorld.instance.set_value(
-			"player.left_hand",
-			left_pickup.picked_up_object.item_id)
+		PersistentWorld.instance.set_value("player.left_hand", left_item.item_id)
 	else:
 		# The player.left_hand is empty
 		PersistentWorld.instance.clear_value("player.left_hand")
 
 	# Handle items held in the players right hand
 	var right_pickup := XRToolsFunctionPickup.find_right($XROrigin3D)
-	if right_pickup and \
-		is_instance_valid(right_pickup.picked_up_object) and \
-		right_pickup.picked_up_object is PersistentItem:
+	var right_item := _get_held_persistent_item(right_pickup)
+	if right_item:
 		# The player.right_hand holds the item
-		PersistentWorld.instance.set_value(
-			"player.right_hand",
-			 right_pickup.picked_up_object.item_id)
+		PersistentWorld.instance.set_value("player.right_hand", right_item.item_id)
 	else:
 		# The player.right_hand is empty
 		PersistentWorld.instance.clear_value("player.right_hand")
@@ -199,7 +192,7 @@ func create_item_instance(item_id : String) -> PersistentItem:
 
 
 # This method returns true if the node is an item held by a zone rather than
-# being held by some sort of persistent object such as a PersistentPocket or 
+# being held by some sort of persistent object such as a PersistentPocket or
 # an XRToolsFunctionPickup.
 static func is_item_held_by_zone(node : Node) -> bool:
 	# Skip if not valid
@@ -211,17 +204,36 @@ static func is_item_held_by_zone(node : Node) -> bool:
 		return false
 
 	# If the node isn't held by anything valid then it's held by the zone
-	if not is_instance_valid(node.picked_up_by):
+	if not is_instance_valid(node.get_picked_up_by()):
 		return true
 
 	# If held by a PersistentPocket then it's not held by the zone
-	if node.picked_up_by is PersistentPocket:
+	if node.get_picked_up_by() is PersistentPocket:
 		return false
 
 	# If held by an XRToolsFunctionPickup the it's not held by the zone
-	if node.picked_up_by is XRToolsFunctionPickup:
+	if node.get_picked_up_by() is XRToolsFunctionPickup:
 		return false
 
 	# Node is held by a non-persistent mechanism in the zone
-	push_warning("Item ", node.item_id, " held by non-persistent ", node.picked_up_by)
+	push_warning("Item ", node.item_id, " held by non-persistent ", node.get_picked_up_by())
 	return true
+
+
+# This method returns the persistent item primarily held by the pickup
+static func _get_held_persistent_item(pickup : XRToolsFunctionPickup) -> PersistentItem:
+	# Fail if no pickup
+	if not is_instance_valid(pickup):
+		return null
+
+	# Fail if item is not a PersistentItem
+	var item := pickup.picked_up_object as PersistentItem
+	if not item:
+		return null
+
+	# Fail if not active pickup, but merely second-hand grab
+	if item.get_picked_up_by() != pickup:
+		return null
+
+	# Return the item
+	return item

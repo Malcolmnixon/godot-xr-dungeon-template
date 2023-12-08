@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://w613gtwau88u"]
 
-[ext_resource type="MeshLibrary" path="res://addons/kaykit_dungeon_remastered/Assets/mesh_library.meshlib" id="1_f8tpb"]
+[ext_resource type="MeshLibrary" uid="uid://grhpuybb8gk1" path="res://addons/kaykit_dungeon_remastered/Assets/mesh_library.meshlib" id="1_f8tpb"]
 [ext_resource type="PackedScene" uid="uid://qlqxxfmd2s1m" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/banner_shield_brown.gltf.glb" id="5_i3mrj"]
 [ext_resource type="PackedScene" uid="uid://coc76qo8qu00t" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/torch_mounted.gltf.glb" id="6_rblet"]
 [ext_resource type="PackedScene" uid="uid://7wbtnrumyrjt" path="res://assets/electronsandsuch.com/triangleweb.tscn" id="7_6r7f4"]

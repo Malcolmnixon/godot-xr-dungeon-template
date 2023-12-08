@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmqdckiki03yh"]
 
 [ext_resource type="PackedScene" uid="uid://4013kh0fts8o" path="res://assets/KevDev/skeleton/model/skeleton.glb" id="1_dyoo7"]
-[ext_resource type="Material" uid="uid://dg4f6mfyyrmym" path="res://assets/KevDev/skeleton/materials/axe.material" id="2_w3y72"]
-[ext_resource type="Material" uid="uid://b27gsu8j0j6mk" path="res://assets/KevDev/skeleton/materials/skeleton.material" id="4_ku6vn"]
+[ext_resource type="Material" uid="uid://ble7062d2mjqu" path="res://assets/KevDev/skeleton/materials/axe.tres" id="2_idd57"]
+[ext_resource type="Material" uid="uid://dym4m8qcs2rmc" path="res://assets/KevDev/skeleton/materials/skeleton.tres" id="3_28f2v"]
 [ext_resource type="AnimationLibrary" uid="uid://b5h5wgs64esb8" path="res://assets/KevDev/skeleton/animations/animation_library.res" id="4_lc1i7"]
 
 [node name="skeleton" instance=ExtResource("1_dyoo7")]
@@ -66,9 +66,7 @@ bones/57/scale = Vector3(1.00024, 1.0006, 0.999483)
 bones/58/rotation = Quaternion(-0.252609, 0.708515, -0.650703, 0.103828)
 bones/58/scale = Vector3(1.00061, 1.00026, 1.00019)
 bones/59/rotation = Quaternion(0.000114549, 0.933537, 0.358136, -0.0157112)
-bones/59/scale = Vector3(1, 1, 1)
 bones/60/rotation = Quaternion(9.31323e-09, 4.65661e-09, -1.84773e-08, 1)
-bones/60/scale = Vector3(1, 1, 1)
 bones/61/rotation = Quaternion(0.178034, -0.552876, -0.799445, -0.153363)
 bones/61/scale = Vector3(0.998947, 1.00028, 0.999212)
 bones/62/rotation = Quaternion(0.000364188, 0.860087, -0.510146, 0.000617913)
@@ -76,41 +74,39 @@ bones/62/scale = Vector3(1.00012, 1.00057, 0.999491)
 bones/63/rotation = Quaternion(0.0344518, 0.632267, -0.773863, -0.0136549)
 bones/63/scale = Vector3(1.00105, 1.00011, 1.0001)
 bones/64/rotation = Quaternion(2.87978e-06, -1, -3.0344e-05, -3.14163e-06)
-bones/64/scale = Vector3(1, 1, 1)
 bones/65/rotation = Quaternion(-1.95578e-08, -4.65661e-10, -4.15785e-08, -1)
-bones/65/scale = Vector3(1, 1, 1)
 bones/66/position = Vector3(0.223534, 0.110153, 0.078809)
 bones/66/rotation = Quaternion(0.0561161, 0.00121995, -0.0192592, 0.998238)
 
 [node name="Axe00" parent="Armature/GeneralSkeleton" index="0"]
-surface_material_override/0 = ExtResource("2_w3y72")
+surface_material_override/0 = ExtResource("2_idd57")
 
 [node name="BoneJaw" parent="Armature/GeneralSkeleton" index="1"]
-surface_material_override/0 = ExtResource("4_ku6vn")
+surface_material_override/0 = ExtResource("3_28f2v")
 
 [node name="Boots" parent="Armature/GeneralSkeleton" index="2"]
-surface_material_override/0 = ExtResource("4_ku6vn")
+surface_material_override/0 = ExtResource("3_28f2v")
 
 [node name="MetalJaw" parent="Armature/GeneralSkeleton" index="3"]
-surface_material_override/0 = ExtResource("4_ku6vn")
+surface_material_override/0 = ExtResource("3_28f2v")
 
 [node name="SheathAndBelt" parent="Armature/GeneralSkeleton" index="4"]
-surface_material_override/0 = ExtResource("4_ku6vn")
+surface_material_override/0 = ExtResource("3_28f2v")
 
 [node name="Shoulder00" parent="Armature/GeneralSkeleton" index="5"]
-surface_material_override/0 = ExtResource("4_ku6vn")
+surface_material_override/0 = ExtResource("3_28f2v")
 
 [node name="Shoulder01" parent="Armature/GeneralSkeleton" index="6"]
-surface_material_override/0 = ExtResource("4_ku6vn")
+surface_material_override/0 = ExtResource("3_28f2v")
 
 [node name="SkeletonBody" parent="Armature/GeneralSkeleton" index="7"]
-surface_material_override/0 = ExtResource("4_ku6vn")
+surface_material_override/0 = ExtResource("3_28f2v")
 
 [node name="SkeletonFeet" parent="Armature/GeneralSkeleton" index="8"]
-surface_material_override/0 = ExtResource("4_ku6vn")
+surface_material_override/0 = ExtResource("3_28f2v")
 
 [node name="SkeletonHair" parent="Armature/GeneralSkeleton" index="9"]
-surface_material_override/0 = ExtResource("4_ku6vn")
+surface_material_override/0 = ExtResource("3_28f2v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://4it2evukpw76"]
 
 [ext_resource type="PackedScene" uid="uid://xnp6x5ktenq2" path="res://game/npcs/skeleton/skeleton.tscn" id="1_gt5d6"]
-[ext_resource type="Material" uid="uid://dft88s05d1oo0" path="res://assets/KevDev/skeleton/materials/skeleton_ghost.material" id="3_nrecc"]
+[ext_resource type="Material" uid="uid://cqkeru20t2ke0" path="res://assets/KevDev/skeleton/materials/skeleton_ghost.tres" id="2_o6t52"]
 
 [node name="SkeletonGhost" instance=ExtResource("1_gt5d6")]
 
@@ -32,7 +32,7 @@ bones/63/rotation = Quaternion(0.0562913, 0.479687, -0.875569, -0.0104807)
 bones/66/rotation = Quaternion(-0.0387218, -0.00453259, -0.0201126, 0.999037)
 
 [node name="SkeletonBody" parent="skeleton/Armature/GeneralSkeleton" index="7"]
-surface_material_override/0 = ExtResource("3_nrecc")
+surface_material_override/0 = ExtResource("2_o6t52")
 
 [node name="HeadAttachment" parent="skeleton/Armature/GeneralSkeleton" index="10"]
 transform = Transform3D(0.640549, -0.104971, 0.760709, 0.105661, 0.993239, 0.0480873, -0.760613, 0.049575, 0.64731, 0.237398, 1.2881, 0.219272)
@@ -43,7 +43,7 @@ transform = Transform3D(0.77121, 0.212264, 0.600149, 0.0503845, 0.919459, -0.389
 [node name="Sight" parent="." index="2"]
 transform = Transform3D(0.640549, 0.104971, 0.760709, -0.105661, 0.993239, -0.0480873, -0.760613, -0.049575, 0.64731, -0.237398, 1.2881, -0.219272)
 
-[node name="HitArea" parent="." index="7"]
+[node name="HitArea" parent="." index="8"]
 transform = Transform3D(-0.77121, -0.212264, -0.600149, 0.0503845, 0.919459, -0.389945, 0.634584, -0.330968, -0.698401, -0.116708, 0.874821, 0.002012)
 
 [editable path="skeleton"]

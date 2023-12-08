@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjf1bva5qy8v8" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/banner_shield_yellow.gltf.glb" id="2_24xwt"]
 [ext_resource type="PackedScene" uid="uid://4om31hj88kpa" path="res://game/zones/parts/hall.tscn" id="2_qlv8u"]
-[ext_resource type="MeshLibrary" path="res://addons/kaykit_dungeon_remastered/Assets/mesh_library.meshlib" id="4_ye15n"]
+[ext_resource type="MeshLibrary" uid="uid://grhpuybb8gk1" path="res://addons/kaykit_dungeon_remastered/Assets/mesh_library.meshlib" id="4_ye15n"]
 [ext_resource type="PackedScene" uid="uid://tiidspi5psp4" path="res://addons/kaykit_dungeon_remastered/Assets/scenes/wall_doorway.tscn" id="5_wfuc1"]
 
 [node name="Exit" type="Node3D"]

@@ -137,17 +137,17 @@ func action():
 
 # Ignore highlighting requests from XRToolsFunctionPickup
 func request_highlight(from : Node, on : bool = true) -> void:
-	if picked_up_object:
+	if is_instance_valid(picked_up_object):
 		picked_up_object.request_highlight(from, on)
 
 
 # Pickable Method: Object being grabbed from this snap zone
-func pick_up(_by: Node3D, _with_controller: XRController3D) -> void:
+func pick_up(_by: Node3D) -> void:
 	pass
 
 
 # Pickable Method: Player never graps snap-zone
-func let_go(_p_linear_velocity: Vector3, _p_angular_velocity: Vector3) -> void:
+func let_go(_by: Node3D, _p_linear_velocity: Vector3, _p_angular_velocity: Vector3) -> void:
 	pass
 
 
@@ -157,7 +157,7 @@ func drop_object() -> void:
 		return
 
 	# let go of this object
-	picked_up_object.let_go(Vector3.ZERO, Vector3.ZERO)
+	picked_up_object.let_go(self, Vector3.ZERO, Vector3.ZERO)
 	picked_up_object = null
 	has_dropped.emit()
 	highlight_updated.emit(self, enabled)
@@ -168,7 +168,7 @@ func _initial_object_check() -> void:
 	# Check for an initial object
 	if initial_object:
 		# Force pick-up the initial object
-		pick_up_object(get_node(initial_object), true)
+		pick_up_object(get_node(initial_object))
 	else:
 		# Show highlight when empty and enabled
 		highlight_updated.emit(self, enabled)
@@ -229,7 +229,7 @@ func has_snapped_object() -> bool:
 
 
 # Pick up the specified object
-func pick_up_object(target: Node3D, silent := false) -> void:
+func pick_up_object(target: Node3D) -> void:
 	# check if already holding an object
 	if is_instance_valid(picked_up_object):
 		# skip if holding the target object
@@ -245,13 +245,13 @@ func pick_up_object(target: Node3D, silent := false) -> void:
 	# Pick up our target. Note, target may do instant drop_and_free
 	picked_up_object = target
 	var player = get_node("AudioStreamPlayer3D")
-	if not silent and is_instance_valid(player):
+	if is_instance_valid(player):
 		if player.playing:
 			player.stop()
 		player.stream = stash_sound
 		player.play()
 
-	target.pick_up(self, null)
+	target.pick_up(self)
 
 	# If object picked up then emit signal
 	if is_instance_valid(picked_up_object):

@@ -8,8 +8,8 @@
 [ext_resource type="Material" uid="uid://cmq5jbekntgkj" path="res://addons/kaykit_character_pack_adventures/Textures/knight.tres" id="5_xga0s"]
 [ext_resource type="Material" uid="uid://chsknl1f6oyne" path="res://addons/kaykit_character_pack_adventures/Textures/mage.tres" id="6_v8qni"]
 [ext_resource type="Material" uid="uid://dgs4w2u8rob07" path="res://addons/kaykit_character_pack_adventures/Textures/rogue.tres" id="7_k2hpa"]
-[ext_resource type="Material" uid="uid://b27gsu8j0j6mk" path="res://assets/KevDev/skeleton/materials/skeleton.material" id="8_rswcr"]
-[ext_resource type="Material" uid="uid://dft88s05d1oo0" path="res://assets/KevDev/skeleton/materials/skeleton_ghost.material" id="9_1gsb6"]
+[ext_resource type="Material" uid="uid://dym4m8qcs2rmc" path="res://assets/KevDev/skeleton/materials/skeleton.tres" id="8_nnwm8"]
+[ext_resource type="Material" uid="uid://cqkeru20t2ke0" path="res://assets/KevDev/skeleton/materials/skeleton_ghost.tres" id="9_ru54v"]
 [ext_resource type="Material" uid="uid://cfh0qjqh4035w" path="res://assets/electronsandsuch.com/cornerweb_bl.tres" id="10_kwsvx"]
 [ext_resource type="Material" uid="uid://dyg7d1er4cao0" path="res://assets/electronsandsuch.com/cornerweb_tl.tres" id="11_x4ocg"]
 [ext_resource type="Material" uid="uid://c2ndqygw05fh8" path="res://assets/electronsandsuch.com/triangleweb.tres" id="12_8gj1w"]
@@ -58,12 +58,12 @@ surface_material_override/0 = ExtResource("7_k2hpa")
 [node name="Skeleton" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -1)
 mesh = SubResource("QuadMesh_pidho")
-surface_material_override/0 = ExtResource("8_rswcr")
+surface_material_override/0 = ExtResource("8_nnwm8")
 
 [node name="SkeletonGhost" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -1)
 mesh = SubResource("QuadMesh_pidho")
-surface_material_override/0 = ExtResource("9_1gsb6")
+surface_material_override/0 = ExtResource("9_ru54v")
 
 [node name="CornerWebBl" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D/VRCommonShaderCache" index="12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, 0, -1)
